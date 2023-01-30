@@ -47,10 +47,16 @@ struct CreateExperience: View {
           isScrollable: true,
           navigationTitle: R.string.create.title(),
           navigationRightBarItem: {
-            SoftButton(
-              text: "New",
-              largeAccessory: { Image.new },
-              action: { viewModel.isCreatorPresented.toggle() })
+            HStack {
+              SoftButton(
+                text: "mfbldr",
+                largeAccessory: { Image.new },
+                action: { viewModel.isCreatorPresented.toggle() })
+              SoftButton(
+                text: "mfer",
+                largeAccessory: { Image.new },
+                action: { viewModel.isMferCreatorPresented.toggle() })
+            }
           }, emptyPlaceholder: {
             EmptyNounsView(
               initialSeed: viewModel.initialSeed,
@@ -70,6 +76,9 @@ struct CreateExperience: View {
         OffChainNounProfile(viewModel: .init(noun: $0))
       })
       .fullScreenCover(isPresented: $viewModel.isCreatorPresented) {
+        NounCreator(viewModel: .init(initialSeed: viewModel.initialSeed))
+      }
+      .fullScreenCover(isPresented: $viewModel.isMferCreatorPresented) {
         NounCreator(viewModel: .init(initialSeed: viewModel.initialSeed))
       }
       .onAppear(perform: viewModel.onAppear)

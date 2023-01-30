@@ -156,7 +156,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 6 files.
+  /// This `R.file` struct is generated, and contains static references to 7 files.
   struct file {
     /// Resource file `AppIcons.plist`.
     static let appIconsPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "AppIcons", pathExtension: "plist")
@@ -168,6 +168,8 @@ struct R: Rswift.Validatable {
     static let ci_post_xcodebuildSh = Rswift.FileResource(bundle: R.hostingBundle, name: "ci_post_xcodebuild", pathExtension: "sh")
     /// Resource file `ci_pre_xcodebuild.sh`.
     static let ci_pre_xcodebuildSh = Rswift.FileResource(bundle: R.hostingBundle, name: "ci_pre_xcodebuild", pathExtension: "sh")
+    /// Resource file `mfbldr-traits-layers_v1.json`.
+    static let mfbldrTraitsLayers_v1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "mfbldr-traits-layers_v1", pathExtension: "json")
     /// Resource file `nounfetti.json`.
     static let nounfettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "nounfetti", pathExtension: "json")
 
@@ -198,6 +200,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ci_pre_xcodebuild", withExtension: "sh")`
     static func ci_pre_xcodebuildSh(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.ci_pre_xcodebuildSh
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "mfbldr-traits-layers_v1", withExtension: "json")`
+    static func mfbldrTraitsLayers_v1Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.mfbldrTraitsLayers_v1Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -4272,8 +4280,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
-    /// This `R.image.headsLessMouth` struct is generated, and contains static references to 234 images.
+    /// This `R.image.headsLessMouth` struct is generated, and contains static references to 235 images.
     struct headsLessMouth {
+      /// Image `head-aardvark2`.
+      static let headAardvark2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "heads-less-mouth/head-aardvark2")
       /// Image `head-aardvark`.
       static let headAardvark = Rswift.ImageResource(bundle: R.hostingBundle, name: "heads-less-mouth/head-aardvark")
       /// Image `head-abstract`.
@@ -4747,6 +4757,13 @@ struct R: Rswift.Validatable {
       /// `UIImage(named: "head-aardvark", bundle: ..., traitCollection: ...)`
       static func headAardvark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
         return UIKit.UIImage(resource: R.image.headsLessMouth.headAardvark, compatibleWith: traitCollection)
+      }
+      #endif
+
+      #if os(iOS) || os(tvOS)
+      /// `UIImage(named: "head-aardvark2", bundle: ..., traitCollection: ...)`
+      static func headAardvark2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+        return UIKit.UIImage(resource: R.image.headsLessMouth.headAardvark2, compatibleWith: traitCollection)
       }
       #endif
 

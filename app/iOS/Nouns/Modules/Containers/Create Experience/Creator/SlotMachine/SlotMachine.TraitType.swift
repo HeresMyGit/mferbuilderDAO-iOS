@@ -31,39 +31,36 @@ extension SlotMachine.TraitType {
     case .background:
       return []
       
-    case .body:
-      return composer.bodies
-      
-    case .accessory:
-      return composer.accessories
+    case .smoke:
+      return composer.smokes
       
     case .head:
       return composer.heads
       
-    case .glasses:
-      return composer.glasses
+    case .headphones:
+      return composer.headphones
     }
   }
   
   /// This is the order that the assets and traits should be presented in order to replicate how the nouns should look
-  static let layeredOrder: [SlotMachine.TraitType] = [.background, .body, .accessory, .head, .glasses]
+  static let layeredOrder: [SlotMachine.TraitType] = [.background/*, .body*/, .smoke, .head, .headphones]
   
   var description: String {
     switch self {
     case .background:
       return R.string.shared.background()
       
-    case .body:
-      return R.string.shared.body()
-      
-    case .accessory:
-      return R.string.shared.accessory()
+    case .smoke:
+//      return R.string.shared.accessory()
+      return "Smoke"
       
     case .head:
-      return R.string.shared.head()
+//      return R.string.shared.head()
+      return "Head"
       
-    case .glasses:
-      return R.string.shared.glasses()
+    case .headphones:
+//      return R.string.shared.glasses()
+      return "Headphones"
     }
   }
 }

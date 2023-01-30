@@ -43,13 +43,27 @@ extension CloudConfiguration.Nouns {
             components.host = "api.thegraph.com"
             components.path = "/subgraphs/name/nounsdao/nouns-subgraph"
             return components.url
-            
+
         case .subscription:
             var components = URLComponents()
             components.scheme = "https"
             components.host = "api.thegraph.com"
             components.path = "/subgraphs/name/nounsdao/nouns-subgraph"
             return components.url
+            
+//        case .query:
+//            var components = URLComponents()
+//            components.scheme = "https"
+//            components.host = "gateway.testnet.thegraph.com"
+//            components.path = "/api/025b2403257b066760690defd511bd22/subgraphs/id/CkA9yEeC9ZmUvLzY2o4pbKs4BJgDmGqBCLibpLiArinV"
+//            return components.url
+//
+//        case .subscription:
+//            var components = URLComponents()
+//            components.scheme = "https"
+//            components.host = "gateway.testnet.thegraph.com"
+//            components.path = "/api/025b2403257b066760690defd511bd22/subgraphs/id/CkA9yEeC9ZmUvLzY2o4pbKs4BJgDmGqBCLibpLiArinV"
+//            return components.url
         }
     }
 }

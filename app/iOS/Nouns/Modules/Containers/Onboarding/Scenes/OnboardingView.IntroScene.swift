@@ -34,12 +34,6 @@ extension OnboardingView {
       AppCore.shared.nounComposer
     }
     
-    private lazy var body: TalkingNoun.Trait? = {
-      let bodyAsset = nounComposer.bodies[seed.body].assetImage
-      let body = TalkingNoun.Trait(nounTraitName: bodyAsset)
-      return body
-    }()
-    
     private lazy var head: TalkingNoun.Trait? = {
       let headAsset = nounComposer.heads[seed.head].assetImage
       let head = TalkingNoun.Trait(nounTraitName: headAsset)
@@ -47,7 +41,7 @@ extension OnboardingView {
     }()
     
     private lazy var accessory: TalkingNoun.Trait? = {
-      let accessoryAsset = nounComposer.accessories[seed.accessory].assetImage
+      let accessoryAsset = nounComposer.smokes[seed.smoke].assetImage
       let accessory = TalkingNoun.Trait(nounTraitName: accessoryAsset)
       return accessory
     }()
@@ -59,7 +53,7 @@ extension OnboardingView {
       group.size = traitSize
       group.position = CGPoint(x: frame.midX, y: traitSize.height / 2)
       
-      [body, accessory, head, eyes].compactMap { trait in
+      [accessory, head, eyes].compactMap { trait in
         trait?.size = traitSize
         return trait
       }

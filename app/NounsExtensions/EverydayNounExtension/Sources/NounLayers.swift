@@ -40,10 +40,9 @@ struct NounLayers: View {
   
   init(seed: Seed) {
     traits = [
-      nounComposer.bodies[seed.body].assetImage,
-      nounComposer.accessories[seed.accessory].assetImage,
+      nounComposer.smokes[seed.smoke].assetImage,
       nounComposer.heads[seed.head].assetImage,
-      nounComposer.glasses[seed.glasses].assetImage
+      nounComposer.headphones[seed.headphones].assetImage
     ]
   }
   

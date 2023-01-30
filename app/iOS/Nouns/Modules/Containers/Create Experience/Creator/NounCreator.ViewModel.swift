@@ -38,10 +38,20 @@ extension NounCreator {
     .magnoliaGarden,
     .lemonDrop,
     .oceanBreeze,
-    .bubbleGum
+    .bubbleGum,
+    .mferOrange,
+    .mferBlue,
+    .mferGreen,
+    .mferRed,
+    .mferYellow
   ]
   
   final class ViewModel: ObservableObject {
+    
+    enum Token {
+      case mfbldr
+      case mfer
+    }
     
     /// List all the different states that the user can be in while creating their noun
     enum Mode {
@@ -93,7 +103,7 @@ extension NounCreator {
     }
     
     /// Indicates the current modifiable trait type selected in the slot machine.
-    @Published var currentModifiableTraitType: TraitType = .glasses
+    @Published var currentModifiableTraitType: TraitType = .headphones
     
     /// Show all traits, including those that are not of the current modifiable trait type
     @Published var shouldShowAllTraits: Bool = false
@@ -152,14 +162,12 @@ extension NounCreator {
         switch traitType {
         case .background:
           seed.background = index
-        case .body:
-          seed.body = index
-        case .accessory:
-          seed.accessory = index
+        case .smoke:
+          seed.smoke = index
         case .head:
           seed.head = index
-        case .glasses:
-          seed.glasses = index
+        case .headphones:
+          seed.headphones = index
         }
       }
     }
@@ -169,28 +177,24 @@ extension NounCreator {
       switch traitType {
       case .background:
         return index == seed.background
-      case .body:
-        return index == seed.body
-      case .accessory:
-        return index == seed.accessory
+      case .smoke:
+        return index == seed.smoke
       case .head:
         return index == seed.head
-      case .glasses:
-        return index == seed.glasses
+      case .headphones:
+        return index == seed.headphones
       }
     }
     
     /// Returns the selected index given a trait type
     func selectedTrait(forType traitType: TraitType) -> Int {
       switch traitType {
-      case .glasses:
-        return seed.glasses
+      case .headphones:
+        return seed.headphones
       case .head:
         return seed.head
-      case .accessory:
-        return seed.accessory
-      case .body:
-        return seed.body
+      case .smoke:
+        return seed.smoke
       case .background:
         return seed.background
       }
@@ -283,7 +287,7 @@ extension NounCreator {
       // When a section disappears, the selected type should be the most recently
       // appeared section, until traitSectionDidAppear gets called which would then
       // update the currently selected type again
-      currentModifiableTraitType = visibleSections.last ?? .glasses
+      currentModifiableTraitType = visibleSections.last ?? .headphones
     }
     
     /// A method to keep track of when a trait section has first appeared in the grid
@@ -295,7 +299,7 @@ extension NounCreator {
       guard !traitUpdatesPaused else { return }
       
       // When a new section appears, the selected type should be that section
-      currentModifiableTraitType = visibleSections.last ?? .glasses
+      currentModifiableTraitType = visibleSections.last ?? .headphones
     }
     
     /// Temporarily pauses

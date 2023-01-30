@@ -169,14 +169,11 @@ class TraitPickerUIKit: UIView {
     collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.head.rawValue && $0.item != seed.head }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
     collectionView.selectItem(at: IndexPath(item: seed.head, section: TraitType.head.rawValue), animated: false, scrollPosition: .centeredVertically)
     
-    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.glasses.rawValue && $0.item != seed.glasses }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
-    collectionView.selectItem(at: IndexPath(item: seed.glasses, section: TraitType.glasses.rawValue), animated: false, scrollPosition: .centeredVertically)
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.headphones.rawValue && $0.item != seed.headphones }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.headphones, section: TraitType.headphones.rawValue), animated: false, scrollPosition: .centeredVertically)
     
-    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.body.rawValue && $0.item != seed.body }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
-    collectionView.selectItem(at: IndexPath(item: seed.body, section: TraitType.body.rawValue), animated: false, scrollPosition: .centeredVertically)
-    
-    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.accessory.rawValue && $0.item != seed.accessory }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
-    collectionView.selectItem(at: IndexPath(item: seed.accessory, section: TraitType.accessory.rawValue), animated: false, scrollPosition: .centeredVertically)
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.smoke.rawValue && $0.item != seed.smoke }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.smoke, section: TraitType.smoke.rawValue), animated: false, scrollPosition: .centeredVertically)
     
     collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.background.rawValue && $0.item != seed.background }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
     collectionView.selectItem(at: IndexPath(item: seed.background, section: TraitType.background.rawValue), animated: false, scrollPosition: .centeredVertically)

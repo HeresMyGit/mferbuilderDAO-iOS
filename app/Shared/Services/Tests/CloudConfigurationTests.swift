@@ -21,12 +21,12 @@ import XCTest
 final class CloudConfigurationTests: XCTestCase {
     
     func testCloudConfigurationNounQueryURL() {
-        let expectedURL = URL(string: "https://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph")
+        let expectedURL = URL(string: "https://api.thegraph.com/subgraphs/name/heresmytestgraph")
         XCTAssertEqual(CloudConfiguration.Nouns.query.url, expectedURL)
     }
     
     func testCloudConfigurationNounSubcriptionURL() {
-        let expectedURL = URL(string: "wss://api.thegraph.com/subgraphs/name/nounsdao/nouns-subgraph")
+        let expectedURL = URL(string: "wss://api.thegraph.com/subgraphs/name/heresmytestgraph")
         XCTAssertEqual(CloudConfiguration.Nouns.subscription.url, expectedURL)
     }
     

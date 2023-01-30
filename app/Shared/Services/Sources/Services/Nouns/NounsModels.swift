@@ -79,47 +79,164 @@ public struct Seed: Equatable, Hashable {
   /// The background trait.
   public var background: Int
   
-  /// The glasses trait.
-  public var glasses: Int
+  /// The headphones trait.
+  public var headphones: Int
   
   /// The head trait.
   public var head: Int
   
-  /// The body trait.
-  public var body: Int
+  /// The smoke trait.
+  public var smoke: Int
   
-  /// The accessory trait.
-  public var accessory: Int
-  
-  public init(background: Int, glasses: Int, head: Int, body: Int, accessory: Int) {
+  public init(background: Int, headphones: Int, head: Int, smoke: Int) {
     self.background = background
-    self.glasses = glasses
+    self.headphones = headphones
     self.head = head
-    self.body = body
-    self.accessory = accessory
+    self.smoke = smoke
   }
   
-  public init?(background: String, glasses: String, head: String, body: String, accessory: String) {
+    public init?(background: String, headphones: String, head: String, smoke: String) {
     guard let backgroundInt = Int(background),
-          let glassesInt = Int(glasses),
+          let headphonesInt = Int(headphones),
           let headInt = Int(head),
-          let bodyInt = Int(body),
-          let accessoryInt = Int(accessory) else {
+          let smokeInt = Int(smoke) else {
             return nil
           }
     
     self.background = backgroundInt
-    self.glasses = glassesInt
+    self.headphones = headphonesInt
     self.head = headInt
-    self.body = bodyInt
-    self.accessory = accessoryInt
+    self.smoke = smokeInt
   }
 }
 
 public extension Seed {
-  static let `default` = Seed(background: 0, glasses: 0, head: 0, body: 0, accessory: 0)
-  static let pizza = Seed(background: 0, glasses: 11, head: 160, body: 13, accessory: 4)
-  static let shark = Seed(background: 0, glasses: 3, head: 187, body: 4, accessory: 7)
+  static let `default` = Seed(background: 0, headphones: 0, head: 0, smoke: 0)
+  static let pizza = Seed(background: 0, headphones: 1, head: 1, smoke: 1)
+  static let shark = Seed(background: 1, headphones: 2, head: 2, smoke: 2)
+}
+
+/// The seed used to determine the mfer's traits.
+public struct MferSeed: Equatable, Hashable {
+    
+    /// The background trait.
+    public var background: Int
+    
+    /// The headphones trait.
+    public var headphones: Int
+    
+    /// The head trait.
+    public var head: Int
+    
+    /// The smoke trait.
+    public var smoke: Int
+    
+    /// The beard trait.
+    public var beard: Int
+    
+    /// The chain trait.
+    public var chain: Int
+    
+    /// The eyes trait.
+    public var eyes: Int
+    
+    /// The hatOverHeadphones trait.
+    public var hatOverHeadphones: Int
+    
+    /// The hatUnderHeadphones trait.
+    public var hatUnderHeadphones: Int
+    
+    /// The smlongHairoke trait.
+    public var longHair: Int
+    
+    /// The mouth trait.
+    public var mouth: Int
+    
+    /// The shirt trait.
+    public var shirt: Int
+    
+    /// The shortHair trait.
+    public var shortHair: Int
+    
+    /// The watch trait.
+    public var watch: Int
+    
+    public init(background: Int,
+                headphones: Int,
+                head: Int,
+                smoke: Int,
+                beard: Int,
+                chain: Int,
+                eyes: Int,
+                hatOverHeadphones: Int,
+                hatUnderHeadphones: Int,
+                longHair: Int,
+                mouth: Int,
+                shirt: Int,
+                shortHair: Int,
+                watch: Int) {
+        self.background = background
+        self.headphones = headphones
+        self.head = head
+        self.smoke = smoke
+        self.beard = beard
+        self.chain = chain
+        self.eyes = eyes
+        self.hatOverHeadphones = hatOverHeadphones
+        self.hatUnderHeadphones = hatUnderHeadphones
+        self.longHair = longHair
+        self.mouth = mouth
+        self.shirt = shirt
+        self.shortHair = shortHair
+        self.watch = watch
+    }
+    
+    public init?(background: String,
+                 headphones: String,
+                 head: String,
+                 smoke: String,
+                 beard: String,
+                 chain: String,
+                 eyes: String,
+                 hatOverHeadphones: String,
+                 hatUnderHeadphones: String,
+                 longHair: String,
+                 mouth: String,
+                 shirt: String,
+                 shortHair: String,
+                 watch: String) {
+        guard let backgroundInt = Int(background),
+              let headphonesInt = Int(headphones),
+              let headInt = Int(head),
+              let smokeInt = Int(smoke),
+              let beardInt = Int(beard),
+              let chainInt = Int(chain),
+              let eyesInt = Int(eyes),
+              let hatOverHeadphonesInt = Int(hatOverHeadphones),
+              let hatUnderHeadphonesInt = Int(hatUnderHeadphones),
+              let longHairInt = Int(longHair),
+              let mouthInt = Int(mouth),
+              let shirtInt = Int(shirt),
+              let shortHairInt = Int(shortHair),
+              let watchInt = Int(watch) else {
+            return nil
+        }
+        
+        self.background = backgroundInt
+        self.headphones = headphonesInt
+        self.head = headInt
+        self.smoke = smokeInt
+        self.beard = beardInt
+        self.chain = chainInt
+        self.eyes = eyesInt
+        self.hatOverHeadphones = hatOverHeadphonesInt
+        self.hatUnderHeadphones = hatUnderHeadphonesInt
+        self.longHair = longHairInt
+        self.mouth = mouthInt
+        self.shirt = shirtInt
+        self.shortHair = shortHairInt
+        self.watch = watchInt
+    }
 }
 
 /// The owner of the Noun

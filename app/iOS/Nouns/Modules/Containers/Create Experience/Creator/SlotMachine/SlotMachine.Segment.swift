@@ -103,14 +103,9 @@ extension SlotMachine {
       case .background:
         break
         
-      case .body:
-        seed.body = max(
-          min(seed.body + index, maxLimit),
-          minLimit)
-        
-      case .accessory:
-        seed.accessory = max(
-          min(seed.accessory + index, maxLimit),
+      case .smoke:
+        seed.smoke = max(
+          min(seed.smoke + index, maxLimit),
           minLimit)
         
       case .head:
@@ -118,9 +113,9 @@ extension SlotMachine {
           min(seed.head + index, maxLimit),
           minLimit)
         
-      case .glasses:
-        seed.glasses = max(
-          min(seed.glasses + index, maxLimit),
+      case .headphones:
+        seed.headphones = max(
+          min(seed.headphones + index, maxLimit),
           minLimit)
       }
     }
@@ -130,14 +125,12 @@ extension SlotMachine {
       switch traitType {
       case .background:
         return index == seed.background
-      case .body:
-        return index == seed.body
-      case .accessory:
-        return index == seed.accessory
+      case .smoke:
+        return index == seed.smoke
       case .head:
         return index == seed.head
-      case .glasses:
-        return index == seed.glasses
+      case .headphones:
+        return index == seed.headphones
       }
     }
     
@@ -147,17 +140,14 @@ extension SlotMachine {
       case .background:
         return 0
         
-      case .body:
-        return (Double(seed.body) * -imageWidth) + offsetX
-        
-      case .accessory:
-        return (Double(seed.accessory) * -imageWidth) + offsetX
+      case .smoke:
+        return (Double(seed.smoke) * -imageWidth) + offsetX
         
       case .head:
         return (Double(seed.head) * -imageWidth) + offsetX
         
-      case .glasses:
-        return (Double(seed.glasses) * -imageWidth) + offsetX
+      case .headphones:
+        return (Double(seed.headphones) * -imageWidth) + offsetX
       }
     }
     

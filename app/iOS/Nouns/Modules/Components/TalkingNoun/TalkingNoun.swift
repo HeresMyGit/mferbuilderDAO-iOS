@@ -66,14 +66,8 @@ final class TalkingNoun: SKScene {
     return head
   }()
   
-  lazy var body: Trait? = {
-    let bodyAsset = nounComposer.bodies[seed.body].assetImage
-    let body = Trait(nounTraitName: bodyAsset)
-    return body
-  }()
-  
   lazy var accessory: Trait? = {
-    let accessoryAsset = nounComposer.accessories[seed.accessory].assetImage
+    let accessoryAsset = nounComposer.smokes[seed.smoke].assetImage
     let accessory = Trait(nounTraitName: accessoryAsset)
     return accessory
   }()
@@ -96,7 +90,7 @@ final class TalkingNoun: SKScene {
     // a `RecordingView` wrapper is created.
     guard mouth.parent == nil else { return }
     
-    [body, accessory, head, eyes].compactMap { trait in
+    [accessory, head, eyes].compactMap { trait in
       trait?.position = CGPoint(x: frame.midX, y: frame.midY)
       trait?.size = Self.traitSize
       return trait

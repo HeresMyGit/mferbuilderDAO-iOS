@@ -56,28 +56,28 @@ struct MadhappyBanner: View {
     fileprivate static let maxOffset: CGFloat = -30
     
     private let madhappyNoun1: TalkingNoun = {
-      let talkingNoun = TalkingNoun(seed: .init(background: 4, glasses: 3, head: 76, body: 6, accessory: 11))
+      let talkingNoun = TalkingNoun(seed: .init(background: 4, glasses: 3, head: 76, accessory: 11))
       talkingNoun.eyes.animationSpeed = .fast
       talkingNoun.eyes.blinkOnly = false
       return talkingNoun
     }()
     
     private let madhappyNoun2: TalkingNoun = {
-      let talkingNoun = TalkingNoun(seed: .init(background: 6, glasses: 7, head: 184, body: 22, accessory: 31))
+      let talkingNoun = TalkingNoun(seed: .init(background: 6, glasses: 7, head: 184, accessory: 31))
       talkingNoun.eyes.animationSpeed = .fast
       talkingNoun.eyes.blinkOnly = false
       return talkingNoun
     }()
     
     private let madhappyNoun3: TalkingNoun = {
-      let talkingNoun = TalkingNoun(seed: .init(background: 11, glasses: 14, head: 87, body: 14, accessory: 31))
+      let talkingNoun = TalkingNoun(seed: .init(background: 11, glasses: 14, head: 87, accessory: 31))
       talkingNoun.eyes.animationSpeed = .fast
       talkingNoun.eyes.blinkOnly = false
       return talkingNoun
     }()
     
     private let madhappyNoun4: TalkingNoun = {
-      let talkingNoun = TalkingNoun(seed: .init(background: 2, glasses: 7, head: 174, body: 2, accessory: 19))
+      let talkingNoun = TalkingNoun(seed: .init(background: 2, glasses: 7, head: 174, accessory: 19))
       talkingNoun.eyes.animationSpeed = .fast
       talkingNoun.eyes.blinkOnly = false
       return talkingNoun

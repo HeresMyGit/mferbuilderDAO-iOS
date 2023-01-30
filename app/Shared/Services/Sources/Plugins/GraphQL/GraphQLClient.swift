@@ -114,9 +114,13 @@ class GraphQLClient: GraphQL {
       httpMethod: .post(contentType: .json),
       httpBody: try query.encode()
     )
-    
+      print("query: \(query)")
+      print("Sending request: \(request)\nBody: \(request.httpBody)")
     let data = try await networkingClient.data(for: request)
-    return try JSONDecoder().decode(T.self, from: data)
+      print("Data received...")
+    let decoded = try JSONDecoder().decode(T.self, from: data)
+    print("data: \(decoded)")
+    return decoded
   }
   
   func subscription<Subscription, T>(

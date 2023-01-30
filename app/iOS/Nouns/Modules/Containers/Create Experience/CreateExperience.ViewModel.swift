@@ -24,6 +24,9 @@ extension CreateExperience {
     
     /// A binding boolean value to determine if the noun creator should be presented
     @Published var isCreatorPresented = false
+    
+    /// A binding boolean value to determine if the mfer creator should be presented
+    @Published var isMferCreatorPresented = false
 
     /// The noun profile that is currently presented
     @Published var selectedNoun: Noun?

@@ -22,10 +22,9 @@ extension Seed: Decodable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: AnyCodingKey.self)
     guard let backgroundInt = Int(try container.decode(String.self, forKey: AnyCodingKey("background"))),
-          let glassesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("glasses"))),
+          let headphonesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("headphones"))),
           let headInt = Int(try container.decode(String.self, forKey: AnyCodingKey("head"))),
-          let bodyInt = Int(try container.decode(String.self, forKey: AnyCodingKey("body"))),
-          let accessoryInt = Int(try container.decode(String.self, forKey: AnyCodingKey("accessory")))
+          let smokeInt = Int(try container.decode(String.self, forKey: AnyCodingKey("smoke")))
     else {
       let context = DecodingError.Context(
         codingPath: decoder.codingPath,
@@ -35,9 +34,8 @@ extension Seed: Decodable {
     }
     
     background = backgroundInt
-    glasses = glassesInt
+    headphones = headphonesInt
     head = headInt
-    body = bodyInt
-    accessory = accessoryInt
+    smoke = smokeInt
   }
 }

@@ -32,10 +32,6 @@ struct ExploreExperience: View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 16) {
-          if MadhappyBanner.shouldShowBanner(currentDate: Date()) {
-            MadhappyBanner(isBottomSheetPresented: $isMadhappySheetPresented)
-          }
-          
           if let auction = viewModel.liveAuction {
             LiveAuctionCard(viewModel: .init(auction: auction))
           } else if viewModel.failedToLoadLiveAuction {
@@ -61,9 +57,6 @@ struct ExploreExperience: View {
       .overlay(.componentPeachy, edge: .top)
       .ignoresSafeArea(edges: .top)
     }
-    .bottomSheet(isPresented: $isMadhappySheetPresented, content: {
-      MadhappyAboutView(isPresented: $isMadhappySheetPresented)
-    })
     .onAppear {
       viewModel.onAppear()
       Task {

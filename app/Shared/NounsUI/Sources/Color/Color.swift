@@ -109,6 +109,16 @@ extension Color {
   
   /// A context-dependent purple color suitable for use in UI elements.
   public static let componentAngularPurple = Color("angular.purple", bundle: .module)
+    
+  public static let componentMferOrange = Color("mfer.orange", bundle: .module)
+
+  public static let componentMferBlue = Color("mfer.blue", bundle: .module)
+
+  public static let componentMferGreen = Color("mfer.green", bundle: .module)
+
+  public static let componentMferRed = Color("mfer.red", bundle: .module)
+
+  public static let componentMferYellow = Color("mfer.yellow", bundle: .module)
 }
 
 extension ShapeStyle where Self == Color {

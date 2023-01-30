@@ -94,8 +94,8 @@ extension TalkingNoun {
     }
 
     init(seed: Seed, frameSize: CGSize, blinkOnly: Bool = true, speed: Speed = .normal) {
-      guard let blinkTextures = Self.nounComposer.glasses[seed.glasses].textures["eyes-blink"] else {
-        fatalError("Couldn't load eye blink textures \(Self.nounComposer.glasses[seed.glasses]).")
+      guard let blinkTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-blink"] else {
+        fatalError("Couldn't load eye blink textures \(Self.nounComposer.headphones[seed.headphones]).")
       }
       
       self.blinkTextures = blinkTextures.map {
@@ -104,7 +104,7 @@ extension TalkingNoun {
         return texture
       }
       
-      guard let shiftTextures = Self.nounComposer.glasses[seed.glasses].textures["eyes-shift"] else {
+      guard let shiftTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-shift"] else {
         fatalError("Couldn't load eye shift textures.")
       }
       
@@ -118,7 +118,7 @@ extension TalkingNoun {
       
       self.animationSpeed = speed
       
-      guard let glassesFrame = Self.nounComposer.glasses[seed.glasses].textures["glasses-frame"]?.first else {
+      guard let glassesFrame = Self.nounComposer.headphones[seed.headphones].textures["glasses-frame"]?.first else {
         fatalError("Couldn't load eye shift textures.")
       }
       

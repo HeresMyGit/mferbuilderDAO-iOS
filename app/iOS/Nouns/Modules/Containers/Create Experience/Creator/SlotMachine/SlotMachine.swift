@@ -24,10 +24,10 @@ struct SlotMachine: View {
   
   /// List all various `Noun's Traits Types`.
   enum TraitType: Int, CaseIterable, Hashable {
-    case glasses
     case head
-    case accessory
-    case body
+    case headphones
+    case smoke
+//    case body
     case background
   }
   
@@ -68,7 +68,7 @@ struct SlotMachine: View {
     seed: Binding<Seed>,
     shouldShowAllTraits: Binding<Bool>,
     initialSeed: Seed = Seed.default,
-    currentModifiableTraitType: Binding<TraitType> = .constant(.glasses),
+    currentModifiableTraitType: Binding<TraitType> = .constant(.headphones),
     showShadow: Bool = true,
     animateEntrance: Bool = false,
     imageWidth: Double = SlotMachine.defaultImageSize

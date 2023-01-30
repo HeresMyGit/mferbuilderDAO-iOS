@@ -27,10 +27,10 @@ struct MadhappyAboutView: View {
       
       HStack(alignment: .top) {
         HStack {
-          NounPuzzle(seed: .init(background: 4, glasses: 3, head: 76, body: 6, accessory: 11))
-          NounPuzzle(seed: .init(background: 6, glasses: 7, head: 184, body: 22, accessory: 31))
-          NounPuzzle(seed: .init(background: 11, glasses: 14, head: 87, body: 14, accessory: 31))
-          NounPuzzle(seed: .init(background: 2, glasses: 7, head: 174, body: 2, accessory: 19))
+          NounPuzzle(seed: .init(background: 4, glasses: 3, head: 76, accessory: 11))
+          NounPuzzle(seed: .init(background: 6, glasses: 7, head: 184, accessory: 31))
+          NounPuzzle(seed: .init(background: 11, glasses: 14, head: 87, accessory: 31))
+          NounPuzzle(seed: .init(background: 2, glasses: 7, head: 174, accessory: 19))
         }
 
         Spacer()

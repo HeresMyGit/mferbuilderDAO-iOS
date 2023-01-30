@@ -41,9 +41,9 @@ extension SeedManagedObject: StoredEntity {
   ) throws -> Self {
     let managedObject: Self = try context.insertObject()
     managedObject.head = Int32(seed.head)
-    managedObject.body = Int32(seed.body)
-    managedObject.glasses = Int32(seed.glasses)
-    managedObject.accessory = Int32(seed.accessory)
+//    managedObject.body = Int32(seed.body)
+    managedObject.glasses = Int32(seed.headphones)
+    managedObject.accessory = Int32(seed.smoke)
     managedObject.background = Int32(seed.background)
     return managedObject
   }
@@ -54,9 +54,8 @@ extension SeedManagedObject: CustomModelConvertible {
   var model: Seed {
     Seed(
       background: Int(background),
-      glasses: Int(glasses),
+      headphones: Int(glasses),
       head: Int(head),
-      body: Int(body),
-      accessory: Int(accessory))
+      smoke: Int(accessory))
   }
 }

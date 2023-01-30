@@ -41,11 +41,11 @@ public protocol NounComposer {
   
   /// Array containing all the bodies mapped from the RLE data.
   /// to the shapes to draw Noun's parts.
-  var bodies: [Trait] { get }
+//  var bodies: [Trait] { get }
   
   /// Array containing all the accessories mapped from the RLE data.
   /// to the shapes to draw Noun's parts.
-  var accessories: [Trait] { get }
+  var smokes: [Trait] { get }
   
   /// Array containing all the heads mapped from the RLE data
   /// to the shapes to draw Noun's parts.
@@ -53,7 +53,7 @@ public protocol NounComposer {
   
   /// Array containing all the glasses mapped from the RLE data
   /// to the shapes to draw Noun's parts.
-  var glasses: [Trait] { get }
+  var headphones: [Trait] { get }
   
   /// Generates a random seed, given the number of each trait type
   func randomSeed() -> Seed
@@ -72,17 +72,14 @@ public class OfflineNounComposer: NounComposer {
   /// The color palette used to draw `Nouns` with `RLE` data.
   public lazy var palette = layer.palette
   
-  /// The body list of traits.
-  public lazy var bodies = layer.images["bodies"] ?? []
-  
-  /// The accessory list of traits.
-  public lazy var accessories = layer.images["accessories"] ?? []
+  /// The smoke list of traits.
+  public lazy var smokes = layer.images["smoke"] ?? []
   
   /// The head list of traits.
   public lazy var heads = layer.images["heads"] ?? []
   
-  /// The glasses list of traits.
-  public lazy var glasses = layer.images["glasses"] ?? []
+  /// The headphones list of traits.
+  public lazy var headphones = layer.images["headphones"] ?? []
   
   /// Decodes offline Noun's traits.
   private struct Layer: Decodable {
@@ -103,7 +100,7 @@ public class OfflineNounComposer: NounComposer {
   public static func `default`() -> NounComposer {
     do {
       guard let url = Bundle.module.url(
-        forResource: "nouns-traits-layers_v2",
+        forResource: "mfbldr-traits-layers_v1",
         withExtension: "json"
       ) else {
         throw URLError(.badURL)
@@ -119,14 +116,13 @@ public class OfflineNounComposer: NounComposer {
   /// Generates a random seed, given the number of each trait type
   public func randomSeed() -> Seed {
     guard let background = backgroundColors.randomIndex(),
-          let body = bodies.randomIndex(),
-          let accessory = accessories.randomIndex(),
+          let smoke = smokes.randomIndex(),
           let head = heads.randomIndex(),
-          let glasses = glasses.randomIndex() else {
-            return Seed(background: 0, glasses: 0, head: 0, body: 0, accessory: 0)
+          let headphones = headphones.randomIndex() else {
+            return Seed(background: 0, headphones: 0, head: 0, smoke: 0)
           }
     
-    return Seed(background: background, glasses: glasses, head: head, body: body, accessory: accessory)
+    return Seed(background: background, headphones: headphones, head: head, smoke: smoke)
   }
 
   public func newRandomSeed(previous seed: Seed) -> Seed {
@@ -134,10 +130,9 @@ public class OfflineNounComposer: NounComposer {
     repeat {
       result = randomSeed()
     } while result.background == seed.background
-    || result.body == seed.body
-    || result.accessory == seed.accessory
+    || result.smoke == seed.smoke
     || result.head == seed.head
-    || result.glasses == seed.glasses
+    || result.headphones == seed.headphones
 
     return result
   }

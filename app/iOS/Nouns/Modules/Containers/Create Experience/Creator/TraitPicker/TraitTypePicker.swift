@@ -25,7 +25,7 @@ extension NounCreator {
     @ObservedObject var viewModel: ViewModel
     let animation: Namespace.ID
     
-    @State private var selectedTraitType: Int = TraitType.glasses.rawValue
+    @State private var selectedTraitType: Int = TraitType.headphones.rawValue
     
     private let rowSpec = [
       GridItem(.flexible()),
