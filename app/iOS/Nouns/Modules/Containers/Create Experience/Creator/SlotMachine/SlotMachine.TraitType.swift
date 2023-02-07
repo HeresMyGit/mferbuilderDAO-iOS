@@ -39,11 +39,32 @@ extension SlotMachine.TraitType {
       
     case .headphones:
       return composer.headphones
+
+    case .beard:
+      return composer.beards
+    case .chain:
+      return composer.chains
+    case .eyes:
+      return composer.eyes
+    case .hatOverHeadphones:
+      return composer.hatOverHeadphones
+    case .hatUnderHeadphones:
+      return composer.hatUnderHeadphones
+    case .longHair:
+      return composer.longHairs
+    case .mouth:
+      return composer.mouths
+    case .shirt:
+      return composer.shirts
+    case .shortHair:
+      return composer.shortHairs
+    case .watch:
+      return composer.watches
     }
   }
   
   /// This is the order that the assets and traits should be presented in order to replicate how the nouns should look
-  static let layeredOrder: [SlotMachine.TraitType] = [.background/*, .body*/, .smoke, .head, .headphones]
+  static let layeredOrder: [SlotMachine.TraitType] = [.background, .smoke, .head, .beard, .chain, .eyes, .longHair, .shortHair, .hatUnderHeadphones, .headphones, .hatOverHeadphones, .mouth, .watch, .shirt]
   
   var description: String {
     switch self {
@@ -51,16 +72,57 @@ extension SlotMachine.TraitType {
       return R.string.shared.background()
       
     case .smoke:
-//      return R.string.shared.accessory()
+      //      return R.string.shared.accessory()
       return "Smoke"
       
     case .head:
-//      return R.string.shared.head()
+      //      return R.string.shared.head()
       return "Head"
       
     case .headphones:
-//      return R.string.shared.glasses()
+      //      return R.string.shared.glasses()
       return "Headphones"
+      
+    case .beard:
+      //    return R.string.shared.beard()
+      return "Beard"
+      
+    case .chain:
+      //    return R.string.shared.chain()
+      return "Chain"
+      
+    case .eyes:
+      //    return R.string.shared.eyes()
+      return "Eyes"
+      
+    case .hatOverHeadphones:
+      //    return R.string.shared.hatOverHeadphones()
+      return "Hat Over Headphones"
+      
+    case .hatUnderHeadphones:
+      //    return R.string.shared.hatUnderHeadphones()
+      return "Hat Under Headphones"
+      
+    case .longHair:
+      //    return R.string.shared.longHair()
+      return "Long Hair"
+      
+    case .mouth:
+      //    return R.string.shared.mouth()
+      return "Mouth"
+      
+    case .shirt:
+      //    return R.string.shared.shirt()
+      return "Shirt"
+      
+    case .shortHair:
+      //    return R.string.shared.shortHair()
+      return "Short Hair"
+      
+    case .watch:
+      //    return R.string.shared.watch()
+      return "Watch"
+      
     }
   }
 }

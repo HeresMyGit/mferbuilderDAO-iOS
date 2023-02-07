@@ -123,6 +123,9 @@ extension NounCreator {
     /// The initial seed of the noun creator, reflecting which traits are selected and displayed initially
     @Published public var initialSeed: Seed
     
+    ///  The type of token currently being created
+    @Published public var tokenType: Token = .mfbldr
+    
     /// An action to be carried out when `isEditing` is set to `true` and the user has completed editing their noun
     public var didEditNoun: (_ seed: Seed) -> Void = { _ in }
     
@@ -168,6 +171,8 @@ extension NounCreator {
           seed.head = index
         case .headphones:
           seed.headphones = index
+        default:
+          break
         }
       }
     }
@@ -183,6 +188,8 @@ extension NounCreator {
         return index == seed.head
       case .headphones:
         return index == seed.headphones
+      default:
+        return false
       }
     }
     
@@ -197,6 +204,8 @@ extension NounCreator {
         return seed.smoke
       case .background:
         return seed.background
+      default:
+        return 0
       }
     }
     

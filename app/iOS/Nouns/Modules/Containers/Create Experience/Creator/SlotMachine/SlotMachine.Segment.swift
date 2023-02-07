@@ -117,6 +117,9 @@ extension SlotMachine {
         seed.headphones = max(
           min(seed.headphones + index, maxLimit),
           minLimit)
+        
+      default:
+        break
       }
     }
     
@@ -131,6 +134,8 @@ extension SlotMachine {
         return index == seed.head
       case .headphones:
         return index == seed.headphones
+      default:
+        return false
       }
     }
     
@@ -148,6 +153,9 @@ extension SlotMachine {
         
       case .headphones:
         return (Double(seed.headphones) * -imageWidth) + offsetX
+        
+      default:
+        return 0
       }
     }
     

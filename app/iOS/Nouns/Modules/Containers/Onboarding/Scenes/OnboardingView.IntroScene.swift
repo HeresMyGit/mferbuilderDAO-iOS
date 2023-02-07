@@ -46,14 +46,14 @@ extension OnboardingView {
       return accessory
     }()
     
-    private lazy var eyes = TalkingNoun.Eyes(seed: seed, frameSize: traitSize, blinkOnly: false)
+//    private lazy var eyes = TalkingNoun.Eyes(seed: seed, frameSize: traitSize, blinkOnly: false)
     
     private lazy var traitGroupNode: SKSpriteNode = {
       let group = SKSpriteNode()
       group.size = traitSize
       group.position = CGPoint(x: frame.midX, y: traitSize.height / 2)
       
-      [accessory, head, eyes].compactMap { trait in
+      [accessory, head/*, eyes*/].compactMap { trait in
         trait?.size = traitSize
         return trait
       }

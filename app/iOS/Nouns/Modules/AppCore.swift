@@ -28,6 +28,7 @@ final class AppCore {
   let onChainNounsService: OnChainNounsService = TheGraphOnChainNouns()
   let offChainNounsService: OffChainNounsService = CoreDataOffChainNouns()
   let nounComposer: NounComposer = OfflineNounComposer.default()
+  let mferComposer: NounComposer = OfflineNounComposer.mferComposer()
 
   /// A service to extract the eth domain from the network.
   let ensNameService: ENS = Web3ENSProvider()

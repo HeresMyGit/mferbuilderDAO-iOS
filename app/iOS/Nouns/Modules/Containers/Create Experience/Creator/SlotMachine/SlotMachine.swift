@@ -24,11 +24,20 @@ struct SlotMachine: View {
   
   /// List all various `Noun's Traits Types`.
   enum TraitType: Int, CaseIterable, Hashable {
+    case background
     case head
     case headphones
     case smoke
-//    case body
-    case background
+    case beard
+    case chain
+    case eyes
+    case hatOverHeadphones
+    case hatUnderHeadphones
+    case longHair
+    case mouth
+    case shirt
+    case shortHair
+    case watch
   }
   
   /// The initial seed of the noun creator, reflecting which traits are selected and displayed initially
@@ -101,7 +110,8 @@ struct SlotMachine: View {
         .hidden(!showShadow)
       
       ZStack(alignment: .top) {
-        ForEach(TraitType.layeredOrder, id: \.self) { type in
+        let types: [TraitType] = [.background, .head, .smoke, .headphones]
+        ForEach(types, id: \.self) { type in
           Segment(
             seed: $seed,
             type: type,

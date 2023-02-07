@@ -28,9 +28,10 @@ extension Noun: Decodable {
       String.self,
       forKey: AnyCodingKey("name")
     ) ?? "Untitled"
-    
+    mferSeed = MferSeed(background: 0, headphones: 0, head: 0, smoke: 0, beard: 0, chain: 0, eyes: 0, hatOverHeadphones: 0, hatUnderHeadphones: 0, longHair: 0, mouth: 0, shirt: 0, shortHair: 0, watch: 0)
     createdAt = Date()
     updatedAt = Date()
     isNounderOwned = false
   }
 }
+//TODO: Fix this

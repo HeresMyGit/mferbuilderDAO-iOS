@@ -156,7 +156,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 7 files.
+  /// This `R.file` struct is generated, and contains static references to 6 files.
   struct file {
     /// Resource file `AppIcons.plist`.
     static let appIconsPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "AppIcons", pathExtension: "plist")
@@ -168,8 +168,6 @@ struct R: Rswift.Validatable {
     static let ci_post_xcodebuildSh = Rswift.FileResource(bundle: R.hostingBundle, name: "ci_post_xcodebuild", pathExtension: "sh")
     /// Resource file `ci_pre_xcodebuild.sh`.
     static let ci_pre_xcodebuildSh = Rswift.FileResource(bundle: R.hostingBundle, name: "ci_pre_xcodebuild", pathExtension: "sh")
-    /// Resource file `mfbldr-traits-layers_v1.json`.
-    static let mfbldrTraitsLayers_v1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "mfbldr-traits-layers_v1", pathExtension: "json")
     /// Resource file `nounfetti.json`.
     static let nounfettiJson = Rswift.FileResource(bundle: R.hostingBundle, name: "nounfetti", pathExtension: "json")
 
@@ -200,12 +198,6 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "ci_pre_xcodebuild", withExtension: "sh")`
     static func ci_pre_xcodebuildSh(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.ci_pre_xcodebuildSh
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-
-    /// `bundle.url(forResource: "mfbldr-traits-layers_v1", withExtension: "json")`
-    static func mfbldrTraitsLayers_v1Json(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.mfbldrTraitsLayers_v1Json
       return fileResource.bundle.url(forResource: fileResource)
     }
 
@@ -6416,7 +6408,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.string` struct is generated, and contains static references to 31 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 30 localization tables.
   struct string {
     /// This `R.string.aboutNouns` struct is generated, and contains static references to 3 localization keys.
     struct aboutNouns {
@@ -7431,72 +7423,6 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.localizable` struct is generated, and contains static references to 0 localization keys.
     struct localizable {
-      fileprivate init() {}
-    }
-
-    /// This `R.string.madhappy` struct is generated, and contains static references to 4 localization keys.
-    struct madhappy {
-      /// Value: Available now
-      static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "Madhappy", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Madhappy for Nouns
-      static let title = Rswift.StringResource(key: "title", tableName: "Madhappy", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Madhappy is a fashion and lifestyle brand that focuses on creating conversation around mental health through products, content, experiences and philanthropy.  Madhappy is excited to partner with Nouns DAO to create an exclusive capsule featuring our Fleece Crewneck and Dad Hat. A portion of proceeds will benefit The Madhappy Foundation™, our non-profit organization with a mission to advance global mental health efforts.  Feel Together™
-      static let description = Rswift.StringResource(key: "description", tableName: "Madhappy", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://www.madhappy.com/collections/new-arrivals/
-      static let website = Rswift.StringResource(key: "website", tableName: "Madhappy", bundle: R.hostingBundle, locales: [], comment: nil)
-
-      /// Value: Available now
-      static func learnMore(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("learn.more", tableName: "Madhappy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Madhappy", preferredLanguages: preferredLanguages) else {
-          return "learn.more"
-        }
-
-        return NSLocalizedString("learn.more", tableName: "Madhappy", bundle: bundle, comment: "")
-      }
-
-      /// Value: Madhappy for Nouns
-      static func title(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("title", tableName: "Madhappy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Madhappy", preferredLanguages: preferredLanguages) else {
-          return "title"
-        }
-
-        return NSLocalizedString("title", tableName: "Madhappy", bundle: bundle, comment: "")
-      }
-
-      /// Value: Madhappy is a fashion and lifestyle brand that focuses on creating conversation around mental health through products, content, experiences and philanthropy.  Madhappy is excited to partner with Nouns DAO to create an exclusive capsule featuring our Fleece Crewneck and Dad Hat. A portion of proceeds will benefit The Madhappy Foundation™, our non-profit organization with a mission to advance global mental health efforts.  Feel Together™
-      static func description(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("description", tableName: "Madhappy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Madhappy", preferredLanguages: preferredLanguages) else {
-          return "description"
-        }
-
-        return NSLocalizedString("description", tableName: "Madhappy", bundle: bundle, comment: "")
-      }
-
-      /// Value: https://www.madhappy.com/collections/new-arrivals/
-      static func website(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("website", tableName: "Madhappy", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Madhappy", preferredLanguages: preferredLanguages) else {
-          return "website"
-        }
-
-        return NSLocalizedString("website", tableName: "Madhappy", bundle: bundle, comment: "")
-      }
-
       fileprivate init() {}
     }
 

@@ -17,28 +17,69 @@
 
 import SwiftUI
 import NounsUI
+import Services
 
 struct NounCreator: View {
   @StateObject var viewModel = ViewModel()
+  @StateObject var mferViewModel = MferViewModel()
   @EnvironmentObject var bottomSheetManager: BottomSheetManager
+  @State var fullMfer = false
   
   @Namespace private var nsTraitPicker
+  @Namespace private var nsTraitPicker2
   @Environment(\.dismiss) private var dismiss
     
   var body: some View {
     ZStack {
-      BackgroundPicker(viewModel: viewModel)
-        .ignoresSafeArea(.all)
+      if fullMfer {
+        MferBackgroundPicker(viewModel: mferViewModel)
+          .ignoresSafeArea(.all)
+      } else {
+        BackgroundPicker(viewModel: viewModel)
+          .ignoresSafeArea(.all)
+      }
         
       VStack(spacing: 0) {
         ConditionalSpacer(viewModel.mode == .creating)
+        Toggle(isOn: $fullMfer) {
+          Text("Full mfer?")
+        }
+        .onChange(of: fullMfer) { isFull in
+          let composer = OfflineNounComposer.default()
+          if isFull {
+            mferViewModel.seed.background = viewModel.seed.background
+            mferViewModel.seed.head = viewModel.seed.head
+            mferViewModel.seed.headphones = viewModel.seed.headphones
+            mferViewModel.seed.smoke = viewModel.seed.smoke
+            mferViewModel.isExpanded = viewModel.isExpanded
+          } else {
+            viewModel.seed.background = mferViewModel.seed.background
+            viewModel.seed.head = mferViewModel.seed.head
+            if mferViewModel.seed.headphones > composer.headphones.count - 1 {
+              viewModel.seed.headphones = 0
+            } else {
+              viewModel.seed.headphones = mferViewModel.seed.headphones
+            }
+            viewModel.seed.smoke = mferViewModel.seed.smoke
+            viewModel.isExpanded = mferViewModel.isExpanded
+          }
+        }
         
-        SlotMachine(
-          seed: $viewModel.seed,
-          shouldShowAllTraits: $viewModel.shouldShowAllTraits,
-          initialSeed: viewModel.initialSeed,
-          currentModifiableTraitType: $viewModel.currentModifiableTraitType
-        )
+        if fullMfer {
+          MferSlotMachine(
+            seed: $mferViewModel.seed,
+            shouldShowAllTraits: $mferViewModel.shouldShowAllTraits,
+            initialSeed: mferViewModel.initialSeed,
+            currentModifiableTraitType: $mferViewModel.currentModifiableTraitType
+          )
+        } else {
+          SlotMachine(
+            seed: $viewModel.seed,
+            shouldShowAllTraits: $viewModel.shouldShowAllTraits,
+            initialSeed: viewModel.initialSeed,
+            currentModifiableTraitType: $viewModel.currentModifiableTraitType
+          )
+        }
         
         ConditionalSpacer(!viewModel.isExpanded || viewModel.mode != .creating)
         
@@ -50,10 +91,17 @@ struct NounCreator: View {
         }
         
         if viewModel.mode != .done {
-          TraitTypePicker(
-            viewModel: viewModel,
-            animation: nsTraitPicker
-          )
+          if fullMfer {
+            MferTraitTypePicker(
+              viewModel: mferViewModel,
+              animation: nsTraitPicker2
+            )
+          } else {
+            TraitTypePicker(
+              viewModel: viewModel,
+              animation: nsTraitPicker
+            )
+          }
         }
       }
       .modifier(AccessoryItems(viewModel: viewModel, done: {

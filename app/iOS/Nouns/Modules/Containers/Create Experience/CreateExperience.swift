@@ -49,13 +49,9 @@ struct CreateExperience: View {
           navigationRightBarItem: {
             HStack {
               SoftButton(
-                text: "mfbldr",
+                text: "New",
                 largeAccessory: { Image.new },
                 action: { viewModel.isCreatorPresented.toggle() })
-              SoftButton(
-                text: "mfer",
-                largeAccessory: { Image.new },
-                action: { viewModel.isMferCreatorPresented.toggle() })
             }
           }, emptyPlaceholder: {
             EmptyNounsView(
