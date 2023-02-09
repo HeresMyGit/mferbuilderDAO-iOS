@@ -29,16 +29,16 @@ struct NounPuzzle: View {
     traits = [
       nounComposer.smokes[seed.smoke].assetImage,
       nounComposer.heads[seed.head].assetImage,
-      nounComposer.headphones[seed.headphones].assetImage,
       nounComposer.beards[seed.beard].assetImage,
       nounComposer.chains[seed.chain].assetImage,
       nounComposer.eyes[seed.eyes].assetImage,
-      nounComposer.hatOverHeadphones[seed.hatOverHeadphones].assetImage,
-      nounComposer.hatUnderHeadphones[seed.hatUnderHeadphones].assetImage,
+      nounComposer.mouths[seed.mouth].assetImage, 
       nounComposer.longHairs[seed.longHair].assetImage,
-      nounComposer.mouths[seed.mouth].assetImage,
-      nounComposer.shirts[seed.shirt].assetImage,
       nounComposer.shortHairs[seed.shortHair].assetImage,
+      nounComposer.hatUnderHeadphones[seed.hatUnderHeadphones].assetImage,
+      nounComposer.headphones[seed.headphones].assetImage,
+      nounComposer.hatOverHeadphones[seed.hatOverHeadphones].assetImage,
+      nounComposer.shirts[seed.shirt].assetImage,
       nounComposer.watches[seed.watch].assetImage
     ]
   }

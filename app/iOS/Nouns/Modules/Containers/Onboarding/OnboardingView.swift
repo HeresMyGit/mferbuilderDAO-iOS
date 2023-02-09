@@ -91,7 +91,7 @@ extension OnboardingView {
     func nextPage() -> Page? {
       switch self {
       case .intro:
-        return .explore
+        return nil // temporary.  should be .explore
       case .explore:
         return .create
       case .create:
