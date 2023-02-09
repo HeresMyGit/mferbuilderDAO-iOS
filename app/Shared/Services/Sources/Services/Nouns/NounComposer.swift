@@ -159,7 +159,7 @@ public class OfflineNounComposer: NounComposer {
               let smoke = smokes.randomIndex(),
               let head = heads.randomIndex(),
               let headphones = headphones.randomIndex(),
-              let beard = beards.randomIndex(),
+              let beard = beards.randomIndex(extraWeightTowardZero: 3),
               let chain = chains.randomIndex(extraWeightTowardZero: 3),
               let eyes = eyes.randomIndex(extraWeightTowardZero: 3),
               var hatOverHeadphones = hatOverHeadphones.randomIndex(extraWeightTowardZero: 5),
@@ -168,7 +168,7 @@ public class OfflineNounComposer: NounComposer {
               let mouth = mouths.randomIndex(extraWeightTowardZero: 3),
               let shirt = shirts.randomIndex(extraWeightTowardZero: 9),
               var shortHair = shortHairs.randomIndex(),
-              let watch = watches.randomIndex() else {
+              let watch = watches.randomIndex(extraWeightTowardZero: 9) else {
             return Seed(background: 0, headphones: 0, head: 0, smoke: 0)
         }
         
