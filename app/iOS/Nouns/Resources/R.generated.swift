@@ -1102,8 +1102,8 @@ struct R: Rswift.Validatable {
     static let placeholderEns = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder-ens")
     /// Image `placeholder`.
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
-    /// Image `red_glasses`.
-    static let red_glasses = Rswift.ImageResource(bundle: R.hostingBundle, name: "red_glasses")
+    /// Image `red_headphones`.
+    static let red_headphones = Rswift.ImageResource(bundle: R.hostingBundle, name: "red_headphones")
     /// Image `robleh-noun`.
     static let roblehNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "robleh-noun")
     /// Image `shadow`.
@@ -4231,9 +4231,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "red_glasses", bundle: ..., traitCollection: ...)`
-    static func red_glasses(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.red_glasses, compatibleWith: traitCollection)
+    /// `UIImage(named: "red_headphones", bundle: ..., traitCollection: ...)`
+    static func red_headphones(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.red_headphones, compatibleWith: traitCollection)
     }
     #endif
 
@@ -7044,14 +7044,14 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.create` struct is generated, and contains static references to 3 localization keys.
     struct create {
-      /// Value: Build a completely custom Noun
+      /// Value: Build a completely custom mfbldr token
       static let subheadline = Rswift.StringResource(key: "subheadline", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Create
       static let title = Rswift.StringResource(key: "title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get going
       static let proceedTitle = Rswift.StringResource(key: "proceed.title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Build a completely custom Noun
+      /// Value: Build a completely custom mfbldr token
       static func subheadline(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("subheadline", tableName: "Create", bundle: hostingBundle, comment: "")
@@ -7237,10 +7237,10 @@ struct R: Rswift.Validatable {
       static let settledErrorLoadMore = Rswift.StringResource(key: "settled.error.loadMore", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Failed to load settled auctions
       static let settledErrorEmpty = Rswift.StringResource(key: "settled.error.empty", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Lame. Looks like wifi or cellular data is totally borked. Check your connection and try again.
-      static let allErrorEmpty = Rswift.StringResource(key: "all.error.empty", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Noun %s
       static let noun = Rswift.StringResource(key: "noun", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: token and auction data coming soon mfer
+      static let allErrorEmpty = Rswift.StringResource(key: "all.error.empty", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: About
       static func about(preferredLanguages: [String]? = nil) -> String {
@@ -7307,19 +7307,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("settled.error.empty", tableName: "Explore", bundle: bundle, comment: "")
       }
 
-      /// Value: Lame. Looks like wifi or cellular data is totally borked. Check your connection and try again.
-      static func allErrorEmpty(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("all.error.empty", tableName: "Explore", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Explore", preferredLanguages: preferredLanguages) else {
-          return "all.error.empty"
-        }
-
-        return NSLocalizedString("all.error.empty", tableName: "Explore", bundle: bundle, comment: "")
-      }
-
       /// Value: Noun %s
       static func noun(_ value1: UnsafePointer<CChar>, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -7333,6 +7320,19 @@ struct R: Rswift.Validatable {
 
         let format = NSLocalizedString("noun", tableName: "Explore", bundle: bundle, comment: "")
         return String(format: format, locale: locale, value1)
+      }
+
+      /// Value: token and auction data coming soon mfer
+      static func allErrorEmpty(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("all.error.empty", tableName: "Explore", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Explore", preferredLanguages: preferredLanguages) else {
+          return "all.error.empty"
+        }
+
+        return NSLocalizedString("all.error.empty", tableName: "Explore", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -8035,27 +8035,14 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.onboarding` struct is generated, and contains static references to 3 localization keys.
     struct onboarding {
-      /// Value: There are many to explore...
-      static let explore = Rswift.StringResource(key: "explore", tableName: "Onboarding", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: This is a Noun.
+      /// Value: gm mfer
       static let introduction = Rswift.StringResource(key: "introduction", tableName: "Onboarding", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: You can create your own!
+      /// Value: mfers build what they want
       static let create = Rswift.StringResource(key: "create", tableName: "Onboarding", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: welcome to mferbuilderDAO
+      static let explore = Rswift.StringResource(key: "explore", tableName: "Onboarding", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: There are many to explore...
-      static func explore(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("explore", tableName: "Onboarding", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Onboarding", preferredLanguages: preferredLanguages) else {
-          return "explore"
-        }
-
-        return NSLocalizedString("explore", tableName: "Onboarding", bundle: bundle, comment: "")
-      }
-
-      /// Value: This is a Noun.
+      /// Value: gm mfer
       static func introduction(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("introduction", tableName: "Onboarding", bundle: hostingBundle, comment: "")
@@ -8068,7 +8055,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("introduction", tableName: "Onboarding", bundle: bundle, comment: "")
       }
 
-      /// Value: You can create your own!
+      /// Value: mfers build what they want
       static func create(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("create", tableName: "Onboarding", bundle: hostingBundle, comment: "")
@@ -8079,6 +8066,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("create", tableName: "Onboarding", bundle: bundle, comment: "")
+      }
+
+      /// Value: welcome to mferbuilderDAO
+      static func explore(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("explore", tableName: "Onboarding", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Onboarding", preferredLanguages: preferredLanguages) else {
+          return "explore"
+        }
+
+        return NSLocalizedString("explore", tableName: "Onboarding", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -9071,9 +9071,9 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
-        if UIKit.UIImage(named: "red_glasses", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'red_glasses' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "red_headphones", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'red_headphones' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "launch.screen.background", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'launch.screen.background' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "mfer.blue", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'mfer.blue' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         }
       }
 

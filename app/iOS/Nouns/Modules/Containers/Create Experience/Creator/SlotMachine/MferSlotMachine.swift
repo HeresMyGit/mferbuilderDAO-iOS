@@ -41,7 +41,7 @@ struct MferSlotMachine: View {
   }
   
   /// The initial seed of the noun creator, reflecting which traits are selected and displayed initially
-  public var initialSeed: MferSeed
+  public var initialSeed: Seed
   
   /// A boolean to determine if the shadow should be visible below the noun
   public var showShadow: Bool
@@ -66,7 +66,7 @@ struct MferSlotMachine: View {
   private static let scrollThreshold: Double = 40
   
   /// The current `Seed` in the slot machine
-  @Binding var seed: MferSeed
+  @Binding var seed: Seed
   
   @Binding public var showAllTraits: Bool
   
@@ -74,9 +74,9 @@ struct MferSlotMachine: View {
   @Binding var currentModifiableTraitType: TraitType
     
   init(
-    seed: Binding<MferSeed>,
+    seed: Binding<Seed>,
     shouldShowAllTraits: Binding<Bool>,
-    initialSeed: MferSeed = MferSeed.default,
+    initialSeed: Seed = Seed.default,
     currentModifiableTraitType: Binding<TraitType> = .constant(.headphones),
     showShadow: Bool = true,
     animateEntrance: Bool = false,
@@ -93,7 +93,7 @@ struct MferSlotMachine: View {
   
   /// Sets the seed to a new randomly generated seed
   func randomizeSeed() {
-    seed = nounComposer.randomMferSeed()
+    seed = nounComposer.randomSeed()
   }
   
   /// Resets the seed to the `initialSeed`

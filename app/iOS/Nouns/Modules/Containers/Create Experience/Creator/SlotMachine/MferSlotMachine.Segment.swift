@@ -24,7 +24,7 @@ extension MferSlotMachine {
     
     @GestureState private var dragOffset: CGFloat = 0
     
-    @Binding var seed: MferSeed
+    @Binding var seed: Seed
 
     let type: MferSlotMachine.TraitType
     

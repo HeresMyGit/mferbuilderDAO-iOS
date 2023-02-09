@@ -89,7 +89,6 @@ struct RouterView: View {
   private let items = [
     OutlineTabItem(normalStateIcon: .exploreOutline, selectedStateIcon: .exploreFill, tag: AppPage.explore),
     OutlineTabItem(normalStateIcon: .createOutline, selectedStateIcon: .createFill, tag: AppPage.create),
-//    OutlineTabItem(normalStateIcon: .createOutline, selectedStateIcon: .createFill, tag: AppPage.create2),
     OutlineTabItem(normalStateIcon: .aboutOutline, selectedStateIcon: .aboutFill, tag: AppPage.about)
   ]
   
@@ -103,9 +102,6 @@ struct RouterView: View {
 
             CreateExperience()
               .tag(AppPage.create)
-            
-            CreateExperience()
-              .tag(AppPage.create2)
 
             AboutView()
               .tag(AppPage.about)

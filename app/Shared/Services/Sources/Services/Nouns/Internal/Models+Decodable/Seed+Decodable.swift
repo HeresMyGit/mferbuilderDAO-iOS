@@ -24,7 +24,17 @@ extension Seed: Decodable {
     guard let backgroundInt = Int(try container.decode(String.self, forKey: AnyCodingKey("background"))),
           let headphonesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("headphones"))),
           let headInt = Int(try container.decode(String.self, forKey: AnyCodingKey("head"))),
-          let smokeInt = Int(try container.decode(String.self, forKey: AnyCodingKey("smoke")))
+          let smokeInt = Int(try container.decode(String.self, forKey: AnyCodingKey("smoke"))),
+          let beardInt = Int(try container.decode(String.self, forKey: AnyCodingKey("beard"))),
+          let chainInt = Int(try container.decode(String.self, forKey: AnyCodingKey("chain"))),
+          let eyesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("eyes"))),
+          let hatOverHeadphonesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("hatOverHeadphones"))),
+          let hatUnderHeadphonesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("hatUnderHeadphones"))),
+          let longHairInt = Int(try container.decode(String.self, forKey: AnyCodingKey("longHair"))),
+          let mouthInt = Int(try container.decode(String.self, forKey: AnyCodingKey("mouth"))),
+          let shirtInt = Int(try container.decode(String.self, forKey: AnyCodingKey("shirt"))),
+          let shortHairInt = Int(try container.decode(String.self, forKey: AnyCodingKey("shortHair"))),
+          let watchInt = Int(try container.decode(String.self, forKey: AnyCodingKey("watch")))
     else {
       let context = DecodingError.Context(
         codingPath: decoder.codingPath,
@@ -37,5 +47,16 @@ extension Seed: Decodable {
     headphones = headphonesInt
     head = headInt
     smoke = smokeInt
+    beard = beardInt
+    chain = chainInt
+    eyes = eyesInt
+    hatOverHeadphones = hatOverHeadphonesInt
+    hatUnderHeadphones = hatUnderHeadphonesInt
+    longHair = longHairInt
+    mouth = mouthInt
+    shirt = shirtInt
+    shortHair = shortHairInt
+    watch = watchInt
+      
   }
 }

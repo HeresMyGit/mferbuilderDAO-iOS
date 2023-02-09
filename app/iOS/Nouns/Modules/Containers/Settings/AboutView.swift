@@ -35,11 +35,11 @@ struct AboutView: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 20) {
           GovernanceInfoSection(isAboutNounsPresented: $isAboutNounsPresented)
-          ProposalsInfoSection()
-          SpacesInfoSection()
-          DocumentationInfoSection()
-          DerivativeProjectsInfoSection()
-          TeamInfoSection()
+//          ProposalsInfoSection()
+//          SpacesInfoSection()
+//          DocumentationInfoSection()
+//          DerivativeProjectsInfoSection()
+//          TeamInfoSection()
         }
         .padding(.horizontal, 20)
         .padding(.bottom, tabBarHeight)
@@ -47,17 +47,17 @@ struct AboutView: View {
         // card and the top of the tab view
         .padding(.bottom, 40)
         .softNavigationTitle(localize.title(), rightAccessory: {
-          Link(isActive: $isSettingsPresented, content: {
-            // App's Settings
-            Button(action: {
-              isSettingsPresented.toggle()
-            }, label: {
-              Image.settingsOutline
-            })
-            
-          }, destination: {
-            SettingsView()
-          })
+//          Link(isActive: $isSettingsPresented, content: {
+//            // App's Settings
+//            Button(action: {
+//              isSettingsPresented.toggle()
+//            }, label: {
+//              Image.settingsOutline
+//            })
+//
+//          }, destination: {
+//            SettingsView()
+//          })
         })
         .id(AppPage.about.scrollToTopId)
       }

@@ -25,7 +25,7 @@ extension ExploreExperience {
     
     var body: some View {
       VStack(spacing: 0) {
-        NounSpeechBubble(R.string.explore.liveError(), noun: "dead-noun")
+        NounSpeechBubble(R.string.explore.liveError(), noun: "dead-mfer")
         OutlineButton(text: R.string.shared.tryAgain(), largeAccessory: {
           Image.retry
         }, action: {

@@ -163,7 +163,7 @@ class MferTraitPickerUIKit: UIView {
   
   /// Triggered whenever the seed value changes, this method deselects traits from a trait type section and selects the newly selected trait value in its place.
   /// This occurs whenever the user swipes on the slot machine or updates the view model's `seed` value through another medium other than the UICollectionView.
-  private func didUpdateSeedSelection(_ seed: MferSeed) {
+  private func didUpdateSeedSelection(_ seed: Seed) {
     guard !viewModel.traitUpdatesPaused else { return }
     
     collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.head.rawValue && $0.item != seed.head }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
@@ -211,6 +211,7 @@ class MferTraitPickerUIKit: UIView {
     let traitType = viewModel.currentModifiableTraitType
     if let sectionIndex = traitTypes.firstIndex(of: traitType) {
       let selectedTraitIndex = viewModel.selectedTrait(forType: traitType)
+      print("scrolling to \(selectedTraitIndex)")
       collectionView.scrollToItem(at: IndexPath(item: selectedTraitIndex, section: sectionIndex), at: .centeredHorizontally, animated: true)
     }
   }

@@ -177,6 +177,39 @@ class TraitPickerUIKit: UIView {
     
     collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.background.rawValue && $0.item != seed.background }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
     collectionView.selectItem(at: IndexPath(item: seed.background, section: TraitType.background.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.beard.rawValue && $0.item != seed.beard }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.beard, section: TraitType.beard.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.chain.rawValue && $0.item != seed.chain }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.chain, section: TraitType.chain.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.eyes.rawValue && $0.item != seed.eyes }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.eyes, section: TraitType.eyes.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.hatOverHeadphones.rawValue && $0.item != seed.hatOverHeadphones }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.hatOverHeadphones, section: TraitType.hatOverHeadphones.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.hatUnderHeadphones.rawValue && $0.item != seed.hatUnderHeadphones }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.hatUnderHeadphones, section: TraitType.hatUnderHeadphones.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.longHair.rawValue && $0.item != seed.longHair }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.longHair, section: TraitType.longHair.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.mouth.rawValue && $0.item != seed.mouth }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.mouth, section: TraitType.mouth.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.shirt.rawValue && $0.item != seed.shirt }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.shirt, section: TraitType.shirt.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.shortHair.rawValue && $0.item != seed.shortHair }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.shortHair, section: TraitType.shortHair.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.watch.rawValue && $0.item != seed.watch }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.watch, section: TraitType.watch.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.background.rawValue && $0.item != seed.background }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.background, section: TraitType.background.rawValue), animated: false, scrollPosition: .centeredVertically)
 
     let traitType = viewModel.currentModifiableTraitType
     if let sectionIndex = traitTypes.firstIndex(of: traitType) {

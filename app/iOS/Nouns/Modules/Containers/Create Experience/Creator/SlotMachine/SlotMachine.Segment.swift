@@ -118,8 +118,55 @@ extension SlotMachine {
           min(seed.headphones + index, maxLimit),
           minLimit)
         
-      default:
-        break
+      case .beard:
+        seed.beard = max(
+          min(seed.beard + index, maxLimit),
+          minLimit)
+        
+      case .chain:
+        seed.chain = max(
+          min(seed.chain + index, maxLimit),
+          minLimit)
+        
+      case .eyes:
+        seed.eyes = max(
+          min(seed.eyes + index, maxLimit),
+          minLimit)
+        
+      case .hatOverHeadphones:
+        seed.hatOverHeadphones = max(
+          min(seed.hatOverHeadphones + index, maxLimit),
+          minLimit)
+        
+      case .hatUnderHeadphones:
+        seed.hatUnderHeadphones = max(
+          min(seed.hatUnderHeadphones + index, maxLimit),
+          minLimit)
+        
+      case .longHair:
+        seed.longHair = max(
+          min(seed.longHair + index, maxLimit),
+          minLimit)
+        
+      case .mouth:
+        seed.mouth = max(
+          min(seed.mouth + index, maxLimit),
+          minLimit)
+        
+      case .shirt:
+        seed.shirt = max(
+          min(seed.shirt + index, maxLimit),
+          minLimit)
+        
+      case .shortHair:
+        seed.shortHair = max(
+          min(seed.shortHair + index, maxLimit),
+          minLimit)
+        
+      case .watch:
+        seed.watch = max(
+          min(seed.watch + index, maxLimit),
+          minLimit)
       }
     }
     
@@ -134,8 +181,26 @@ extension SlotMachine {
         return index == seed.head
       case .headphones:
         return index == seed.headphones
-      default:
-        return false
+      case .beard:
+        return index == seed.beard
+      case .chain:
+        return index == seed.chain
+      case .eyes:
+        return index == seed.eyes
+      case .hatOverHeadphones:
+        return index == seed.hatOverHeadphones
+      case .hatUnderHeadphones:
+        return index == seed.hatUnderHeadphones
+      case .longHair:
+        return index == seed.longHair
+      case .mouth:
+        return index == seed.mouth
+      case .shirt:
+        return index == seed.shirt
+      case .shortHair:
+        return index == seed.shortHair
+      case .watch:
+        return index == seed.watch
       }
     }
     
@@ -154,8 +219,35 @@ extension SlotMachine {
       case .headphones:
         return (Double(seed.headphones) * -imageWidth) + offsetX
         
-      default:
-        return 0
+      case .beard:
+        return (Double(seed.beard) * -imageWidth) + offsetX
+        
+      case .chain:
+        return (Double(seed.chain) * -imageWidth) + offsetX
+        
+      case .eyes:
+        return (Double(seed.eyes) * -imageWidth) + offsetX
+        
+      case .hatOverHeadphones:
+        return (Double(seed.hatOverHeadphones) * -imageWidth) + offsetX
+        
+      case .hatUnderHeadphones:
+        return (Double(seed.hatUnderHeadphones) * -imageWidth) + offsetX
+        
+      case .longHair:
+        return (Double(seed.longHair) * -imageWidth) + offsetX
+        
+      case .mouth:
+        return (Double(seed.mouth) * -imageWidth) + offsetX
+        
+      case .shirt:
+        return (Double(seed.shirt) * -imageWidth) + offsetX
+        
+      case .shortHair:
+        return (Double(seed.shortHair) * -imageWidth) + offsetX
+        
+      case .watch:
+        return (Double(seed.watch) * -imageWidth) + offsetX
       }
     }
     

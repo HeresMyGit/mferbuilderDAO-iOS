@@ -104,23 +104,23 @@ class GraphQLClient: GraphQL {
     _ query: Query,
     cachePolicy: CachePolicy
   ) async throws -> T where Query: GraphQLQuery, T: Decodable {
-    
-    guard let url = query.url else {
+    // TODO: HeresMy - reenable
+//    guard let url = query.url else {
       throw URLError(.badURL)
-    }
+//    }
     
-    let request = NetworkDataRequest(
-      url: url,
-      httpMethod: .post(contentType: .json),
-      httpBody: try query.encode()
-    )
-      print("query: \(query)")
-      print("Sending request: \(request)\nBody: \(request.httpBody)")
-    let data = try await networkingClient.data(for: request)
-      print("Data received...")
-    let decoded = try JSONDecoder().decode(T.self, from: data)
-    print("data: \(decoded)")
-    return decoded
+//    let request = NetworkDataRequest(
+//      url: url,
+//      httpMethod: .post(contentType: .json),
+//      httpBody: try query.encode()
+//    )
+//      print("query: \(query)")
+//      print("Sending request: \(request)\nBody: \(request.httpBody)")
+//    let data = try await networkingClient.data(for: request)
+//      print("Data received...")
+//    let decoded = try JSONDecoder().decode(T.self, from: data)
+//    print("data: \(decoded)")
+//    return decoded
   }
   
   func subscription<Subscription, T>(

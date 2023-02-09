@@ -99,7 +99,33 @@ struct GovernanceInfoSection: View {
         smallAccessory: { Image.smArrowOut },
         action: {
           withAnimation {
-            isAboutNounsPresented.toggle()
+//            isAboutNounsPresented.toggle()
+            let url = URL(string: "https://mferbuilderdao.org/info")!
+            UIApplication.shared.open(url)
+          }
+        })
+        .controlSize(.large)
+      SoftButton(
+        text: "Auctions",
+        icon: { Image.web },
+        smallAccessory: { Image.smArrowOut },
+        action: {
+          withAnimation {
+//            isAboutNounsPresented.toggle()
+            let url = URL(string: "https://mferbuilderdao.org/")!
+            UIApplication.shared.open(url)
+          }
+        })
+        .controlSize(.large)
+      SoftButton(
+        text: "Proposals",
+        icon: { Image.web },
+        smallAccessory: { Image.smArrowOut },
+        action: {
+          withAnimation {
+//            isAboutNounsPresented.toggle()
+            let url = URL(string: "https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/299?tab=activity")!
+            UIApplication.shared.open(url)
           }
         })
         .controlSize(.large)

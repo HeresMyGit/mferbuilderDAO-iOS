@@ -110,7 +110,8 @@ struct SlotMachine: View {
         .hidden(!showShadow)
       
       ZStack(alignment: .top) {
-        let types: [TraitType] = [.background, .head, .smoke, .headphones]
+//        let types: [TraitType] = [.background, .head, .smoke, .headphones]
+        let types = TraitType.layeredOrder
         ForEach(types, id: \.self) { type in
           Segment(
             seed: $seed,

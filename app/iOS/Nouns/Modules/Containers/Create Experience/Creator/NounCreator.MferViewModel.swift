@@ -67,7 +67,7 @@ extension NounCreator {
     @Published private(set) var showShakeCoachmark: Bool = false
     
     /// The `Seed` in build progress.
-    @Published var seed: MferSeed = .default {
+    @Published var seed: Seed = .default {
       didSet {
         pauseTraitUpdates()
       }
@@ -92,10 +92,10 @@ extension NounCreator {
     @Published private(set) var finishedConfetti: Bool = false
     
     /// The initial seed of the noun creator, reflecting which traits are selected and displayed initially
-    @Published public var initialSeed: MferSeed
+    @Published public var initialSeed: Seed
     
     /// An action to be carried out when `isEditing` is set to `true` and the user has completed editing their noun
-    public var didEditNoun: (_ seed: MferSeed) -> Void = { _ in }
+    public var didEditNoun: (_ seed: Seed) -> Void = { _ in }
     
     /// Boolean value to determine if the current noun is being editing (pre-existing) or if it's a new noun being created
     public let isEditing: Bool
@@ -105,9 +105,9 @@ extension NounCreator {
     private var cancellables = Set<AnyCancellable>()
     
     init(
-      initialSeed: MferSeed = MferSeed.default,
+      initialSeed: Seed = Seed.default,
       isEditing: Bool = false,
-      didEditNoun: @escaping (_ seed: MferSeed) -> Void = { _ in }
+      didEditNoun: @escaping (_ seed: Seed) -> Void = { _ in }
     ) {
       self.initialSeed = initialSeed
       self.isEditing = isEditing
@@ -255,7 +255,7 @@ extension NounCreator {
       do {
         AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.saveOffchainNoun,
                                           parameters: ["noun_name": nounName])
-        try offChainNounsService.store(noun: Noun(name: nounName, owner: Account(), seed: Seed.fromMferSeed(seed), mferSeed: seed))
+        try offChainNounsService.store(noun: Noun(name: nounName, owner: Account(), seed: seed))
       } catch {
         print("Error: \(error)")
       }
@@ -343,8 +343,8 @@ extension NounCreator {
     
     /// Randomizes the noun
     func randomizeNoun() {
-      self.initialSeed = AppCore.shared.nounComposer.randomMferSeed()
-      self.seed = AppCore.shared.nounComposer.randomMferSeed()
+      self.initialSeed = AppCore.shared.nounComposer.randomSeed()
+      self.seed = AppCore.shared.nounComposer.randomSeed()
     }
     
     /// Shows all traits on the `SlotMachine`, instead of just the currently modifiable trait type

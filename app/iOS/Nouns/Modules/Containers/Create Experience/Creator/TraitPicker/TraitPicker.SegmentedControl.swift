@@ -32,7 +32,8 @@ extension NounCreator {
       ScrollView(.horizontal, showsIndicators: false) { proxy in
         // Displays all Noun's trait types in a segement control.
         OutlinePicker(selection: $selectedTraitType) {
-          let types = viewModel.tokenType == .mfer ? TraitType.allCases : [.background, .head, .headphones, .smoke]
+//          let types = viewModel.tokenType == .mfer ? TraitType.allCases : [.background, .head, .headphones, .smoke]
+          let types = TraitType.allCases
           ForEach(types, id: \.rawValue) { type in
             Text(type.description)
               .id(type.rawValue)

@@ -79,7 +79,7 @@ extension OnboardingView {
     private var marqueeText: String {
       switch viewModel.selectedPage {
       case .intro:
-        return "noun"
+        return "mfer"
       case .explore:
         return "explore"
       case .create:

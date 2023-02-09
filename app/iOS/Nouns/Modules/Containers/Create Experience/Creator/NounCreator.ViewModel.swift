@@ -171,6 +171,26 @@ extension NounCreator {
           seed.head = index
         case .headphones:
           seed.headphones = index
+        case .beard:
+          seed.beard = index
+        case .chain:
+          seed.chain = index
+        case .eyes:
+          seed.eyes = index
+        case .hatOverHeadphones:
+          seed.hatOverHeadphones = index
+        case .hatUnderHeadphones:
+          seed.hatUnderHeadphones = index
+        case .longHair:
+          seed.longHair = index
+        case .mouth:
+          seed.mouth = index
+        case .shirt:
+          seed.shirt = index
+        case .shortHair:
+          seed.shortHair = index
+        case .watch:
+          seed.watch = index
         default:
           break
         }
@@ -188,6 +208,26 @@ extension NounCreator {
         return index == seed.head
       case .headphones:
         return index == seed.headphones
+      case .beard:
+        return index == seed.beard
+      case .chain:
+        return index == seed.chain
+      case .eyes:
+        return index == seed.eyes
+      case .hatOverHeadphones:
+        return index == seed.hatOverHeadphones
+      case .hatUnderHeadphones:
+        return index == seed.hatUnderHeadphones
+      case .longHair:
+        return index == seed.longHair
+      case .mouth:
+        return index == seed.mouth
+      case .shirt:
+        return index == seed.shirt
+      case .shortHair:
+        return index == seed.shortHair
+      case .watch:
+        return index == seed.watch
       default:
         return false
       }
@@ -204,6 +244,26 @@ extension NounCreator {
         return seed.smoke
       case .background:
         return seed.background
+      case .beard:
+        return seed.beard
+      case .chain:
+        return seed.chain
+      case .eyes:
+        return seed.eyes
+      case .hatOverHeadphones:
+        return seed.hatOverHeadphones
+      case .hatUnderHeadphones:
+        return seed.hatUnderHeadphones
+      case .longHair:
+        return seed.longHair
+      case .mouth:
+        return seed.mouth
+      case .shirt:
+        return seed.shirt
+      case .shortHair:
+        return seed.shortHair
+      case .watch:
+        return seed.watch
       default:
         return 0
       }

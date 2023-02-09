@@ -21,12 +21,21 @@ import CoreData
 /// `Seed Core Data` model object.
 @objc(SeedManagedObject)
 final class SeedManagedObject: NSManagedObject {
-  @NSManaged var head: Int32
-  @NSManaged var body: Int32
-  @NSManaged var glasses: Int32
-  @NSManaged var accessory: Int32
-  @NSManaged var background: Int32
-  @NSManaged var noun: NounManagedObject
+    @NSManaged public var background: Int32
+    @NSManaged public var head: Int32
+    @NSManaged public var headphones: Int32
+    @NSManaged public var smoke: Int32
+    @NSManaged public var beard: Int32
+    @NSManaged public var chain: Int32
+    @NSManaged public var eyes: Int32
+    @NSManaged public var hatOverHeadphones: Int32
+    @NSManaged public var hatUnderHeadphones: Int32
+    @NSManaged public var longHair: Int32
+    @NSManaged public var mouth: Int32
+    @NSManaged public var shirt: Int32
+    @NSManaged public var shortHair: Int32
+    @NSManaged public var watch: Int32
+    @NSManaged public var noun: NounManagedObject?
 }
 
 extension SeedManagedObject: StoredEntity {
@@ -40,11 +49,20 @@ extension SeedManagedObject: StoredEntity {
     seed: Seed
   ) throws -> Self {
     let managedObject: Self = try context.insertObject()
-    managedObject.head = Int32(seed.head)
-//    managedObject.body = Int32(seed.body)
-    managedObject.glasses = Int32(seed.headphones)
-    managedObject.accessory = Int32(seed.smoke)
     managedObject.background = Int32(seed.background)
+    managedObject.head = Int32(seed.head)
+    managedObject.headphones = Int32(seed.headphones)
+    managedObject.smoke = Int32(seed.smoke)
+    managedObject.beard = Int32(seed.beard)
+    managedObject.chain = Int32(seed.chain)
+    managedObject.eyes = Int32(seed.eyes)
+    managedObject.hatOverHeadphones = Int32(seed.hatOverHeadphones)
+    managedObject.hatUnderHeadphones = Int32(seed.hatUnderHeadphones)
+    managedObject.longHair = Int32(seed.longHair)
+    managedObject.mouth = Int32(seed.mouth)
+    managedObject.shirt = Int32(seed.shirt)
+    managedObject.shortHair = Int32(seed.shortHair)
+    managedObject.watch = Int32(seed.watch)
     return managedObject
   }
 }
@@ -54,8 +72,19 @@ extension SeedManagedObject: CustomModelConvertible {
   var model: Seed {
     Seed(
       background: Int(background),
-      headphones: Int(glasses),
+      headphones: Int(headphones),
       head: Int(head),
-      smoke: Int(accessory))
+      smoke: Int(smoke),
+      beard: Int(beard),
+      chain: Int(chain),
+      eyes: Int(eyes),
+      hatOverHeadphones: Int(hatOverHeadphones),
+      hatUnderHeadphones: Int(hatUnderHeadphones),
+      longHair: Int(longHair),
+      mouth: Int(mouth),
+      shirt: Int(shirt),
+      shortHair: Int(shortHair),
+      watch: Int(watch)
+    )
   }
 }

@@ -45,9 +45,7 @@ public struct Noun: Equatable, Identifiable, Hashable {
   
   /// The seed used to determine the Noun's traits.
   public var seed: Seed
-    
-  public var mferSeed: MferSeed
-  
+      
   /// The date when the noun was created.
   public let createdAt: Date
   
@@ -61,7 +59,6 @@ public struct Noun: Equatable, Identifiable, Hashable {
     name: String,
     owner: Account,
     seed: Seed,
-    mferSeed: MferSeed? = nil,
     createdAt: Date = .now,
     updatedAt: Date = .now,
     nounderOwned: Bool = false
@@ -73,79 +70,11 @@ public struct Noun: Equatable, Identifiable, Hashable {
     self.createdAt = createdAt
     self.updatedAt = updatedAt
     self.isNounderOwned = nounderOwned
-      self.mferSeed = mferSeed ?? MferSeed(background: seed.background, headphones: seed.headphones, head: seed.head, smoke: seed.smoke, beard: 0, chain: 0, eyes: 0, hatOverHeadphones: 0, hatUnderHeadphones: 0, longHair: 0, mouth: 0, shirt: 0, shortHair: 0, watch: 0)
   }
 }
 
 /// The seed used to determine the Noun's traits.
 public struct Seed: Equatable, Hashable {
-  
-  /// The background trait.
-  public var background: Int
-  
-  /// The headphones trait.
-  public var headphones: Int
-  
-  /// The head trait.
-  public var head: Int
-  
-  /// The smoke trait.
-  public var smoke: Int
-  
-  public init(background: Int, headphones: Int, head: Int, smoke: Int) {
-    self.background = background
-    self.headphones = headphones
-    self.head = head
-    self.smoke = smoke
-  }
-  
-    public init?(background: String, headphones: String, head: String, smoke: String) {
-    guard let backgroundInt = Int(background),
-          let headphonesInt = Int(headphones),
-          let headInt = Int(head),
-          let smokeInt = Int(smoke) else {
-            return nil
-          }
-    
-    self.background = backgroundInt
-    self.headphones = headphonesInt
-    self.head = headInt
-    self.smoke = smokeInt
-  }
-}
-
-public extension Seed {
-    static func toMferSeed(_ seed: Seed) -> MferSeed {
-        MferSeed(background: seed.background,
-                 headphones: seed.headphones,
-                 head: seed.head,
-                 smoke: seed.smoke,
-                 beard: 0,
-                 chain: 0,
-                 eyes: 0,
-                 hatOverHeadphones: 0,
-                 hatUnderHeadphones: 0,
-                 longHair: 0,
-                 mouth: 0,
-                 shirt: 0,
-                 shortHair: 0,
-                 watch: 0)
-    }
-    
-    static func fromMferSeed(_ mferSeed: MferSeed) -> Seed {
-        Seed(background: mferSeed.background, headphones: mferSeed.headphones, head: mferSeed.head, smoke: mferSeed.smoke)
-    }
-}
-
-public extension Seed {
-  static let `default` = Seed(background: 0, headphones: 0, head: 0, smoke: 0)
-  static let pizza = Seed(background: 0, headphones: 1, head: 1, smoke: 1)
-  static let shark = Seed(background: 1, headphones: 2, head: 2, smoke: 2)
-}
-
-/// The seed used to determine the mfer's traits.
-public struct MferSeed: Equatable, Hashable {
-    
     /// The background trait.
     public var background: Int
     
@@ -192,16 +121,16 @@ public struct MferSeed: Equatable, Hashable {
                 headphones: Int,
                 head: Int,
                 smoke: Int,
-                beard: Int,
-                chain: Int,
-                eyes: Int,
-                hatOverHeadphones: Int,
-                hatUnderHeadphones: Int,
-                longHair: Int,
-                mouth: Int,
-                shirt: Int,
-                shortHair: Int,
-                watch: Int) {
+                beard: Int = 0,
+                chain: Int = 0,
+                eyes: Int = 0,
+                hatOverHeadphones: Int = 0,
+                hatUnderHeadphones: Int = 0,
+                longHair: Int = 0,
+                mouth: Int = 0,
+                shirt: Int = 0,
+                shortHair: Int = 0,
+                watch: Int = 0) {
         self.background = background
         self.headphones = headphones
         self.head = head
@@ -222,16 +151,16 @@ public struct MferSeed: Equatable, Hashable {
                  headphones: String,
                  head: String,
                  smoke: String,
-                 beard: String,
-                 chain: String,
-                 eyes: String,
-                 hatOverHeadphones: String,
-                 hatUnderHeadphones: String,
-                 longHair: String,
-                 mouth: String,
-                 shirt: String,
-                 shortHair: String,
-                 watch: String) {
+                 beard: String = "0",
+                 chain: String = "0",
+                 eyes: String = "0",
+                 hatOverHeadphones: String = "0",
+                 hatUnderHeadphones: String = "0",
+                 longHair: String = "0",
+                 mouth: String = "0",
+                 shirt: String = "0",
+                 shortHair: String = "0",
+                 watch: String = "0") {
         guard let backgroundInt = Int(background),
               let headphonesInt = Int(headphones),
               let headInt = Int(head),
@@ -266,8 +195,10 @@ public struct MferSeed: Equatable, Hashable {
     }
 }
 
-public extension MferSeed {
-  static let `default` = MferSeed(background: 0, headphones: 0, head: 0, smoke: 0, beard: 0, chain: 0, eyes: 0, hatOverHeadphones: 0, hatUnderHeadphones: 0, longHair: 0, mouth: 0, shirt: 0, shortHair: 0, watch: 0)
+public extension Seed {
+  static let `default` = Seed(background: 0, headphones: 0, head: 0, smoke: 0)
+  static let pizza = Seed(background: 0, headphones: 1, head: 1, smoke: 1)
+  static let shark = Seed(background: 1, headphones: 2, head: 2, smoke: 2)
 }
 
 /// The owner of the Noun

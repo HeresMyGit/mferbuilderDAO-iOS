@@ -41,29 +41,30 @@ struct NounCreator: View {
         
       VStack(spacing: 0) {
         ConditionalSpacer(viewModel.mode == .creating)
-        Toggle(isOn: $fullMfer) {
-          Text("Full mfer?")
-        }
-        .onChange(of: fullMfer) { isFull in
-          let composer = OfflineNounComposer.default()
-          if isFull {
-            mferViewModel.seed.background = viewModel.seed.background
-            mferViewModel.seed.head = viewModel.seed.head
-            mferViewModel.seed.headphones = viewModel.seed.headphones
-            mferViewModel.seed.smoke = viewModel.seed.smoke
-            mferViewModel.isExpanded = viewModel.isExpanded
-          } else {
-            viewModel.seed.background = mferViewModel.seed.background
-            viewModel.seed.head = mferViewModel.seed.head
-            if mferViewModel.seed.headphones > composer.headphones.count - 1 {
-              viewModel.seed.headphones = 0
-            } else {
-              viewModel.seed.headphones = mferViewModel.seed.headphones
-            }
-            viewModel.seed.smoke = mferViewModel.seed.smoke
-            viewModel.isExpanded = mferViewModel.isExpanded
-          }
-        }
+//        Toggle(isOn: $fullMfer) {
+//          Text("Full mfer?")
+//        }
+//        .onChange(of: fullMfer) { isFull in
+//          let composer = OfflineNounComposer.default()
+//          viewModel.tokenType = isFull ? .mfer : .mfbldr
+//          if isFull {
+//            mferViewModel.seed.background = viewModel.seed.background
+//            mferViewModel.seed.head = viewModel.seed.head
+//            mferViewModel.seed.headphones = viewModel.seed.headphones
+//            mferViewModel.seed.smoke = viewModel.seed.smoke
+//            mferViewModel.isExpanded = viewModel.isExpanded
+//          } else {
+//            viewModel.seed.background = mferViewModel.seed.background
+//            viewModel.seed.head = mferViewModel.seed.head
+//            if mferViewModel.seed.headphones > composer.headphones.count - 1 {
+//              viewModel.seed.headphones = 0
+//            } else {
+//              viewModel.seed.headphones = mferViewModel.seed.headphones
+//            }
+//            viewModel.seed.smoke = mferViewModel.seed.smoke
+//            viewModel.isExpanded = mferViewModel.isExpanded
+//          }
+//        }
         
         if fullMfer {
           MferSlotMachine(
