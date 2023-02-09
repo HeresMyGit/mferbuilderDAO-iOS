@@ -130,5 +130,17 @@ struct GovernanceInfoSection: View {
         })
         .controlSize(.large)
     }
+    SoftButton(
+      text: "OpenSea",
+      icon: { Image.web },
+      smallAccessory: { Image.smArrowOut },
+      action: {
+        withAnimation {
+//            isAboutNounsPresented.toggle()
+          let url = URL(string: "https://opensea.io/collection/mferbuilderdao")!
+          UIApplication.shared.open(url)
+        }
+      })
+      .controlSize(.large)
   }
 }
