@@ -166,6 +166,9 @@ class TraitPickerUIKit: UIView {
   private func didUpdateSeedSelection(_ seed: Seed) {
     guard !viewModel.traitUpdatesPaused else { return }
     
+    collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.body.rawValue && $0.item != seed.beard }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
+    collectionView.selectItem(at: IndexPath(item: seed.body, section: TraitType.body.rawValue), animated: false, scrollPosition: .centeredVertically)
+    
     collectionView.indexPathsForSelectedItems?.filter({ $0.section == TraitType.head.rawValue && $0.item != seed.head }).forEach({ collectionView.deselectItem(at: $0, animated: false) })
     collectionView.selectItem(at: IndexPath(item: seed.head, section: TraitType.head.rawValue), animated: false, scrollPosition: .centeredVertically)
     

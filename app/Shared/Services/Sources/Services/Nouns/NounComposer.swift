@@ -38,6 +38,8 @@ public protocol NounComposer {
   
   /// The color palette used to draw Noun's parts.
   var palette: [String] { get }
+    
+  var bodies: [Trait] { get }
   
   /// Array containing all the accessories mapped from the RLE data.
   /// to the shapes to draw Noun's parts.
@@ -81,6 +83,9 @@ public class OfflineNounComposer: NounComposer {
     
     /// The color palette used to draw `Nouns` with `RLE` data.
     public lazy var palette = layer.palette
+    
+    /// The body list of traits.
+    public lazy var bodies = layer.images["body"] ?? []
     
     /// The smoke list of traits.
     public lazy var smokes = layer.images["smoke"] ?? []
@@ -156,6 +161,7 @@ public class OfflineNounComposer: NounComposer {
     /// Generates a random seed, given the number of each trait type
     public func randomSeed() -> Seed {
         guard let background = backgroundColors.randomIndex(),
+              let body = bodies.randomIndex(),
               let smoke = smokes.randomIndex(),
               let head = heads.randomIndex(),
               let headphones = headphones.randomIndex(),
@@ -185,6 +191,7 @@ public class OfflineNounComposer: NounComposer {
         }
         
         return Seed(background: background,
+                    body: 0,
                     headphones: headphones,
                     head: head,
                     smoke: smoke,
@@ -205,6 +212,7 @@ public class OfflineNounComposer: NounComposer {
         repeat {
             result = randomSeed()
         } while result.background == seed.background
+        || result.body == seed.body
         || result.smoke == seed.smoke
         || result.head == seed.head
         || result.headphones == seed.headphones

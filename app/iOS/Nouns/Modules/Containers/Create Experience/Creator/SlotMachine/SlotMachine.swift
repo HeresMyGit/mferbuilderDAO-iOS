@@ -25,6 +25,7 @@ struct SlotMachine: View {
   /// List all various `Noun's Traits Types`.
   enum TraitType: Int, CaseIterable, Hashable {
     case background
+    case body
     case head
     case headphones
     case smoke

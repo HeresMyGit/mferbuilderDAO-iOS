@@ -22,6 +22,7 @@ import CoreData
 @objc(SeedManagedObject)
 final class SeedManagedObject: NSManagedObject {
     @NSManaged public var background: Int32
+    @NSManaged public var body: Int32
     @NSManaged public var head: Int32
     @NSManaged public var headphones: Int32
     @NSManaged public var smoke: Int32
@@ -50,6 +51,7 @@ extension SeedManagedObject: StoredEntity {
   ) throws -> Self {
     let managedObject: Self = try context.insertObject()
     managedObject.background = Int32(seed.background)
+    managedObject.body = Int32(seed.body)
     managedObject.head = Int32(seed.head)
     managedObject.headphones = Int32(seed.headphones)
     managedObject.smoke = Int32(seed.smoke)
@@ -72,6 +74,7 @@ extension SeedManagedObject: CustomModelConvertible {
   var model: Seed {
     Seed(
       background: Int(background),
+      body: Int(body),
       headphones: Int(headphones),
       head: Int(head),
       smoke: Int(smoke),

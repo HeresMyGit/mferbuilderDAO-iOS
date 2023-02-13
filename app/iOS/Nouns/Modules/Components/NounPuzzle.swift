@@ -27,6 +27,7 @@ struct NounPuzzle: View {
   
   init(seed: Seed) {
     traits = [
+      nounComposer.bodies[seed.body].assetImage,
       nounComposer.smokes[seed.smoke].assetImage,
       nounComposer.heads[seed.head].assetImage,
       nounComposer.beards[seed.beard].assetImage,

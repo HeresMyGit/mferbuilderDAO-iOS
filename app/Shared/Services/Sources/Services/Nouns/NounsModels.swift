@@ -78,6 +78,9 @@ public struct Seed: Equatable, Hashable {
     /// The background trait.
     public var background: Int
     
+    /// The body trait.
+    public var body: Int
+    
     /// The headphones trait.
     public var headphones: Int
     
@@ -118,6 +121,7 @@ public struct Seed: Equatable, Hashable {
     public var watch: Int
     
     public init(background: Int,
+                body: Int = 0,
                 headphones: Int,
                 head: Int,
                 smoke: Int,
@@ -132,6 +136,7 @@ public struct Seed: Equatable, Hashable {
                 shortHair: Int = 0,
                 watch: Int = 0) {
         self.background = background
+        self.body = body
         self.headphones = headphones
         self.head = head
         self.smoke = smoke
@@ -148,6 +153,7 @@ public struct Seed: Equatable, Hashable {
     }
     
     public init?(background: String,
+                 body: String = "0",
                  headphones: String,
                  head: String,
                  smoke: String,
@@ -162,6 +168,7 @@ public struct Seed: Equatable, Hashable {
                  shortHair: String = "0",
                  watch: String = "0") {
         guard let backgroundInt = Int(background),
+              let bodyInt = Int(body),
               let headphonesInt = Int(headphones),
               let headInt = Int(head),
               let smokeInt = Int(smoke),
@@ -179,6 +186,7 @@ public struct Seed: Equatable, Hashable {
         }
         
         self.background = backgroundInt
+        self.body = bodyInt
         self.headphones = headphonesInt
         self.head = headInt
         self.smoke = smokeInt

@@ -41,13 +41,11 @@
         <relationship name="vote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vote" inverseName="proposal" inverseEntity="Vote"/>
     </entity>
     <entity name="Seed" representedClassName="SeedManagedObject" syncable="YES">
-        <attribute name="accessory" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="background" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="beard" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="body" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="chain" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="eyes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="glasses" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hatOverHeadphones" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hatUnderHeadphones" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="head" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

@@ -103,6 +103,11 @@ extension SlotMachine {
       case .background:
         break
         
+      case .body:
+        seed.body = max(
+          min(seed.body + index, maxLimit),
+          minLimit)
+        
       case .smoke:
         seed.smoke = max(
           min(seed.smoke + index, maxLimit),
@@ -175,6 +180,8 @@ extension SlotMachine {
       switch traitType {
       case .background:
         return index == seed.background
+      case .body:
+        return index == seed.body
       case .smoke:
         return index == seed.smoke
       case .head:
@@ -209,6 +216,9 @@ extension SlotMachine {
       switch type {
       case .background:
         return 0
+        
+      case .body:
+        return (Double(seed.body) * -imageWidth) + offsetX
         
       case .smoke:
         return (Double(seed.smoke) * -imageWidth) + offsetX

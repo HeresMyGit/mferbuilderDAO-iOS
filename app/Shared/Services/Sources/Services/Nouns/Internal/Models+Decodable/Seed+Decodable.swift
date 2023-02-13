@@ -22,6 +22,7 @@ extension Seed: Decodable {
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: AnyCodingKey.self)
     guard let backgroundInt = Int(try container.decode(String.self, forKey: AnyCodingKey("background"))),
+          let bodyInt = Int(try container.decode(String.self, forKey: AnyCodingKey("body"))),
           let headphonesInt = Int(try container.decode(String.self, forKey: AnyCodingKey("headphones"))),
           let headInt = Int(try container.decode(String.self, forKey: AnyCodingKey("head"))),
           let smokeInt = Int(try container.decode(String.self, forKey: AnyCodingKey("smoke"))),
@@ -44,6 +45,7 @@ extension Seed: Decodable {
     }
     
     background = backgroundInt
+    body = bodyInt
     headphones = headphonesInt
     head = headInt
     smoke = smokeInt

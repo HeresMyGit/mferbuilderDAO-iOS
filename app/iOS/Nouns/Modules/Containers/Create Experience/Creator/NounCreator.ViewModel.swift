@@ -165,6 +165,8 @@ extension NounCreator {
         switch traitType {
         case .background:
           seed.background = index
+        case .body:
+          seed.body = index
         case .smoke:
           seed.smoke = index
         case .head:
@@ -202,6 +204,8 @@ extension NounCreator {
       switch traitType {
       case .background:
         return index == seed.background
+      case .body:
+        return index == seed.body
       case .smoke:
         return index == seed.smoke
       case .head:
@@ -236,6 +240,8 @@ extension NounCreator {
     /// Returns the selected index given a trait type
     func selectedTrait(forType traitType: TraitType) -> Int {
       switch traitType {
+      case .body:
+        return seed.body
       case .headphones:
         return seed.headphones
       case .head:

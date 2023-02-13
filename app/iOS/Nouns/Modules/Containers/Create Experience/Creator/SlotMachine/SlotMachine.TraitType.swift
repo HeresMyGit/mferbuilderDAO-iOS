@@ -31,6 +31,9 @@ extension SlotMachine.TraitType {
     case .background:
       return []
       
+    case .body:
+      return composer.bodies
+      
     case .smoke:
       return composer.smokes
       
@@ -64,12 +67,16 @@ extension SlotMachine.TraitType {
   }
   
   /// This is the order that the assets and traits should be presented in order to replicate how the nouns should look
-  static let layeredOrder: [SlotMachine.TraitType] = [.background, .smoke, .head, .beard, .chain, .eyes, .longHair, .shortHair, .hatUnderHeadphones, .headphones, .hatOverHeadphones, .mouth, .watch, .shirt]
+  static let layeredOrder: [SlotMachine.TraitType] = [.background, .body, .smoke, .head, .beard, .chain, .eyes, .longHair, .shortHair, .hatUnderHeadphones, .headphones, .hatOverHeadphones, .mouth, .watch, .shirt]
   
   var description: String {
     switch self {
     case .background:
       return R.string.shared.background()
+      
+    case .body:
+      //      return R.string.shared.accessory()
+      return "Body"
       
     case .smoke:
       //      return R.string.shared.accessory()
