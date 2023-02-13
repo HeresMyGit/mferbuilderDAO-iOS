@@ -29,14 +29,24 @@ struct SpacesInfoSection: View {
         title: localize.title(),
         subtitle: localize.message())
       
+      // Auctions
+      SpaceRow(localize.auctionsTitle(), action: {
+        selectedURL = URL(string: localize.auctionsLink())
+      })
+      
+      // Proposals
+      SpaceRow(localize.proposalsTitle(), action: {
+        selectedURL = URL(string: localize.proposalsLink())
+      })
+      
+      // OpenSea
+      SpaceRow(localize.openseaTitle(), action: {
+        selectedURL = URL(string: localize.openseaLink())
+      })
+      
       // Discord
       SpaceRow(localize.discordTitle(), action: {
         selectedURL = URL(string: localize.discordLink())
-      })
-
-      // Discourse
-      SpaceRow(localize.discourseTitle(), action: {
-        selectedURL = URL(string: localize.discourseLink())
       })
       
       // Twitter

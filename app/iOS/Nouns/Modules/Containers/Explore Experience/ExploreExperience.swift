@@ -63,5 +63,6 @@ struct ExploreExperience: View {
         await viewModel.listenLiveAuctionChanges()
       }
     }
+//    .navigationViewStyle(StackNavigationViewStyle())
   }
 }

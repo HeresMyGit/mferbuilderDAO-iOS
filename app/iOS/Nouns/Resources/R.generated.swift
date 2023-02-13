@@ -6412,14 +6412,14 @@ struct R: Rswift.Validatable {
   struct string {
     /// This `R.string.aboutNouns` struct is generated, and contains static references to 3 localization keys.
     struct aboutNouns {
-      /// Value: Learn more at nouns.wtf
+      /// Value: Learn more at mferbuilderDAO.org
       static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "AboutNouns", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Nouns are an experimental attempt to improve the formation of on-chain avatar communities.   While some projects have attempted to bootstrap digital community and identity, Nouns attempt to bootstrap identity, community, governance and a treasury that can be used by the community for the creation of long-term value.
-      static let nounsWtfDescription = Rswift.StringResource(key: "nouns.wtf.description", tableName: "AboutNouns", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: WTF?
+      /// Value: mfer? DAO?
       static let title = Rswift.StringResource(key: "title", tableName: "AboutNouns", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: mfers have a diverse set of skills, experience and resources. without a decentralized infrastructure, it is difficult for mfers to work together effectively.  the mferbuilderDAO creates a transparent and democratic process for decision-making within the mfer builder community for providing support, funding and resources to the "mferish public goods".
+      static let nounsWtfDescription = Rswift.StringResource(key: "nouns.wtf.description", tableName: "AboutNouns", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Learn more at nouns.wtf
+      /// Value: Learn more at mferbuilderDAO.org
       static func learnMore(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("learn.more", tableName: "AboutNouns", bundle: hostingBundle, comment: "")
@@ -6432,20 +6432,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("learn.more", tableName: "AboutNouns", bundle: bundle, comment: "")
       }
 
-      /// Value: Nouns are an experimental attempt to improve the formation of on-chain avatar communities.   While some projects have attempted to bootstrap digital community and identity, Nouns attempt to bootstrap identity, community, governance and a treasury that can be used by the community for the creation of long-term value.
-      static func nounsWtfDescription(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("nouns.wtf.description", tableName: "AboutNouns", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "AboutNouns", preferredLanguages: preferredLanguages) else {
-          return "nouns.wtf.description"
-        }
-
-        return NSLocalizedString("nouns.wtf.description", tableName: "AboutNouns", bundle: bundle, comment: "")
-      }
-
-      /// Value: WTF?
+      /// Value: mfer? DAO?
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "AboutNouns", bundle: hostingBundle, comment: "")
@@ -6456,6 +6443,19 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("title", tableName: "AboutNouns", bundle: bundle, comment: "")
+      }
+
+      /// Value: mfers have a diverse set of skills, experience and resources. without a decentralized infrastructure, it is difficult for mfers to work together effectively.  the mferbuilderDAO creates a transparent and democratic process for decision-making within the mfer builder community for providing support, funding and resources to the "mferish public goods".
+      static func nounsWtfDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("nouns.wtf.description", tableName: "AboutNouns", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "AboutNouns", preferredLanguages: preferredLanguages) else {
+          return "nouns.wtf.description"
+        }
+
+        return NSLocalizedString("nouns.wtf.description", tableName: "AboutNouns", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}
@@ -7161,16 +7161,16 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.documentation` struct is generated, and contains static references to 4 localization keys.
     struct documentation {
-      /// Value: Explore Nouns
+      /// Value: Explore mfer builders
       static let title = Rswift.StringResource(key: "title", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Learn More
       static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Want to dive into the details? Follow the link below to get a more in-depth understanding of the Nouns DAO.
+      /// Value: Want to dive into the details? Follow the link below to get a more in-depth understanding of the mferbuilderDAO.
       static let message = Rswift.StringResource(key: "message", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.notion.site/Explore-Nouns-a2a9dceeb1d54e10b9cbf3f931c2266f
+      /// Value: https://mferbuilderDAO.org/info
       static let documentationLink = Rswift.StringResource(key: "documentation.link", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Explore Nouns
+      /// Value: Explore mfer builders
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "Documentation", bundle: hostingBundle, comment: "")
@@ -7196,7 +7196,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("learn.more", tableName: "Documentation", bundle: bundle, comment: "")
       }
 
-      /// Value: Want to dive into the details? Follow the link below to get a more in-depth understanding of the Nouns DAO.
+      /// Value: Want to dive into the details? Follow the link below to get a more in-depth understanding of the mferbuilderDAO.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Documentation", bundle: hostingBundle, comment: "")
@@ -7209,7 +7209,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("message", tableName: "Documentation", bundle: bundle, comment: "")
       }
 
-      /// Value: https://nouns.notion.site/Explore-Nouns-a2a9dceeb1d54e10b9cbf3f931c2266f
+      /// Value: https://mferbuilderDAO.org/info
       static func documentationLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("documentation.link", tableName: "Documentation", bundle: hostingBundle, comment: "")
@@ -8823,28 +8823,49 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.spaces` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.spaces` struct is generated, and contains static references to 14 localization keys.
     struct spaces {
+      /// Value: Auctions
+      static let auctionsTitle = Rswift.StringResource(key: "auctions.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Discord
       static let discordTitle = Rswift.StringResource(key: "discord.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Discourse
-      static let discourseTitle = Rswift.StringResource(key: "discourse.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Etherscan
       static let etherscanTitle = Rswift.StringResource(key: "etherscan.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Follow the links below to get involved with the Nouns community or to take a look at on-chain data.
+      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.
       static let message = Rswift.StringResource(key: "message", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get involved
       static let title = Rswift.StringResource(key: "title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: OpenSea
+      static let openseaTitle = Rswift.StringResource(key: "opensea.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Proposals
+      static let proposalsTitle = Rswift.StringResource(key: "proposals.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Twitter
       static let twitterTitle = Rswift.StringResource(key: "twitter.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://discord.gg/nouns
+      /// Value: https://discord.gg/CzcDAHcZXm
       static let discordLink = Rswift.StringResource(key: "discord.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://discourse.nouns.wtf
-      static let discourseLink = Rswift.StringResource(key: "discourse.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://etherscan.io/address/0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03
+      /// Value: https://etherscan.io/address/0x795D300855069F602862c5e23814Bdeeb25DCa6b
       static let etherscanLink = Rswift.StringResource(key: "etherscan.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://twitter.com/nounsdao
+      /// Value: https://mferbuilderDAO.org
+      static let auctionsLink = Rswift.StringResource(key: "auctions.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/299?tab=activity
+      static let proposalsLink = Rswift.StringResource(key: "proposals.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: https://opensea.io/collection/mferbuilderdao
+      static let openseaLink = Rswift.StringResource(key: "opensea.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: https://twitter.com/mferbuilderDAO
       static let twitterLink = Rswift.StringResource(key: "twitter.link", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Auctions
+      static func auctionsTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("auctions.title", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "auctions.title"
+        }
+
+        return NSLocalizedString("auctions.title", tableName: "Spaces", bundle: bundle, comment: "")
+      }
 
       /// Value: Discord
       static func discordTitle(preferredLanguages: [String]? = nil) -> String {
@@ -8857,19 +8878,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("discord.title", tableName: "Spaces", bundle: bundle, comment: "")
-      }
-
-      /// Value: Discourse
-      static func discourseTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("discourse.title", tableName: "Spaces", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
-          return "discourse.title"
-        }
-
-        return NSLocalizedString("discourse.title", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
       /// Value: Etherscan
@@ -8885,7 +8893,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("etherscan.title", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
-      /// Value: Follow the links below to get involved with the Nouns community or to take a look at on-chain data.
+      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Spaces", bundle: hostingBundle, comment: "")
@@ -8911,6 +8919,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
+      /// Value: OpenSea
+      static func openseaTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("opensea.title", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "opensea.title"
+        }
+
+        return NSLocalizedString("opensea.title", tableName: "Spaces", bundle: bundle, comment: "")
+      }
+
+      /// Value: Proposals
+      static func proposalsTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("proposals.title", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "proposals.title"
+        }
+
+        return NSLocalizedString("proposals.title", tableName: "Spaces", bundle: bundle, comment: "")
+      }
+
       /// Value: Twitter
       static func twitterTitle(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
@@ -8924,7 +8958,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("twitter.title", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
-      /// Value: https://discord.gg/nouns
+      /// Value: https://discord.gg/CzcDAHcZXm
       static func discordLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("discord.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
@@ -8937,20 +8971,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("discord.link", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
-      /// Value: https://discourse.nouns.wtf
-      static func discourseLink(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("discourse.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
-          return "discourse.link"
-        }
-
-        return NSLocalizedString("discourse.link", tableName: "Spaces", bundle: bundle, comment: "")
-      }
-
-      /// Value: https://etherscan.io/address/0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03
+      /// Value: https://etherscan.io/address/0x795D300855069F602862c5e23814Bdeeb25DCa6b
       static func etherscanLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("etherscan.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
@@ -8963,7 +8984,46 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("etherscan.link", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
-      /// Value: https://twitter.com/nounsdao
+      /// Value: https://mferbuilderDAO.org
+      static func auctionsLink(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("auctions.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "auctions.link"
+        }
+
+        return NSLocalizedString("auctions.link", tableName: "Spaces", bundle: bundle, comment: "")
+      }
+
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/299?tab=activity
+      static func proposalsLink(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("proposals.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "proposals.link"
+        }
+
+        return NSLocalizedString("proposals.link", tableName: "Spaces", bundle: bundle, comment: "")
+      }
+
+      /// Value: https://opensea.io/collection/mferbuilderdao
+      static func openseaLink(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("opensea.link", tableName: "Spaces", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Spaces", preferredLanguages: preferredLanguages) else {
+          return "opensea.link"
+        }
+
+        return NSLocalizedString("opensea.link", tableName: "Spaces", bundle: bundle, comment: "")
+      }
+
+      /// Value: https://twitter.com/mferbuilderDAO
       static func twitterLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("twitter.link", tableName: "Spaces", bundle: hostingBundle, comment: "")

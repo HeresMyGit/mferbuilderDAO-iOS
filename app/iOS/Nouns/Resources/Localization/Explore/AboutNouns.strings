@@ -6,8 +6,8 @@
   
 */
 
-"title" = "WTF?";
+"title" = "mfer? DAO?";
 
-"nouns.wtf.description" = "Nouns are an experimental attempt to improve the formation of on-chain avatar communities. \n\nWhile some projects have attempted to bootstrap digital community and identity, Nouns attempt to bootstrap identity, community, governance and a treasury that can be used by the community for the creation of long-term value.";
+"nouns.wtf.description" = "mfers have a diverse set of skills, experience and resources. without a decentralized infrastructure, it is difficult for mfers to work together effectively.\n\nthe mferbuilderDAO creates a transparent and democratic process for decision-making within the mfer builder community for providing support, funding and resources to the \"mferish public goods\".";
 
-"learn.more" = "Learn more at nouns.wtf";
+"learn.more" = "Learn more at mferbuilderDAO.org";

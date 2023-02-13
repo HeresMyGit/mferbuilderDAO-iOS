@@ -8,16 +8,22 @@
 
 "title" = "Get involved";
 
-"message" = "Follow the links below to get involved with the Nouns community or to take a look at on-chain data.";
+"message" = "Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.";
 
 "discord.title" = "Discord";
-"discord.link" = "https://discord.gg/nouns";
+"discord.link" = "https://discord.gg/CzcDAHcZXm";
 
 "twitter.title" = "Twitter";
-"twitter.link" = "https://twitter.com/nounsdao";
+"twitter.link" = "https://twitter.com/mferbuilderDAO";
 
 "etherscan.title" = "Etherscan";
-"etherscan.link" = "https://etherscan.io/address/0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03";
+"etherscan.link" = "https://etherscan.io/address/0x795D300855069F602862c5e23814Bdeeb25DCa6b";
 
-"discourse.title" = "Discourse";
-"discourse.link" = "https://discourse.nouns.wtf";
+"proposals.title" = "Proposals";
+"proposals.link" = "https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/299?tab=activity";
+
+"opensea.title" = "OpenSea";
+"opensea.link" = "https://opensea.io/collection/mferbuilderdao";
+
+"auctions.title" = "Auctions";
+"auctions.link" = "https://mferbuilderDAO.org";

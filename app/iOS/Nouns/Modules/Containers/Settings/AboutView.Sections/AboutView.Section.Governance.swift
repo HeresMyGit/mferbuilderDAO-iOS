@@ -41,7 +41,7 @@ extension GovernanceInfoSection {
           guard let ethBalance = EtherFormatter.eth(
             from: balance,
             minimumFractionDigits: 0,
-            maximumFractionDigits: 0
+            maximumFractionDigits: 2
           ) else { return }
           
           treasury = ethBalance 
@@ -72,9 +72,9 @@ struct GovernanceInfoSection: View {
               .resizable()
               .frame(width: 9.43, height: 12)
           })
-            .background(Gradient.mangoChunks)
-            .clipShape(Capsule())
-            .frame(width: 95, height: 23)
+          .background(Gradient.mangoChunks)
+          .clipShape(Capsule())
+          .frame(width: 95, height: 23)
           
           Spacer()
           
@@ -99,48 +99,10 @@ struct GovernanceInfoSection: View {
         smallAccessory: { Image.smArrowOut },
         action: {
           withAnimation {
-//            isAboutNounsPresented.toggle()
-            let url = URL(string: "https://mferbuilderdao.org/info")!
-            UIApplication.shared.open(url)
+            isAboutNounsPresented.toggle()
           }
         })
-        .controlSize(.large)
-      SoftButton(
-        text: "Auctions",
-        icon: { Image.web },
-        smallAccessory: { Image.smArrowOut },
-        action: {
-          withAnimation {
-//            isAboutNounsPresented.toggle()
-            let url = URL(string: "https://mferbuilderdao.org/")!
-            UIApplication.shared.open(url)
-          }
-        })
-        .controlSize(.large)
-      SoftButton(
-        text: "Proposals",
-        icon: { Image.web },
-        smallAccessory: { Image.smArrowOut },
-        action: {
-          withAnimation {
-//            isAboutNounsPresented.toggle()
-            let url = URL(string: "https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/299?tab=activity")!
-            UIApplication.shared.open(url)
-          }
-        })
-        .controlSize(.large)
-    }
-    SoftButton(
-      text: "OpenSea",
-      icon: { Image.web },
-      smallAccessory: { Image.smArrowOut },
-      action: {
-        withAnimation {
-//            isAboutNounsPresented.toggle()
-          let url = URL(string: "https://opensea.io/collection/mferbuilderdao")!
-          UIApplication.shared.open(url)
-        }
-      })
       .controlSize(.large)
+    }
   }
 }
