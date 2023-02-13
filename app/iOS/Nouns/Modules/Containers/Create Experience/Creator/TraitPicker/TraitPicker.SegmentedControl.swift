@@ -32,44 +32,8 @@ extension NounCreator {
       ScrollView(.horizontal, showsIndicators: false) { proxy in
         // Displays all Noun's trait types in a segement control.
         OutlinePicker(selection: $selectedTraitType) {
-//          let types = viewModel.tokenType == .mfer ? TraitType.allCases : [.background, .head, .headphones, .smoke]
           let types = TraitType.allCases
           ForEach(types, id: \.rawValue) { type in
-            Text(type.description)
-              .id(type.rawValue)
-              .scrollId(type.rawValue)
-              .pickerItemTag(type.rawValue, namespace: typeSelectionNamespace)
-              .simultaneousGesture(
-                TapGesture()
-                  .onEnded { _ in
-                    viewModel.didTapTraitType(to: .init(rawValue: type.rawValue) ?? .headphones)
-                  }
-              )
-          }
-        }
-        .padding(.horizontal)
-        .onChange(of: selectedTraitType) { newValue in
-          withAnimation {
-            proxy.scrollTo(newValue, alignment: .center, animated: true)
-          }
-        }
-      }
-    }
-  }
-  
-  struct MferTraitTypeSegmentedControl: View {
-    
-    @ObservedObject var viewModel: MferViewModel
-    
-    @Binding var selectedTraitType: Int
-    
-    @Namespace private var typeSelectionNamespace
-    
-    var body: some View {
-      ScrollView(.horizontal, showsIndicators: false) { proxy in
-        // Displays all Noun's trait types in a segement control.
-        OutlinePicker(selection: $selectedTraitType) {
-          ForEach(MferSlotMachine.TraitType.allCases, id: \.rawValue) { type in
             Text(type.description)
               .id(type.rawValue)
               .scrollId(type.rawValue)
