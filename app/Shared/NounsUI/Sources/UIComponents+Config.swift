@@ -26,10 +26,11 @@ public struct NounsUI {
     
     public static func registerFonts() {
         GTWalsheim.allCases.forEach {
+            let type = $0 == .bold ? FontType.open  : .true
             Font.registerFont(
                 bundle: .module,
                 name: $0.rawValue,
-                type: FontType.true)
+                type: type)
         }
     }
 }

@@ -149,9 +149,13 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.entitlements` struct is generated, and contains static references to 1 properties.
+  /// This `R.entitlements` struct is generated, and contains static references to 5 properties.
   struct entitlements {
     static let apsEnvironment = infoPlistString(path: [], key: "aps-environment") ?? "development"
+    static let comAppleSecurityAppSandbox = true
+    static let comAppleSecurityDeviceAudioInput = true
+    static let comAppleSecurityNetworkClient = true
+    static let comAppleSecurityPersonalInformationPhotosLibrary = true
 
     fileprivate init() {}
   }
@@ -508,10 +512,12 @@ struct R: Rswift.Validatable {
     static let nounFetti_00119 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Noun-fetti_00119")
     /// Image `NounsWatermark`.
     static let nounsWatermark = Rswift.ImageResource(bundle: R.hostingBundle, name: "NounsWatermark")
-    /// Image `arslan-noun`.
-    static let arslanNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "arslan-noun")
+    /// Image `acl-pfp`.
+    static let aclPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "acl-pfp")
     /// Image `bell-noun`.
     static let bellNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "bell-noun")
+    /// Image `bot-pfp`.
+    static let botPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "bot-pfp")
     /// Image `confetti-10`.
     static let confetti10 = Rswift.ImageResource(bundle: R.hostingBundle, name: "confetti-10")
     /// Image `confetti-1`.
@@ -534,6 +540,8 @@ struct R: Rswift.Validatable {
     static let confetti9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "confetti-9")
     /// Image `create-noun-pizza`.
     static let createNounPizza = Rswift.ImageResource(bundle: R.hostingBundle, name: "create-noun-pizza")
+    /// Image `dao-pfp`.
+    static let daoPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "dao-pfp")
     /// Image `explore-onboarding`.
     static let exploreOnboarding = Rswift.ImageResource(bundle: R.hostingBundle, name: "explore-onboarding")
     /// Image `eyes-blink-fullblack_1`.
@@ -1076,14 +1084,12 @@ struct R: Rswift.Validatable {
     static let headWerewolfMouth3 = Rswift.ImageResource(bundle: R.hostingBundle, name: "head-werewolf-mouth-3")
     /// Image `head-werewolf-mouth-4`.
     static let headWerewolfMouth4 = Rswift.ImageResource(bundle: R.hostingBundle, name: "head-werewolf-mouth-4")
+    /// Image `heresmy-pfp`.
+    static let heresmyPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "heresmy-pfp")
     /// Image `home-slice-chat`.
     static let homeSliceChat = Rswift.ImageResource(bundle: R.hostingBundle, name: "home-slice-chat")
-    /// Image `krish-noun`.
-    static let krishNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "krish-noun")
-    /// Image `matt-noun`.
-    static let mattNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "matt-noun")
-    /// Image `mo-noun`.
-    static let moNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "mo-noun")
+    /// Image `lilpanda-pfp`.
+    static let lilpandaPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "lilpanda-pfp")
     /// Image `noun-logo`.
     static let nounLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "noun-logo")
     /// Image `noun`.
@@ -1096,6 +1102,8 @@ struct R: Rswift.Validatable {
     static let nounsIos03Marquee = Rswift.ImageResource(bundle: R.hostingBundle, name: "nouns-ios-03-marquee")
     /// Image `nouns-onboarding-02-cards`.
     static let nounsOnboarding02Cards = Rswift.ImageResource(bundle: R.hostingBundle, name: "nouns-onboarding-02-cards")
+    /// Image `nounscollectiv3-pfp`.
+    static let nounscollectiv3Pfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "nounscollectiv3-pfp")
     /// Image `pizza-noun`.
     static let pizzaNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "pizza-noun")
     /// Image `placeholder-ens`.
@@ -1104,16 +1112,12 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `red_headphones`.
     static let red_headphones = Rswift.ImageResource(bundle: R.hostingBundle, name: "red_headphones")
-    /// Image `robleh-noun`.
-    static let roblehNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "robleh-noun")
     /// Image `shadow`.
     static let shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "shadow")
     /// Image `shark-noun`.
     static let sharkNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "shark-noun")
-    /// Image `shawn-noun`.
-    static let shawnNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "shawn-noun")
-    /// Image `ziad-noun`.
-    static let ziadNoun = Rswift.ImageResource(bundle: R.hostingBundle, name: "ziad-noun")
+    /// Image `zhoug-pfp`.
+    static let zhougPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "zhoug-pfp")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "AppIcon0_Preview", bundle: ..., traitCollection: ...)`
@@ -2152,9 +2156,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "arslan-noun", bundle: ..., traitCollection: ...)`
-    static func arslanNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.arslanNoun, compatibleWith: traitCollection)
+    /// `UIImage(named: "acl-pfp", bundle: ..., traitCollection: ...)`
+    static func aclPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.aclPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2162,6 +2166,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "bell-noun", bundle: ..., traitCollection: ...)`
     static func bellNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.bellNoun, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "bot-pfp", bundle: ..., traitCollection: ...)`
+    static func botPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.botPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -2239,6 +2250,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "create-noun-pizza", bundle: ..., traitCollection: ...)`
     static func createNounPizza(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.createNounPizza, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "dao-pfp", bundle: ..., traitCollection: ...)`
+    static func daoPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.daoPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -4140,6 +4158,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "heresmy-pfp", bundle: ..., traitCollection: ...)`
+    static func heresmyPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.heresmyPfp, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "home-slice-chat", bundle: ..., traitCollection: ...)`
     static func homeSliceChat(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.homeSliceChat, compatibleWith: traitCollection)
@@ -4147,23 +4172,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "krish-noun", bundle: ..., traitCollection: ...)`
-    static func krishNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.krishNoun, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "matt-noun", bundle: ..., traitCollection: ...)`
-    static func mattNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.mattNoun, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "mo-noun", bundle: ..., traitCollection: ...)`
-    static func moNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.moNoun, compatibleWith: traitCollection)
+    /// `UIImage(named: "lilpanda-pfp", bundle: ..., traitCollection: ...)`
+    static func lilpandaPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lilpandaPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -4210,6 +4221,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "nounscollectiv3-pfp", bundle: ..., traitCollection: ...)`
+    static func nounscollectiv3Pfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.nounscollectiv3Pfp, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "pizza-noun", bundle: ..., traitCollection: ...)`
     static func pizzaNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.pizzaNoun, compatibleWith: traitCollection)
@@ -4238,13 +4256,6 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "robleh-noun", bundle: ..., traitCollection: ...)`
-    static func roblehNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.roblehNoun, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "shadow", bundle: ..., traitCollection: ...)`
     static func shadow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.shadow, compatibleWith: traitCollection)
@@ -4259,16 +4270,9 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "shawn-noun", bundle: ..., traitCollection: ...)`
-    static func shawnNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.shawnNoun, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "ziad-noun", bundle: ..., traitCollection: ...)`
-    static func ziadNoun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.ziadNoun, compatibleWith: traitCollection)
+    /// `UIImage(named: "zhoug-pfp", bundle: ..., traitCollection: ...)`
+    static func zhougPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.zhougPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -6469,7 +6473,7 @@ struct R: Rswift.Validatable {
       static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "About", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Treasury
       static let treasury = Rswift.StringResource(key: "treasury", tableName: "About", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.wtf
+      /// Value: https://mferbuilderDAO.org
       static let aboutLink = Rswift.StringResource(key: "about.link", tableName: "About", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: About
@@ -6511,7 +6515,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("treasury", tableName: "About", bundle: bundle, comment: "")
       }
 
-      /// Value: https://nouns.wtf
+      /// Value: https://mferbuilderDAO.org
       static func aboutLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("about.link", tableName: "About", bundle: hostingBundle, comment: "")
@@ -6699,7 +6703,7 @@ struct R: Rswift.Validatable {
       static let enable = Rswift.StringResource(key: "enable", tableName: "AudioPermissionDialog", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Let's get talkin!
       static let title = Rswift.StringResource(key: "title", tableName: "AudioPermissionDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: To make your Noun talk, the app needs your permission to use the microphone.
+      /// Value: To make your mfer talk, the app needs your permission to use the microphone.
       static let body = Rswift.StringResource(key: "body", tableName: "AudioPermissionDialog", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Do it later
@@ -6741,7 +6745,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "AudioPermissionDialog", bundle: bundle, comment: "")
       }
 
-      /// Value: To make your Noun talk, the app needs your permission to use the microphone.
+      /// Value: To make your mfer talk, the app needs your permission to use the microphone.
       static func body(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("body", tableName: "AudioPermissionDialog", bundle: hostingBundle, comment: "")
@@ -6965,11 +6969,11 @@ struct R: Rswift.Validatable {
       static let nounBirthdayLabel = Rswift.StringResource(key: "noun.birthday.label", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Created by you
       static let ownerLabel = Rswift.StringResource(key: "owner.label", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Name your Noun!
+      /// Value: Name your mfer!
       static let inputPlaceholder = Rswift.StringResource(key: "input.placeholder", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Save & finish
       static let actionSave = Rswift.StringResource(key: "action.save", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Share your Noun
+      /// Value: Share your mfer
       static let actionShare = Rswift.StringResource(key: "action.share", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Born %s
@@ -7000,7 +7004,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("owner.label", tableName: "CreateNounDialog", bundle: bundle, comment: "")
       }
 
-      /// Value: Name your Noun!
+      /// Value: Name your mfer!
       static func inputPlaceholder(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("input.placeholder", tableName: "CreateNounDialog", bundle: hostingBundle, comment: "")
@@ -7026,7 +7030,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("action.save", tableName: "CreateNounDialog", bundle: bundle, comment: "")
       }
 
-      /// Value: Share your Noun
+      /// Value: Share your mfer
       static func actionShare(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("action.share", tableName: "CreateNounDialog", bundle: hostingBundle, comment: "")
@@ -7044,14 +7048,14 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.create` struct is generated, and contains static references to 3 localization keys.
     struct create {
-      /// Value: Build a completely custom mfbldr token
+      /// Value: Build a completely custom mfer or mfbldr token
       static let subheadline = Rswift.StringResource(key: "subheadline", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Create
       static let title = Rswift.StringResource(key: "title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get going
       static let proceedTitle = Rswift.StringResource(key: "proceed.title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Build a completely custom mfbldr token
+      /// Value: Build a completely custom mfer or mfbldr token
       static func subheadline(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("subheadline", tableName: "Create", bundle: hostingBundle, comment: "")
@@ -7093,18 +7097,22 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    /// This `R.string.derivativeProjects` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.derivativeProjects` struct is generated, and contains static references to 6 localization keys.
     struct derivativeProjects {
-      /// Value: Derivative projects
+      /// Value: Explore mfers
       static let title = Rswift.StringResource(key: "title", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Derivative projects take the DNA of Nouns to build something new, and are key to growing the Nouns community.
-      static let message = Rswift.StringResource(key: "message", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Nouns Center
-      static let nounsCenterTitle = Rswift.StringResource(key: "nouns-center.title", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.center/projects
+      /// Value: https://mirror.xyz/sartoshi.eth/QukjtL1076-1SEoNJuqyc-x4Ut2v8_TocKkszo-S_nU
+      static let whatAreMfersLink = Rswift.StringResource(key: "what-are-mfers.link", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: https://unofficialmfers.com
       static let nounsCenterLink = Rswift.StringResource(key: "nouns-center.link", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: mfers are the heart and core of mferbuilderDAO.  Learn more about mfers from sartoshi the creator or the unofficial mfers webpage.  mferbuilderDAO is unaffiliated with the links below.
+      static let message = Rswift.StringResource(key: "message", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: unofficial mfers
+      static let nounsCenterTitle = Rswift.StringResource(key: "nouns-center.title", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: what are mfers
+      static let whatAreMfersTitle = Rswift.StringResource(key: "what-are-mfers.title", tableName: "DerivativeProjects", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Derivative projects
+      /// Value: Explore mfers
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
@@ -7117,33 +7125,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "DerivativeProjects", bundle: bundle, comment: "")
       }
 
-      /// Value: Derivative projects take the DNA of Nouns to build something new, and are key to growing the Nouns community.
-      static func message(preferredLanguages: [String]? = nil) -> String {
+      /// Value: https://mirror.xyz/sartoshi.eth/QukjtL1076-1SEoNJuqyc-x4Ut2v8_TocKkszo-S_nU
+      static func whatAreMfersLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("message", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
+          return NSLocalizedString("what-are-mfers.link", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
         }
 
         guard let (_, bundle) = localeBundle(tableName: "DerivativeProjects", preferredLanguages: preferredLanguages) else {
-          return "message"
+          return "what-are-mfers.link"
         }
 
-        return NSLocalizedString("message", tableName: "DerivativeProjects", bundle: bundle, comment: "")
+        return NSLocalizedString("what-are-mfers.link", tableName: "DerivativeProjects", bundle: bundle, comment: "")
       }
 
-      /// Value: Nouns Center
-      static func nounsCenterTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("nouns-center.title", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "DerivativeProjects", preferredLanguages: preferredLanguages) else {
-          return "nouns-center.title"
-        }
-
-        return NSLocalizedString("nouns-center.title", tableName: "DerivativeProjects", bundle: bundle, comment: "")
-      }
-
-      /// Value: https://nouns.center/projects
+      /// Value: https://unofficialmfers.com
       static func nounsCenterLink(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("nouns-center.link", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
@@ -7156,12 +7151,51 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("nouns-center.link", tableName: "DerivativeProjects", bundle: bundle, comment: "")
       }
 
+      /// Value: mfers are the heart and core of mferbuilderDAO.  Learn more about mfers from sartoshi the creator or the unofficial mfers webpage.  mferbuilderDAO is unaffiliated with the links below.
+      static func message(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("message", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "DerivativeProjects", preferredLanguages: preferredLanguages) else {
+          return "message"
+        }
+
+        return NSLocalizedString("message", tableName: "DerivativeProjects", bundle: bundle, comment: "")
+      }
+
+      /// Value: unofficial mfers
+      static func nounsCenterTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("nouns-center.title", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "DerivativeProjects", preferredLanguages: preferredLanguages) else {
+          return "nouns-center.title"
+        }
+
+        return NSLocalizedString("nouns-center.title", tableName: "DerivativeProjects", bundle: bundle, comment: "")
+      }
+
+      /// Value: what are mfers
+      static func whatAreMfersTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("what-are-mfers.title", tableName: "DerivativeProjects", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "DerivativeProjects", preferredLanguages: preferredLanguages) else {
+          return "what-are-mfers.title"
+        }
+
+        return NSLocalizedString("what-are-mfers.title", tableName: "DerivativeProjects", bundle: bundle, comment: "")
+      }
+
       fileprivate init() {}
     }
 
     /// This `R.string.documentation` struct is generated, and contains static references to 4 localization keys.
     struct documentation {
-      /// Value: Explore mfer builders
+      /// Value: Explore mferbuilderDAO
       static let title = Rswift.StringResource(key: "title", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Learn More
       static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -7170,7 +7204,7 @@ struct R: Rswift.Validatable {
       /// Value: https://mferbuilderDAO.org/info
       static let documentationLink = Rswift.StringResource(key: "documentation.link", tableName: "Documentation", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Explore mfer builders
+      /// Value: Explore mferbuilderDAO
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "Documentation", bundle: hostingBundle, comment: "")
@@ -7237,7 +7271,7 @@ struct R: Rswift.Validatable {
       static let settledErrorLoadMore = Rswift.StringResource(key: "settled.error.loadMore", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Failed to load settled auctions
       static let settledErrorEmpty = Rswift.StringResource(key: "settled.error.empty", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Noun %s
+      /// Value: mfbldr %s
       static let noun = Rswift.StringResource(key: "noun", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: token and auction data coming soon mfer
       static let allErrorEmpty = Rswift.StringResource(key: "all.error.empty", tableName: "Explore", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -7307,7 +7341,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("settled.error.empty", tableName: "Explore", bundle: bundle, comment: "")
       }
 
-      /// Value: Noun %s
+      /// Value: mfbldr %s
       static func noun(_ value1: UnsafePointer<CChar>, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("noun", tableName: "Explore", bundle: hostingBundle, comment: "")
@@ -7430,11 +7464,11 @@ struct R: Rswift.Validatable {
     struct notificationPermission {
       /// Value: Do it later
       static let ignore = Rswift.StringResource(key: "ignore", tableName: "NotificationPermission", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Every day a new Noun is randomly created as the previous Noun's day comes to an end. Get notified when this glorious hour approaches!
+      /// Value: Every 69 minutes a new mfer is randomly created as the previous mfers auction comes to an end. Get notified when this glorious hour approaches!
       static let body = Rswift.StringResource(key: "body", tableName: "NotificationPermission", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Turn on notifications
       static let enable = Rswift.StringResource(key: "enable", tableName: "NotificationPermission", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Wanna know when it’s Noun O’Clock?
+      /// Value: Wanna know when it’s mfer O’Clock?
       static let title = Rswift.StringResource(key: "title", tableName: "NotificationPermission", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Do it later
@@ -7450,7 +7484,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("ignore", tableName: "NotificationPermission", bundle: bundle, comment: "")
       }
 
-      /// Value: Every day a new Noun is randomly created as the previous Noun's day comes to an end. Get notified when this glorious hour approaches!
+      /// Value: Every 69 minutes a new mfer is randomly created as the previous mfers auction comes to an end. Get notified when this glorious hour approaches!
       static func body(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("body", tableName: "NotificationPermission", bundle: hostingBundle, comment: "")
@@ -7476,7 +7510,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("enable", tableName: "NotificationPermission", bundle: bundle, comment: "")
       }
 
-      /// Value: Wanna know when it’s Noun O’Clock?
+      /// Value: Wanna know when it’s mfer O’Clock?
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "NotificationPermission", bundle: hostingBundle, comment: "")
@@ -7494,14 +7528,14 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.nounDAOInfo` struct is generated, and contains static references to 3 localization keys.
     struct nounDAOInfo {
-      /// Value: Each Noun represents one vote in all governance matters of the Nouns DAO. The holder of Noun %@ can vote on proposals submitted to the DAO and this is their voting activity.
+      /// Value: Each mfbldr represents one vote in all governance matters of the mfersbuilderDAO. The holder of mfbldr %@ can vote on proposals submitted to the DAO and this is their voting activity.
       static let activityDescription = Rswift.StringResource(key: "activity.description", tableName: "NounDAOInfo", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: This page shows all bids submitted for Noun %@.
+      /// Value: This page shows all bids submitted for mfbldr %@.
       static let bidHistoryDescription = Rswift.StringResource(key: "bid.history.description", tableName: "NounDAOInfo", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: What is this?
       static let title = Rswift.StringResource(key: "title", tableName: "NounDAOInfo", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Each Noun represents one vote in all governance matters of the Nouns DAO. The holder of Noun %@ can vote on proposals submitted to the DAO and this is their voting activity.
+      /// Value: Each mfbldr represents one vote in all governance matters of the mfersbuilderDAO. The holder of mfbldr %@ can vote on proposals submitted to the DAO and this is their voting activity.
       static func activityDescription(_ value1: String, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("activity.description", tableName: "NounDAOInfo", bundle: hostingBundle, comment: "")
@@ -7516,7 +7550,7 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
-      /// Value: This page shows all bids submitted for Noun %@.
+      /// Value: This page shows all bids submitted for mfbldr %@.
       static func bidHistoryDescription(_ value1: String, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("bid.history.description", tableName: "NounDAOInfo", bundle: hostingBundle, comment: "")
@@ -7549,7 +7583,7 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.nounDeleteDialog` struct is generated, and contains static references to 4 localization keys.
     struct nounDeleteDialog {
-      /// Value: Are you sure you want to leave and lose the precious Nouniness you’ve created?
+      /// Value: Are you sure you want to leave and lose the precious mfer you’ve created?
       static let message = Rswift.StringResource(key: "message", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: For reals?
       static let title = Rswift.StringResource(key: "title", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -7558,7 +7592,7 @@ struct R: Rswift.Validatable {
       /// Value: Yeah, get rid of it
       static let nounDeleteAction = Rswift.StringResource(key: "noun.delete.action", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Are you sure you want to leave and lose the precious Nouniness you’ve created?
+      /// Value: Are you sure you want to leave and lose the precious mfer you’ve created?
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
@@ -7754,7 +7788,7 @@ struct R: Rswift.Validatable {
       static let bidWinner = Rswift.StringResource(key: "bid-winner", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: nounders.eth
       static let noundersEth = Rswift.StringResource(key: "nounders.eth", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: 👋 sup! check out Noun %s
+      /// Value: 👋 sup! check out mfer %s
       static let shareMessage = Rswift.StringResource(key: "share.message", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: %dh %dm %ds
@@ -7904,7 +7938,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("nounders.eth", tableName: "NounProfile", bundle: bundle, comment: "")
       }
 
-      /// Value: 👋 sup! check out Noun %s
+      /// Value: 👋 sup! check out mfer %s
       static func shareMessage(_ value1: UnsafePointer<CChar>, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("share.message", tableName: "NounProfile", bundle: hostingBundle, comment: "")
@@ -7924,22 +7958,22 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.offchainNounActions` struct is generated, and contains static references to 7 localization keys.
     struct offchainNounActions {
-      /// Value: Delete your Noun
+      /// Value: Delete your mfer
       static let delete = Rswift.StringResource(key: "delete", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Edit your Noun
+      /// Value: Edit your mfer
       static let edit = Rswift.StringResource(key: "edit", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: More Actions
       static let title = Rswift.StringResource(key: "title", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Play with you Noun
+      /// Value: Play with you mfer
       static let play = Rswift.StringResource(key: "play", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Rename your Noun
+      /// Value: Rename your mfer
       static let rename = Rswift.StringResource(key: "rename", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Use this dope new name
       static let useName = Rswift.StringResource(key: "use.name", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: 👋 sup! check out this fresh Noun
+      /// Value: 👋 sup! check out this fresh mfer
       static let shareMessage = Rswift.StringResource(key: "share.message", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Delete your Noun
+      /// Value: Delete your mfer
       static func delete(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("delete", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -7952,7 +7986,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("delete", tableName: "offchain.noun.actions", bundle: bundle, comment: "")
       }
 
-      /// Value: Edit your Noun
+      /// Value: Edit your mfer
       static func edit(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("edit", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -7978,7 +8012,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "offchain.noun.actions", bundle: bundle, comment: "")
       }
 
-      /// Value: Play with you Noun
+      /// Value: Play with you mfer
       static func play(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("play", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -7991,7 +8025,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("play", tableName: "offchain.noun.actions", bundle: bundle, comment: "")
       }
 
-      /// Value: Rename your Noun
+      /// Value: Rename your mfer
       static func rename(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("rename", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -8017,7 +8051,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("use.name", tableName: "offchain.noun.actions", bundle: bundle, comment: "")
       }
 
-      /// Value: 👋 sup! check out this fresh Noun
+      /// Value: 👋 sup! check out this fresh mfer
       static func shareMessage(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("share.message", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -8086,28 +8120,28 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.playExperience` struct is generated, and contains static references to 10 localization keys.
     struct playExperience {
-      /// Value: Create a Noun
+      /// Value: Create a mfer
       static let createNoun = Rswift.StringResource(key: "create.noun", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get going
       static let proceedTitle = Rswift.StringResource(key: "proceed.title", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Give your Noun something to say!
+      /// Value: Give your mfer something to say!
       static let subheadline = Rswift.StringResource(key: "subheadline", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: New
       static let createNounAction = Rswift.StringResource(key: "create-noun.action", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Pick a Noun, yo
+      /// Value: Pick a mfer, yo
       static let chooseNoun = Rswift.StringResource(key: "choose.noun", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Play
       static let title = Rswift.StringResource(key: "title", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Swipe to pick a Noun
+      /// Value: Swipe to pick a mfer
       static let chooseCoachmark = Rswift.StringResource(key: "choose.coachmark", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Yo, you don't have any Nouns. Create one and give it something to say!
+      /// Value: Yo, you don't have any mfer. Create one and give it something to say!
       static let createNounSpeechBubble = Rswift.StringResource(key: "create.noun.speech.bubble", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: You need a Noun!
+      /// Value: You need a mfer!
       static let noNouns = Rswift.StringResource(key: "no.nouns", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: sup home slice
       static let speechBubble = Rswift.StringResource(key: "speech.bubble", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Create a Noun
+      /// Value: Create a mfer
       static func createNoun(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("create.noun", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8133,7 +8167,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("proceed.title", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: Give your Noun something to say!
+      /// Value: Give your mfer something to say!
       static func subheadline(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("subheadline", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8159,7 +8193,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create-noun.action", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: Pick a Noun, yo
+      /// Value: Pick a mfer, yo
       static func chooseNoun(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("choose.noun", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8185,7 +8219,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: Swipe to pick a Noun
+      /// Value: Swipe to pick a mfer
       static func chooseCoachmark(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("choose.coachmark", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8198,7 +8232,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("choose.coachmark", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: Yo, you don't have any Nouns. Create one and give it something to say!
+      /// Value: Yo, you don't have any mfer. Create one and give it something to say!
       static func createNounSpeechBubble(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("create.noun.speech.bubble", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8211,7 +8245,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create.noun.speech.bubble", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: You need a Noun!
+      /// Value: You need a mfer!
       static func noNouns(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("no.nouns", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8318,7 +8352,7 @@ struct R: Rswift.Validatable {
       static let title = Rswift.StringResource(key: "title", tableName: "Settings.Notification.Permission", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Tap “Notifications”
       static let instructionStep1 = Rswift.StringResource(key: "instruction.step.1", tableName: "Settings.Notification.Permission", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: To get notifications about Nouns, you’ll need to turn them on in your iOS settings.
+      /// Value: To get notifications about mferbuilderDAO, you’ll need to turn them on in your iOS settings.
       static let motivationContent = Rswift.StringResource(key: "motivation.content", tableName: "Settings.Notification.Permission", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Turn on notifications?
       static let motivationTitle = Rswift.StringResource(key: "motivation.title", tableName: "Settings.Notification.Permission", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -8377,7 +8411,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("instruction.step.1", tableName: "Settings.Notification.Permission", bundle: bundle, comment: "")
       }
 
-      /// Value: To get notifications about Nouns, you’ll need to turn them on in your iOS settings.
+      /// Value: To get notifications about mferbuilderDAO, you’ll need to turn them on in your iOS settings.
       static func motivationContent(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("motivation.content", tableName: "Settings.Notification.Permission", bundle: hostingBundle, comment: "")
@@ -8425,10 +8459,8 @@ struct R: Rswift.Validatable {
       static let appIconTitle = Rswift.StringResource(key: "app.icon.title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: App Intro
       static let appIntroTitle = Rswift.StringResource(key: "app.intro.title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Every day a new Noun is born. Get notified when this glorious hour approaches.
+      /// Value: Every day a new mfbldr is born. Get notified when this glorious hour approaches.
       static let notificationNote = Rswift.StringResource(key: "notification.note", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Noun O’Clock
-      static let newNounNotificationTitle = Rswift.StringResource(key: "new-noun.notification.title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Settings
       static let title = Rswift.StringResource(key: "title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Share with friends
@@ -8437,6 +8469,8 @@ struct R: Rswift.Validatable {
       static let themeSystem = Rswift.StringResource(key: "theme.system", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Theme
       static let themeTitle = Rswift.StringResource(key: "theme.title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: mfbldr O’Clock
+      static let newNounNotificationTitle = Rswift.StringResource(key: "new-noun.notification.title", tableName: "Settings", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: App Icon
       static func appIconTitle(preferredLanguages: [String]? = nil) -> String {
@@ -8464,7 +8498,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("app.intro.title", tableName: "Settings", bundle: bundle, comment: "")
       }
 
-      /// Value: Every day a new Noun is born. Get notified when this glorious hour approaches.
+      /// Value: Every day a new mfbldr is born. Get notified when this glorious hour approaches.
       static func notificationNote(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("notification.note", tableName: "Settings", bundle: hostingBundle, comment: "")
@@ -8475,19 +8509,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("notification.note", tableName: "Settings", bundle: bundle, comment: "")
-      }
-
-      /// Value: Noun O’Clock
-      static func newNounNotificationTitle(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("new-noun.notification.title", tableName: "Settings", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Settings", preferredLanguages: preferredLanguages) else {
-          return "new-noun.notification.title"
-        }
-
-        return NSLocalizedString("new-noun.notification.title", tableName: "Settings", bundle: bundle, comment: "")
       }
 
       /// Value: Settings
@@ -8542,6 +8563,19 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("theme.title", tableName: "Settings", bundle: bundle, comment: "")
       }
 
+      /// Value: mfbldr O’Clock
+      static func newNounNotificationTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("new-noun.notification.title", tableName: "Settings", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Settings", preferredLanguages: preferredLanguages) else {
+          return "new-noun.notification.title"
+        }
+
+        return NSLocalizedString("new-noun.notification.title", tableName: "Settings", bundle: bundle, comment: "")
+      }
+
       fileprivate init() {}
     }
 
@@ -8565,7 +8599,7 @@ struct R: Rswift.Validatable {
       static let learnMore = Rswift.StringResource(key: "learn.more", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: N/A
       static let notApplicable = Rswift.StringResource(key: "not.applicable", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: New Noun!
+      /// Value: New mfers!
       static let liveAuction = Rswift.StringResource(key: "live.auction", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Remix
       static let remix = Rswift.StringResource(key: "remix", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -8701,7 +8735,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("not.applicable", tableName: "Shared", bundle: bundle, comment: "")
       }
 
-      /// Value: New Noun!
+      /// Value: New mfers!
       static func liveAuction(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("live.auction", tableName: "Shared", bundle: hostingBundle, comment: "")
@@ -8831,7 +8865,7 @@ struct R: Rswift.Validatable {
       static let discordTitle = Rswift.StringResource(key: "discord.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Etherscan
       static let etherscanTitle = Rswift.StringResource(key: "etherscan.title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.
+      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.  Not financial advice.
       static let message = Rswift.StringResource(key: "message", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get involved
       static let title = Rswift.StringResource(key: "title", tableName: "Spaces", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -8893,7 +8927,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("etherscan.title", tableName: "Spaces", bundle: bundle, comment: "")
       }
 
-      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.
+      /// Value: Follow the links below to get involved with the mferbuilderDAO community or to take a look at on-chain data.  Not financial advice.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Spaces", bundle: hostingBundle, comment: "")
@@ -9041,14 +9075,14 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.team` struct is generated, and contains static references to 3 localization keys.
     struct team {
-      /// Value: Made with 🖤
+      /// Value: Made with 🎧🚬
       static let title = Rswift.StringResource(key: "title", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: The Nouns app was created by a crew of frens from Nouns Collective.
+      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  mferbuilerDAO has many wonderful builders, voters, and members, a few of them are listed below.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
       static let message = Rswift.StringResource(key: "message", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: https://twitter.com/%@
       static let twitterProfileUrl = Rswift.StringResource(key: "twitter.profile.url", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Made with 🖤
+      /// Value: Made with 🎧🚬
       static func title(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("title", tableName: "Team", bundle: hostingBundle, comment: "")
@@ -9061,7 +9095,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "Team", bundle: bundle, comment: "")
       }
 
-      /// Value: The Nouns app was created by a crew of frens from Nouns Collective.
+      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  mferbuilerDAO has many wonderful builders, voters, and members, a few of them are listed below.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Team", bundle: hostingBundle, comment: "")

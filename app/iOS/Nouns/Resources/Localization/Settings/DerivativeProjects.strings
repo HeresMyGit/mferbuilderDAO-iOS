@@ -6,10 +6,14 @@
   
 */
 
-"title" = "Derivative projects";
+"title" = "Explore mfers";
 
-"message" = "Derivative projects take the DNA of Nouns to build something new, and are key to growing the Nouns community.";
+"message" = "mfers are the heart and core of mferbuilderDAO.  Learn more about mfers from sartoshi the creator or the unofficial mfers webpage.  mferbuilderDAO is unaffiliated with the links below.";
 
-"nouns-center.title" = "Nouns Center";
+"nouns-center.title" = "unofficial mfers";
 
-"nouns-center.link" = "https://nouns.center/projects";
+"nouns-center.link" = "https://unofficialmfers.com";
+
+"what-are-mfers.title" = "what are mfers";
+
+"what-are-mfers.link" = "https://mirror.xyz/sartoshi.eth/QukjtL1076-1SEoNJuqyc-x4Ut2v8_TocKkszo-S_nU";

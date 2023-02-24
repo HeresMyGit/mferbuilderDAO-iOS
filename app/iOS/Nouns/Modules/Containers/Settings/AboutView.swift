@@ -35,10 +35,10 @@ struct AboutView: View {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 20) {
           GovernanceInfoSection(isAboutNounsPresented: $isAboutNounsPresented)
-          ProposalsInfoSection()
+//          ProposalsInfoSection()
           SpacesInfoSection()
           DocumentationInfoSection()
-//          DerivativeProjectsInfoSection()
+          DerivativeProjectsInfoSection()
 //          TeamInfoSection()
         }
         .padding(.horizontal, 20)
@@ -72,6 +72,6 @@ struct AboutView: View {
         outlineTabBarVisibility.show()
       }
     }
-//    .navigationViewStyle(StackNavigationViewStyle())
+    .navigationViewStyle(StackNavigationViewStyle())
   }
 }

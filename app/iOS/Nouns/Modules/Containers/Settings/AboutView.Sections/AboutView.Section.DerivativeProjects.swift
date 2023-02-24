@@ -23,6 +23,9 @@ struct DerivativeProjectsInfoSection: View {
   /// A boolean to load the noun.center link using a browser.
   @State private var isNounsCenterPresented = false
   
+  /// A boolean to load the what are mfers link using a browser.
+  @State private var isWhatAreMfersPresented = false
+  
   /// Holds a reference to the localized text.
   private let localize = R.string.derivativeProjects.self
   
@@ -38,9 +41,20 @@ struct DerivativeProjectsInfoSection: View {
         smallAccessory: { Image.smArrowOut },
         action: { isNounsCenterPresented.toggle() })
         .controlSize(.large)
+      
+      OutlineButton(
+        text: localize.whatAreMfersTitle(),
+        smallAccessory: { Image.smArrowOut },
+        action: { isWhatAreMfersPresented.toggle() })
+        .controlSize(.large)
     }
     .fullScreenCover(isPresented: $isNounsCenterPresented) {
       if let url = URL(string: localize.nounsCenterLink()) {
+        Safari(url: url)
+      }
+    }
+    .fullScreenCover(isPresented: $isWhatAreMfersPresented) {
+      if let url = URL(string: localize.whatAreMfersLink()) {
         Safari(url: url)
       }
     }

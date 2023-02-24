@@ -87,7 +87,7 @@ internal struct OutlinePickerItem: ViewModifier {
   }
   
   private var font: Font {
-    .custom(isSelected ? .bold : .medium, relativeTo: .footnote)
+      .custom(isSelected ? .medium : .regular, relativeTo: .footnote)
   }
   
   private var foregroundColor: Color {

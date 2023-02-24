@@ -20,7 +20,7 @@ import SwiftUI
 /// `GTWalsheim` type safe font.
 public enum GTWalsheim: String, CaseIterable {
   case boldOblique = "GT Walsheim Trial Bd Ob"
-  case bold = "GT Walsheim Trial Bd"
+  case bold = "SartoshiScript-Regular"
   case mediumOblique = "GT Walsheim Trial Md Ob"
   case medium = "GT Walsheim Trial Md"
   case regularOblique = "GT Walsheim Trial Rg Ob"

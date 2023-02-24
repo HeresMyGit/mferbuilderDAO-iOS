@@ -83,6 +83,6 @@ struct CreateExperience: View {
         viewModel.randomizeNoun()
       }
     }
-//    .navigationViewStyle(StackNavigationViewStyle())
+    .navigationViewStyle(StackNavigationViewStyle())
   }
 }
