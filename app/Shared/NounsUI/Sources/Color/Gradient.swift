@@ -19,6 +19,11 @@ import SwiftUI
 
 public enum GradientColors: CaseIterable {
   
+  case mferOrange
+  case mferRed
+  case mferBlue
+  case mferGreen
+  case mferYellow
   case coolGreydient
   case warmGreydient
   case cherrySunset
@@ -34,11 +39,6 @@ public enum GradientColors: CaseIterable {
   case magnoliaGarden
   case bubbleGum
   case recordButtonStroke
-  case mferOrange
-  case mferBlue
-  case mferRed
-  case mferGreen
-  case mferYellow
   
   public var colors: [Color] {
     switch self {

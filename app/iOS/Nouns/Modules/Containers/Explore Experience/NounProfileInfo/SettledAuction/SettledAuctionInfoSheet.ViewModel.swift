@@ -44,7 +44,7 @@ extension SettledAuctionInfoSheet {
       self.auction = auction
       
       winner = auction.noun.owner.id
-      let amount = EtherFormatter.eth(from: auction.amount)
+      let amount = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       winningBid = amount ?? R.string.shared.notApplicable()
       
       let startDate = Date(timeIntervalSince1970: auction.startTime)

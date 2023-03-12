@@ -52,7 +52,8 @@ struct LiveAuctionCard: View {
       },
       media: {
         VStack(spacing: 0) {
-          SpriteView(scene: talkingNoun, options: [.allowsTransparency])
+//          SpriteView(scene: talkingNoun, options: [.allowsTransparency])
+          NounPuzzle(seed: viewModel.auction.noun.seed)
             .id(viewModel.auction.id)
             .background(
               GeometryReader { proxy in

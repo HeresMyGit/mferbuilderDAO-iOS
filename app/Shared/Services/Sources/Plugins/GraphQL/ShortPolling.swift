@@ -28,7 +28,7 @@ class ShortPolling<T> {
   var setErrorHandler: ((Error) -> Void)?
 
   /// `Short-Poll` interval.
-  private let pollingInterval = 1
+  private let pollingInterval = 60
   
   /// A dispatch source that submits the event handler block based on timer.
   private lazy var timer: DispatchSourceTimer = {

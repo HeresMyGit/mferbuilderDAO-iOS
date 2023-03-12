@@ -50,7 +50,7 @@ extension LiveAuctionCard {
       let backgroundIndex = auction.noun.seed.background
       nounBackground = composer.backgroundColors[backgroundIndex]
       
-      let amount = EtherFormatter.eth(from: auction.amount)
+      let amount = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       lastBid = amount ?? R.string.shared.notApplicable()
       
       // On auction end, anounce the winner.

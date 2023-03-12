@@ -61,12 +61,13 @@ struct SettledAuctionInfoSheet: View {
         }
       )
       
+      // TODO: Re-add governance view
       // Action to display the governance details of the auction.
-      InfoCell(
-        text: viewModel.governanceTitle,
-        icon: { Image.history },
-        accessory: { Image.mdArrowRight },
-        action: { isActivityPresented.toggle() })
+//      InfoCell(
+//        text: viewModel.governanceTitle,
+//        icon: { Image.history },
+//        accessory: { Image.mdArrowRight },
+//        action: { isActivityPresented.toggle() })
     }
     .labelStyle(.titleAndIcon(spacing: 14))
     .padding(.bottom, 40)

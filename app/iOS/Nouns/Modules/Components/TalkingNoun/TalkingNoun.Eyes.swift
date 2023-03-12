@@ -94,9 +94,12 @@ extension TalkingNoun {
     }
 
     init(seed: Seed, frameSize: CGSize, blinkOnly: Bool = true, speed: Speed = .normal) {
-      guard let blinkTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-blink"] else {
-        fatalError("Couldn't load eye blink textures \(Self.nounComposer.headphones[seed.headphones]).")
-      }
+      // TODO: Add animations to mfbldr token auctions 
+//      guard let blinkTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-blink"] else {
+//        fatalError("Couldn't load eye blink textures \(Self.nounComposer.headphones[seed.headphones]).")
+//      }
+      
+      let blinkTextures = [Self.nounComposer.headphones[seed.headphones].assetImage]
       
       self.blinkTextures = blinkTextures.map {
         let texture = SKTexture(imageNamed: $0)
@@ -104,9 +107,11 @@ extension TalkingNoun {
         return texture
       }
       
-      guard let shiftTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-shift"] else {
-        fatalError("Couldn't load eye shift textures.")
-      }
+//      guard let shiftTextures = Self.nounComposer.headphones[seed.headphones].textures["eyes-shift"] else {
+//        fatalError("Couldn't load eye shift textures.")
+//      }
+      
+      let shiftTextures = [Self.nounComposer.headphones[seed.headphones].assetImage]
       
       self.shiftTextures = shiftTextures.map {
         let texture = SKTexture(imageNamed: $0)
@@ -118,9 +123,11 @@ extension TalkingNoun {
       
       self.animationSpeed = speed
       
-      guard let glassesFrame = Self.nounComposer.headphones[seed.headphones].textures["glasses-frame"]?.first else {
-        fatalError("Couldn't load eye shift textures.")
-      }
+//      guard let glassesFrame = Self.nounComposer.headphones[seed.headphones].textures["glasses-frame"]?.first else {
+//        fatalError("Couldn't load eye shift textures.")
+//      }
+      
+      let glassesFrame = Self.nounComposer.headphones[seed.headphones].assetImage
       
       let glassesFrameTexture = SKTexture(imageNamed: glassesFrame)
       glassesFrameTexture.filteringMode = .nearest

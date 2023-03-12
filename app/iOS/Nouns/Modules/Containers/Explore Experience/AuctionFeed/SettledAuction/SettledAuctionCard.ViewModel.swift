@@ -56,7 +56,7 @@ extension SettledAuctionCard {
       title = R.string.explore.noun(auction.noun.id)
       nounTraits = auction.noun.seed
       
-      let bid = EtherFormatter.eth(from: auction.amount)
+      let bid = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       winnerBid = bid ?? R.string.shared.notApplicable()
       
       let backgroundIndex = auction.noun.seed.background

@@ -27,6 +27,11 @@ extension NounCreator {
   
   /// The list of background gradients for use in the noun creator
   static let backgroundColors: [GradientColors] = [
+    .mferOrange,
+    .mferRed,
+    .mferBlue,
+    .mferGreen,
+    .mferYellow,
     .cherrySunset,
     .keyLimePie,
     .blueberryJam,
@@ -38,12 +43,7 @@ extension NounCreator {
     .magnoliaGarden,
     .lemonDrop,
     .oceanBreeze,
-    .bubbleGum,
-    .mferOrange,
-    .mferBlue,
-    .mferGreen,
-    .mferRed,
-    .mferYellow
+    .bubbleGum
   ]
   
   final class ViewModel: ObservableObject {

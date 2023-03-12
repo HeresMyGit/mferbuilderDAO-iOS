@@ -122,17 +122,21 @@ extension ExploreExperience {
           // Load next batch of the settled auctions from the network.
           // The cursor should be set to the amount of non-nounder owned
           // nouns in the view model as nounder owned nouns are not considered "auctions"
-          let auctions = try await service.fetchAuctions(
+          let auctions = try await service.fetchMferAuctions(
             settled: true,
             includeNounderOwned: true,
             limit: pageLimit,
             cursor: notNounderOwnedCount,
             sortDescending: true
           )
+          // TODO: Pagination
+//          shouldLoadMore = auctions.hasNext
           
-          shouldLoadMore = auctions.hasNext
+          shouldLoadMore = false
                           
-          self.auctions += uniqueAuctions(auctions.data)
+//          self.auctions += uniqueAuctions(auctions.data)
+          
+          self.auctions = auctions
           
         } catch {
           failedToLoadSettledAuctions = true

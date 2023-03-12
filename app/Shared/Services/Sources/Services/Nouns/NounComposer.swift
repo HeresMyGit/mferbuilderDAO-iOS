@@ -91,7 +91,7 @@ public class OfflineNounComposer: NounComposer {
     public lazy var smokes = layer.images["smoke"] ?? []
     
     /// The head list of traits.
-    public lazy var heads = layer.images["heads"] ?? []
+    public lazy var heads = layer.images["head"] ?? []
     
     /// The headphones list of traits.
     public lazy var headphones = layer.images["headphones"] ?? []

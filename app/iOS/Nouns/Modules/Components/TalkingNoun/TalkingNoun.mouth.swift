@@ -30,9 +30,12 @@ extension TalkingNoun {
     private let mouthTextures: [SKTexture]
     
     init(seed: Seed) {
-      guard let mouthAssets = Self.nounComposer.heads[seed.head].textures["mouth"] else {
-        fatalError("Couldn't load mouth textures.")
-      }
+      // TODO: Re-add animations
+//      guard let mouthAssets = Self.nounComposer.heads[seed.head].textures["mouth"] else {
+//        fatalError("Couldn't load mouth textures.")
+//      }
+      
+      let mouthAssets = [Self.nounComposer.heads[seed.head].assetImage]
       
       mouthTextures = Self.loadTextures(atlases: mouthAssets)
       

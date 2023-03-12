@@ -63,6 +63,8 @@ public protocol OnChainNounsService: AnyObject {
   ///
   /// - Returns: A list of `Auction` type  instance or throw an error.
   func fetchAuctions(settled: Bool, includeNounderOwned: Bool, limit: Int, cursor: Int, sortDescending: Bool) async throws -> Page<[Auction]>
+    
+  func fetchMferAuctions(settled: Bool, includeNounderOwned: Bool, limit: Int, cursor: Int, sortDescending: Bool) async throws -> [Auction]
   
   /// An asynchronous sequence that  produce the live auction and
   /// react to its properties changes
@@ -200,29 +202,59 @@ public class TheGraphOnChainNouns: OnChainNounsService {
     // Deduct the expected number of nounder owned nouns if `includeNounderOwned` is set to true
     let auctionLimit = limit - (includeNounderOwned ? limit / 10 : 0)
     let query = NounsSubgraph.AuctionsQuery(settled: settled, limit: auctionLimit, skip: cursor)
-    
+          
     var page: Page<[Auction]> = try await graphQLClient.fetch(
       query,
       cachePolicy: .returnCacheDataAndFetch
     )
       
     // Fetch nounder owned nouns, if requested
-    if includeNounderOwned {
-      page = try await fetchNounderOwnedNouns(within: page)
-    }
+//    if includeNounderOwned {
+//      page = try await fetchNounderOwnedNouns(within: page)
+//    }
 
-    // Sort page data
-    page.data = page.data.sorted(by: { auctionOne, auctionTwo in
-      guard let auctionOneId = Int(auctionOne.noun.id), let auctionTwoId = Int(auctionTwo.noun.id) else {
-        return false
+//    // Sort page data
+//    page.data = page.data.sorted(by: { auctionOne, auctionTwo in
+//      guard let auctionOneId = Int(auctionOne.noun.id), let auctionTwoId = Int(auctionTwo.noun.id) else {
+//        return false
+//      }
+//      if sortDescending {
+//        return auctionOneId > auctionTwoId
+//      }
+//      return auctionOneId < auctionTwoId
+//    })
+      
+      var nouns = [Noun]()
+      for i in 0...5 {
+          let noun = Noun(id: "\(i)", name: "mfer \(i)", owner: Account(id: "1"), seed: Seed.pizza, createdAt: Date.now, updatedAt: Date.now, nounderOwned: true)
+          nouns.append(noun)
       }
-      if sortDescending {
-        return auctionOneId > auctionTwoId
+      
+      var auctions = [Auction]()
+      for noun in nouns {
+          let auction = Auction(id: "1", noun: noun, amount: "0.69", startTime: 0, endTime: 0, settled: true, bidder: Account(id: "1"))
+          auctions.append(auction)
       }
-      return auctionOneId < auctionTwoId
-    })
+
     return page
   }
+    
+    public func fetchMferAuctions(settled: Bool, includeNounderOwned: Bool, limit: Int, cursor: Int, sortDescending: Bool) async throws -> [Auction] {
+        var nouns = [Noun]()
+        for i in 0..<5 {
+            let noun = Noun(id: "\(i)", name: "PLACEHOLDER \(i)", owner: Account(id: "1"), seed: OfflineNounComposer.default().randomSeed(), createdAt: Date.now, updatedAt: Date.now, nounderOwned: false)
+            nouns.append(noun)
+        }
+        
+        var auctions = [Auction]()
+        for i in 0..<nouns.count {
+            let noun = nouns[i]
+            let auction = Auction(id: "\(i)", noun: noun, amount: "690000000000000000", startTime: 0, endTime: 0, settled: true, bidder: Account(id: "1"))
+            auctions.append(auction)
+        }
+        
+        return auctions
+    }
   
   /// An implementation to seperately fetch nounder owned nouns, as the GraphQL
   /// endpoint for returning auctions does not return nounder-owned nouns by default
@@ -339,18 +371,62 @@ public class TheGraphOnChainNouns: OnChainNounsService {
   ///
   /// **Note:** Should be deleted once the changes are watched using a websocket.
   private func fetchLiveAuction() async throws -> Auction {
-    let query = NounsSubgraph.LiveAuctionSubscription()
-    let page: Page<[Auction]>? = try await graphQLClient.fetch(
-      query,
-      cachePolicy: .returnCacheDataAndFetch
-    )
+      let url = URL(string: "https://mferbuilderdao-api.vercel.app/api/v1/auction")!
+      let data = try await URLSession.shared.data(from: url).0
+          
+      if let jsonString = String(data: data, encoding: .utf8) {
+         print(jsonString)
+      }
+      let decoder = JSONDecoder()
+      do {
+          let mferAuction = try decoder.decode(MferAuction.self, from: data)
+          let mfer = try await fetchMferDetails(for: mferAuction.tokenId)
+          let seed = Seed(properties: mfer?.properties ?? [:])
+          
+          let hexString = mferAuction.highestBid.hex
+          let newString = hexString.dropFirst(2)
+          let numberAmount = UInt64(newString, radix: 16) ?? 0
+          let bid = "\(numberAmount)"
+          
+          let noun = Noun(id: mferAuction.tokenId, name: mfer?.name ?? "", owner: Account(id: mferAuction.highestBidder), seed: seed, createdAt: Date(timeIntervalSince1970: mferAuction.startTime), updatedAt: Date(timeIntervalSince1970: mferAuction.endTime), nounderOwned: false)
+          let auction = Auction(id: mferAuction.tokenId, noun: noun, amount: bid, startTime: mferAuction.startTime, endTime: mferAuction.endTime, settled: mferAuction.settled, bidder: Account(id: mferAuction.highestBidder))
+          return auction
+      } catch {
+          print(error.localizedDescription)
+          return Auction(id: "", noun: Noun(id: "", name: "", owner: Account(id: ""), seed: Seed.pizza, createdAt: Date.now, updatedAt: Date.now, nounderOwned: false), amount: "", startTime: 0, endTime: 0, settled: false, bidder: nil)
+      }
+      
 
-    guard let auction = page?.data.first else {
-      throw OnChainNounsRequestError.noData
-    }
-    
-    return auction
+//    let query = NounsSubgraph.LiveAuctionSubscription()
+//    let page: Page<[Auction]>? = try await graphQLClient.fetch(
+//      query,
+//      cachePolicy: .returnCacheDataAndFetch
+//    )
+//
+//    guard let auction = page?.data.first else {
+//      throw OnChainNounsRequestError.noData
+//    }
+//
+//
+//    return auction
   }
+    
+    public func fetchMferDetails(for mferId: String) async throws -> Mfer? {
+        let url = URL(string: "https://mferbuilderdao-api.vercel.app/api/v1/token/\(mferId)")!
+        let data = try await URLSession.shared.data(from: url).0
+        
+        if let jsonString = String(data: data, encoding: .utf8) {
+           print(jsonString)
+        }
+        let decoder = JSONDecoder()
+        do {
+            let mfer = try decoder.decode(Mfer.self, from: data)
+            return mfer
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
   
   public func fetchActivity(for nounID: String, limit: Int, after cursor: Int) async throws -> Page<[Vote]> {
     let query = NounsSubgraph.ActivitiesQuery(nounID: nounID, limit: limit, skip: cursor)

@@ -45,7 +45,7 @@ struct NounProfileInfo: View {
   
   /// The background gradient colors of the noun, based on the seed's `background` value
   private var background: GradientColors {
-    viewModel.nounTraits.background == 0 ? .coolGreydient : .warmGreydient
+    GradientColors.allCases[viewModel.nounTraits.background]
   }
   
   /// A view that displays the actions content below the noun info list.
@@ -84,13 +84,14 @@ struct NounProfileInfo: View {
       VStack(spacing: 0) {
         Spacer()
         
-        if !viewModel.isAuctionSettled {
-          SpriteView(scene: talkingNoun, options: [.allowsTransparency])
-            .id(viewModel.auction.id)
-            .aspectRatio(1.0, contentMode: .fit)
-        } else {
-          NounPuzzle(seed: viewModel.nounTraits)
-        }
+//        if !viewModel.isAuctionSettled {
+//          SpriteView(scene: talkingNoun, options: [.allowsTransparency])
+//            .id(viewModel.auction.id)
+//            .aspectRatio(1.0, contentMode: .fit)
+//        } else {
+//          NounPuzzle(seed: viewModel.nounTraits)
+//        }
+        NounPuzzle(seed: viewModel.nounTraits)
         
         PlainCell(length: 20) {
           if !viewModel.isAuctionSettled {

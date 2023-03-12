@@ -27,13 +27,13 @@ struct TeamInfoSection: View {
   }
 
   let teamMembers = [
-    TeamMember(id: "robjama", image: R.image.roblehNoun),
-    TeamMember(id: "mrkrishsatya", image: R.image.krishNoun),
-    TeamMember(id: "matthewpacione", image: R.image.mattNoun),
-    TeamMember(id: "shawnrcole", image: R.image.shawnNoun),
-    TeamMember(id: "ziad_tamim", image: R.image.ziadNoun),
-    TeamMember(id: "mohams2001", image: R.image.moNoun),
-    TeamMember(id: "_arslanc", image: R.image.arslanNoun)
+    TeamMember(id: "HeresMyEth", image: R.image.heresmyPfp),
+    TeamMember(id: "anonChickenLegs", image: R.image.aclPfp),
+    TeamMember(id: "betterlawMLA", image: R.image.lilpandaPfp),
+    TeamMember(id: "zhoug0x", image: R.image.zhougPfp),
+    TeamMember(id: "mferbuilderDAO", image: R.image.daoPfp),
+    TeamMember(id: "mferbuilderBOT", image: R.image.botPfp),
+    TeamMember(id: "Nounscollectiv3", image: R.image.nounscollectiv3Pfp),
   ]
 
   /// The team member's Twitter profile to load in a browser.

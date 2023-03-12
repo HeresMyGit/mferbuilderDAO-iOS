@@ -73,6 +73,18 @@ public struct Noun: Equatable, Identifiable, Hashable {
   }
 }
 
+public struct Mfer: Decodable {
+    // name
+    public var name: String
+    
+    public var description: String
+    
+    public var image: String
+    
+    public var properties: [String:String]
+    
+}
+
 /// The seed used to determine the Noun's traits.
 public struct Seed: Equatable, Hashable {
     /// The background trait.
@@ -200,6 +212,41 @@ public struct Seed: Equatable, Hashable {
         self.shirt = shirtInt
         self.shortHair = shortHairInt
         self.watch = watchInt
+    }
+    
+    public init(properties: [String:String]) {
+        self.background = 0
+        
+        let bgName = properties["bg"] ?? ""
+        if bgName == "bg-orange" {
+            self.background = 0
+        } else if bgName == "bg-red" {
+            self.background = 1
+        } else if bgName == "bg-blue" {
+            self.background = 2
+        } else if bgName == "bg-green" {
+            self.background = 3
+        } else if bgName == "bg-yellow" {
+            self.background = 4
+        } else {
+            self.background = 0
+        }
+        
+        self.body = OfflineNounComposer.default().bodies.firstIndex(where: ({ $0.assetImage == properties["body"] })) ?? 0
+        self.headphones = OfflineNounComposer.default().headphones.firstIndex(where: ({ $0.assetImage == properties["headphones"] })) ?? 0
+        self.head = OfflineNounComposer.default().heads.firstIndex(where: ({ $0.assetImage == properties["head"] })) ?? 0
+        self.smoke = OfflineNounComposer.default().smokes.firstIndex(where: ({ $0.assetImage == properties["smoke"] })) ?? 0
+        self.beard = OfflineNounComposer.default().beards.firstIndex(where: ({ $0.assetImage == properties["beard"] })) ?? 0
+        self.chain = OfflineNounComposer.default().chains.firstIndex(where: ({ $0.assetImage == properties["chain"] })) ?? 0
+        self.eyes = OfflineNounComposer.default().eyes.firstIndex(where: ({ $0.assetImage == properties["eyes"] })) ?? 0
+        self.hatOverHeadphones = OfflineNounComposer.default().hatOverHeadphones.firstIndex(where: ({ $0.assetImage == properties["hatOverHeadphones"] })) ?? 0
+        self.hatUnderHeadphones = OfflineNounComposer.default().hatUnderHeadphones.firstIndex(where: ({ $0.assetImage == properties["hatUnderHeadphones"] })) ?? 0
+        self.longHair = OfflineNounComposer.default().longHairs.firstIndex(where: ({ $0.assetImage == properties["longHair"] })) ?? 0
+        self.mouth = OfflineNounComposer.default().mouths.firstIndex(where: ({ $0.assetImage == properties["mouth"] })) ?? 0
+        self.shirt = OfflineNounComposer.default().shirts.firstIndex(where: ({ $0.assetImage == properties["shirt"] })) ?? 0
+        self.shortHair = OfflineNounComposer.default().shortHairs.firstIndex(where: ({ $0.assetImage == properties["shortHair"] })) ?? 0
+        self.watch = OfflineNounComposer.default().watches.firstIndex(where: ({ $0.assetImage == properties["watch"] })) ?? 0
+
     }
 }
 
@@ -391,6 +438,33 @@ public struct Auction: Equatable, Decodable, Identifiable {
   public var hasEnded: Bool {
     Date().timeIntervalSince1970 > endTime
   }
+}
+
+public struct MferAuction: Decodable {
+    // id
+    public let tokenId: String
+    
+    // amount
+    public let highestBid: MferAuction.Bid
+    
+    // bidder
+    public let highestBidder: String
+    
+    // startTime
+    public let startTime: TimeInterval
+    
+    // endTime
+    public let endTime: TimeInterval
+    
+    // settled
+    public let settled: Bool
+    
+    
+    public struct Bid: Decodable {
+        public let type: String
+        
+        public let hex: String
+    }
 }
 
 /// The auction's Bid

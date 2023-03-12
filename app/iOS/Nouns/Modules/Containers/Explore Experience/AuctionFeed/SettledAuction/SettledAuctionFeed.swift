@@ -47,17 +47,23 @@ extension ExploreExperience {
             CardPlaceholder(count: viewModel.isInitiallyLoadingSettledAuctions ? 4 : 2)
             
           }, content: { auction in
-            SettledAuctionCard(viewModel: .init(auction: auction))
-              .onTapGesture {
-                withAnimation(.spring()) {
-                  selectedAuction = auction
+            // TODO: Remove Zstack when using real data
+            ZStack {
+              SettledAuctionCard(viewModel: .init(auction: auction))
+                .onTapGesture {
+                  withAnimation(.spring()) {
+                    selectedAuction = auction
+                  }
                 }
-              }
-              .onWidgetOpen {
-                if selectedAuction != nil {
-                  selectedAuction = nil
+                .onWidgetOpen {
+                  if selectedAuction != nil {
+                    selectedAuction = nil
+                  }
                 }
-              }
+              Text("FAKE DATA")
+                .foregroundColor(.white)
+                .font(.system(size: 36))
+            }
           }
         )
         // Presents more details about the settled auction.
