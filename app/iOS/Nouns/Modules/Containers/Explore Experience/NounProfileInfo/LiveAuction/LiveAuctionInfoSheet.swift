@@ -61,11 +61,11 @@ struct LiveAuctionInfoSheet: View {
         })
       
       // Action to display the governance details of the auction.
-      InfoCell(
-        text: R.string.nounProfile.auctionUnsettledGovernance(),
-        icon: { Image.history },
-        accessory: { Image.mdArrowRight },
-        action: { isActivityPresented.toggle() })
+//      InfoCell(
+//        text: R.string.nounProfile.auctionUnsettledGovernance(),
+//        icon: { Image.history },
+//        accessory: { Image.mdArrowRight },
+//        action: { isActivityPresented.toggle() })
     }
     .labelStyle(.titleAndIcon(spacing: 14))
     .padding(.bottom, 40)

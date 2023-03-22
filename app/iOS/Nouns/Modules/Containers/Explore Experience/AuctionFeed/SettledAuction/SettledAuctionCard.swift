@@ -35,7 +35,7 @@ struct SettledAuctionCard: View {
       content: {
         // Displays the domain if it is a nounder noun.
         if viewModel.isNounderOwned {
-          ENSText(token: "nounders.eth")
+          ENSText(token: "sent to nouns or builderDAO")
             .font(.custom(.bold, relativeTo: .caption))
             .padding(.top, 4)
         } else if viewModel.showENS {

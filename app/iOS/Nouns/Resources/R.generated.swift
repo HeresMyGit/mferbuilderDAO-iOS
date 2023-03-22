@@ -7788,7 +7788,7 @@ struct R: Rswift.Validatable {
       static let bidWinner = Rswift.StringResource(key: "bid-winner", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: nounders.eth
       static let noundersEth = Rswift.StringResource(key: "nounders.eth", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: 👋 sup! check out mfer %s
+      /// Value: 🫡 gm, check out mfbldr %s
       static let shareMessage = Rswift.StringResource(key: "share.message", tableName: "NounProfile", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: %dh %dm %ds
@@ -7938,7 +7938,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("nounders.eth", tableName: "NounProfile", bundle: bundle, comment: "")
       }
 
-      /// Value: 👋 sup! check out mfer %s
+      /// Value: 🫡 gm, check out mfbldr %s
       static func shareMessage(_ value1: UnsafePointer<CChar>, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("share.message", tableName: "NounProfile", bundle: hostingBundle, comment: "")
@@ -7970,7 +7970,7 @@ struct R: Rswift.Validatable {
       static let rename = Rswift.StringResource(key: "rename", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Use this dope new name
       static let useName = Rswift.StringResource(key: "use.name", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: 👋 sup! check out this fresh mfer
+      /// Value: 🫡 gm, check out this fresh mfer
       static let shareMessage = Rswift.StringResource(key: "share.message", tableName: "offchain.noun.actions", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Delete your mfer
@@ -8051,7 +8051,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("use.name", tableName: "offchain.noun.actions", bundle: bundle, comment: "")
       }
 
-      /// Value: 👋 sup! check out this fresh mfer
+      /// Value: 🫡 gm, check out this fresh mfer
       static func shareMessage(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("share.message", tableName: "offchain.noun.actions", bundle: hostingBundle, comment: "")
@@ -8611,11 +8611,11 @@ struct R: Rswift.Validatable {
       static let unavailable = Rswift.StringResource(key: "unavailable", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Untitled
       static let untitled = Rswift.StringResource(key: "untitled", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.wtf
+      /// Value: https://mferbuilderDAO.org
       static let nounsWebsite = Rswift.StringResource(key: "nouns.website", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.wtf/noun/%@
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/%@
       static let nounsProfileWebsite = Rswift.StringResource(key: "nouns.profile.website", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: https://nouns.wtf/vote
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/?tab=activity
       static let nounsProposalsWebsite = Rswift.StringResource(key: "nouns.proposals.website", tableName: "Shared", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: Accessory
@@ -8813,7 +8813,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("untitled", tableName: "Shared", bundle: bundle, comment: "")
       }
 
-      /// Value: https://nouns.wtf
+      /// Value: https://mferbuilderDAO.org
       static func nounsWebsite(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("nouns.website", tableName: "Shared", bundle: hostingBundle, comment: "")
@@ -8826,7 +8826,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("nouns.website", tableName: "Shared", bundle: bundle, comment: "")
       }
 
-      /// Value: https://nouns.wtf/noun/%@
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/%@
       static func nounsProfileWebsite(_ value1: String, preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           let format = NSLocalizedString("nouns.profile.website", tableName: "Shared", bundle: hostingBundle, comment: "")
@@ -8841,7 +8841,7 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
-      /// Value: https://nouns.wtf/vote
+      /// Value: https://nouns.build/dao/0x795D300855069F602862c5e23814Bdeeb25DCa6b/?tab=activity
       static func nounsProposalsWebsite(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("nouns.proposals.website", tableName: "Shared", bundle: hostingBundle, comment: "")

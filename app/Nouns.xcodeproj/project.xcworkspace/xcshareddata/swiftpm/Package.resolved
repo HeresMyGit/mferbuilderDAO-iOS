@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Apollo",
+        "repositoryURL": "https://github.com/apollographql/apollo-ios",
+        "state": {
+          "branch": null,
+          "revision": "08a41bad4ebf76ae8e4efebf26862a42084b7786",
+          "version": "0.51.2"
+        }
+      },
+      {
         "package": "BigInt",
         "repositoryURL": "https://github.com/attaswift/BigInt",
         "state": {
@@ -42,8 +51,8 @@
         "repositoryURL": "https://github.com/zoul/generic-json-swift",
         "state": {
           "branch": null,
-          "revision": "a137894b2a217abe489cdf1ea287e6f7819b1051",
-          "version": "2.0.1"
+          "revision": "0a06575f4038b504e78ac330913d920f1630f510",
+          "version": "2.0.2"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/google/GoogleDataTransport.git",
         "state": {
           "branch": null,
-          "revision": "5056b15c5acbb90cd214fe4d6138bdf5a740e5a8",
-          "version": "9.2.0"
+          "revision": "f6b558e3f801f2cac336b04f615ce111fa9ddaa0",
+          "version": "9.2.1"
         }
       },
       {
@@ -69,8 +78,8 @@
         "repositoryURL": "https://github.com/google/GoogleUtilities.git",
         "state": {
           "branch": null,
-          "revision": "f4abe56ce62a779e64b525eb133c8fc2a84bbc1f",
-          "version": "7.7.1"
+          "revision": "0543562f85620b5b7c510c6bcbef75b562a5127b",
+          "version": "7.11.0"
         }
       },
       {
@@ -114,8 +123,8 @@
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
           "branch": null,
-          "revision": "3e4e743631e86c8c70dbc6efdc7beaa6e90fd3bb",
-          "version": "2.1.1"
+          "revision": "ec957ccddbcc710ccc64c9dcbd4c7006fcf8b73a",
+          "version": "2.2.0"
         }
       },
       {
@@ -132,8 +141,26 @@
         "repositoryURL": "https://github.com/Boilertalk/secp256k1.swift",
         "state": {
           "branch": null,
-          "revision": "45e458ec3be46cf0a6eb68bc947f797852dc65d8",
-          "version": "0.1.6"
+          "revision": "cd187c632fb812fd93711a9f7e644adb7e5f97f0",
+          "version": "0.1.7"
+        }
+      },
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "4d543d811ee644fa4cc4bfa0be996b4dd6ba0f54",
+          "version": "0.13.3"
+        }
+      },
+      {
+        "package": "SVGView",
+        "repositoryURL": "https://github.com/exyte/SVGView",
+        "state": {
+          "branch": null,
+          "revision": "1f0011ff3c745b4ab785997972ad4c52ce7d32f9",
+          "version": "1.0.3"
         }
       },
       {
@@ -141,8 +168,17 @@
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
-          "revision": "fa0fcd43f272a260e7f734f23e6dc55e16fcae0a",
-          "version": "1.19.1"
+          "revision": "0af9125c4eae12a4973fb66574c53a54962a9e1e",
+          "version": "1.21.0"
+        }
+      },
+      {
+        "package": "ZoraAPI",
+        "repositoryURL": "https://github.com/HeresMyGit/swift-zorakit",
+        "state": {
+          "branch": "main",
+          "revision": "0e8a5d778c0d3fa5128e7a33e35b4ad1c9b7ffc9",
+          "version": null
         }
       },
       {
@@ -150,8 +186,8 @@
         "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
         "state": {
           "branch": null,
-          "revision": "f2616860a41f9d9932da412a8978fec79c06fe24",
-          "version": "0.1.4"
+          "revision": "c18951c747ab62af7c15e17a81bd37d4fd5a9979",
+          "version": "0.2.3"
         }
       },
       {

@@ -18,6 +18,7 @@
 import SwiftUI
 import Services
 import NounsUI
+import ZoraAPI
 
 extension ExploreExperience {
   
@@ -27,6 +28,8 @@ extension ExploreExperience {
     
     @State private var selectedAuction: Auction?
     
+    @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"))
+    
     private let gridLayout = [
       GridItem(.flexible(), spacing: 16),
       GridItem(.flexible(), spacing: 16),
@@ -35,35 +38,29 @@ extension ExploreExperience {
     var body: some View {
       VStack {
         VPageGrid(
-          viewModel.auctions,
+          collection.tokens,
           columns: gridLayout,
-          isLoading: viewModel.isLoadingSettledAuctions,
-          shouldLoadMore: viewModel.shouldLoadMore,
+          isLoading: collection.isLoading,
+          shouldLoadMore: collection.nextPageInfo.hasNextPage,
           loadMoreAction: {
             // load next settled auctions batch.
-            await viewModel.loadAuctions()
+            await collection.loadNextPage()
           }, placeholder: {
             // An activity indicator while loading auctions from the network.
             CardPlaceholder(count: viewModel.isInitiallyLoadingSettledAuctions ? 4 : 2)
             
-          }, content: { auction in
-            // TODO: Remove Zstack when using real data
-            ZStack {
-              SettledAuctionCard(viewModel: .init(auction: auction))
-                .onTapGesture {
-                  withAnimation(.spring()) {
-                    selectedAuction = auction
-                  }
+          }, content: { nft in
+            SettledAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft)))
+              .onTapGesture {
+                withAnimation(.spring()) {
+                  selectedAuction = viewModel.auction(from: nft)
                 }
-                .onWidgetOpen {
-                  if selectedAuction != nil {
-                    selectedAuction = nil
-                  }
+              }
+              .onWidgetOpen {
+                if selectedAuction != nil {
+                  selectedAuction = nil
                 }
-              Text("FAKE DATA")
-                .foregroundColor(.white)
-                .font(.system(size: 36))
-            }
+              }
           }
         )
         // Presents more details about the settled auction.

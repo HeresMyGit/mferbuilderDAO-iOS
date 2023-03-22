@@ -438,6 +438,16 @@ public struct Auction: Equatable, Decodable, Identifiable {
   public var hasEnded: Bool {
     Date().timeIntervalSince1970 > endTime
   }
+    
+  public init(id: String, noun: Noun, amount: String, startTime: TimeInterval, endTime: TimeInterval, settled: Bool, bidder: Account?) {
+        self.id = id
+        self.noun = noun
+        self.amount = amount
+        self.startTime = startTime
+        self.endTime = endTime
+        self.settled = settled
+        self.bidder = bidder
+    }
 }
 
 public struct MferAuction: Decodable {

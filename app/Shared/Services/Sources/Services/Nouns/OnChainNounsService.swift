@@ -240,19 +240,18 @@ public class TheGraphOnChainNouns: OnChainNounsService {
   }
     
     public func fetchMferAuctions(settled: Bool, includeNounderOwned: Bool, limit: Int, cursor: Int, sortDescending: Bool) async throws -> [Auction] {
-        var nouns = [Noun]()
-        for i in 0..<5 {
-            let noun = Noun(id: "\(i)", name: "PLACEHOLDER \(i)", owner: Account(id: "1"), seed: OfflineNounComposer.default().randomSeed(), createdAt: Date.now, updatedAt: Date.now, nounderOwned: false)
-            nouns.append(noun)
-        }
-        
+//        var nouns = [Noun]()
+//        for i in 0..<5 {
+//            let noun = Noun(id: "\(i)", name: "PLACEHOLDER \(i)", owner: Account(id: "1"), seed: OfflineNounComposer.default().randomSeed(), createdAt: Date.now, updatedAt: Date.now, nounderOwned: false)
+//            nouns.append(noun)
+//        }
+//        var auctions = [Auction]()
+//        for i in 0..<nouns.count {
+//            let noun = nouns[i]
+//            let auction = Auction(id: "\(i)", noun: noun, amount: "690000000000000000", startTime: 0, endTime: 0, settled: true, bidder: Account(id: "1"))
+//            auctions.append(auction)
+//        }
         var auctions = [Auction]()
-        for i in 0..<nouns.count {
-            let noun = nouns[i]
-            let auction = Auction(id: "\(i)", noun: noun, amount: "690000000000000000", startTime: 0, endTime: 0, settled: true, bidder: Account(id: "1"))
-            auctions.append(auction)
-        }
-        
         return auctions
     }
   
@@ -393,7 +392,7 @@ public class TheGraphOnChainNouns: OnChainNounsService {
           return auction
       } catch {
           print(error.localizedDescription)
-          return Auction(id: "", noun: Noun(id: "", name: "", owner: Account(id: ""), seed: Seed.pizza, createdAt: Date.now, updatedAt: Date.now, nounderOwned: false), amount: "", startTime: 0, endTime: 0, settled: false, bidder: nil)
+          throw OnChainNounsRequestError.noData
       }
       
 

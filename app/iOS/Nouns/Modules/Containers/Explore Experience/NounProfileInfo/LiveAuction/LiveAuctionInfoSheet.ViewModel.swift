@@ -29,7 +29,7 @@ extension LiveAuctionInfoSheet {
     init(auction: Auction) {
       self.auction = auction
       
-      let amount = EtherFormatter.eth(from: auction.amount)
+      let amount = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       lastBid = amount ?? R.string.shared.notApplicable()
       
       let startDate = Date(timeIntervalSince1970: auction.startTime)
