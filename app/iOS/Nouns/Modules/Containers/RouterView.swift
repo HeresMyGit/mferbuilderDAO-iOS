@@ -74,7 +74,7 @@ struct RouterView: View {
 
   @StateObject private var tabBarVisibilityManager = OutlineTabBarVisibilityManager()
 
-  @State private var isOnboardingPresented = !AppCore.shared.settingsStore.hasCompletedOnboarding
+  @State private var isOnboardingPresented = false
   
   init() {
     // TODO: Theming Should be extracted as it is related to the theme.
@@ -120,10 +120,10 @@ struct RouterView: View {
 
       OutlineTabBar(selection: viewModel.onTabPress, items)
     }
-    .onboarding($isOnboardingPresented) {
-      // On completion of onboarding, toggle the local setting store to reflect the completion state so we show the onboarding on the first launch only
-      AppCore.shared.settingsStore.hasCompletedOnboarding = true
-    }
+//    .onboarding($isOnboardingPresented) {
+//      // On completion of onboarding, toggle the local setting store to reflect the completion state so we show the onboarding on the first launch only
+//      AppCore.shared.settingsStore.hasCompletedOnboarding = true
+//    }
     .addBottomSheet()
     .environment(\.outlineTabBarVisibility, tabBarVisibilityManager)
     .onWidgetOpen {

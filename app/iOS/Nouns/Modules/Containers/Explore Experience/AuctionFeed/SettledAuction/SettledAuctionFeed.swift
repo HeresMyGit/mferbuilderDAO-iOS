@@ -28,7 +28,7 @@ extension ExploreExperience {
     
     @State private var selectedAuction: Auction?
     
-    @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"))
+    @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"), removeFirst: true)
     
     private let gridLayout = [
       GridItem(.flexible(), spacing: 16),
