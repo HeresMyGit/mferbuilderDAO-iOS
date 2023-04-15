@@ -89,7 +89,7 @@ public extension Font.TextStyle {
       return 15
       
     case .caption, .caption2:
-      return 13
+      return 16
       
     @unknown default:
       return 8

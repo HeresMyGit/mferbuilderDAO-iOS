@@ -62,6 +62,11 @@ struct ExploreExperience: View {
       .background(Gradient.cherrySunset)
       .overlay(.componentPeachy, edge: .top)
       .ignoresSafeArea(edges: .top)
+      .refreshable {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Refresh")))
+        await highBid.load()
+        await collection.load()
+      }
     }
     .onAppear {
       viewModel.onAppear()
@@ -73,7 +78,6 @@ struct ExploreExperience: View {
   }
 }
 
-
 // Quick and dirty copy of NFTCollector to get the highest bidder.
 // I know I know, I should be extending the current ZoraKit graphQL
 // schema to include these, but the creators didn't include their setup
@@ -81,7 +85,7 @@ struct ExploreExperience: View {
 // graphQL from scratch.  mfers do what they want.
 @MainActor
 public class HighBidLoader: ObservableObject {
-  @Published public var highBidder: String = ""
+  @Published public var highBidder: String = "" { willSet { objectWillChange.send() } }
   @Published public var isLoading: Bool = false
   
     public init() {

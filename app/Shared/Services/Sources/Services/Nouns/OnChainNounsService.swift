@@ -317,56 +317,56 @@ public class TheGraphOnChainNouns: OnChainNounsService {
   
   public func settledAuctionsDidChange() -> AsyncThrowingStream<[Auction], Error> {
     AsyncThrowingStream { continuation in
-      let listener = ShortPolling { () -> [Auction] in
-        // Fetches the most recent settled auction(s) from the network. This will return an array of two
-        // auctions if either of the last two settled Nouns is owned by a Nounder.
-        let auctionPage = try await self.fetchAuctions(settled: true, includeNounderOwned: true, limit: 1, cursor: 0,
-                                                       sortDescending: false)
-
-        guard auctionPage.data.count > 0 else {
-          throw OnChainNounsRequestError.noData
-        }
-
-        return auctionPage.data
-      }
-      
-      listener.setEventHandler = { auctions in
-        continuation.yield(auctions)
-      }
-
-      listener.setErrorHandler = { error in
-        continuation.finish(throwing: error)
-      }
-      
-      continuation.onTermination = { @Sendable _ in
-        listener.stopPolling()
-      }
-      
-      listener.startPolling()
+//      let listener = ShortPolling { () -> [Auction] in
+//        // Fetches the most recent settled auction(s) from the network. This will return an array of two
+//        // auctions if either of the last two settled Nouns is owned by a Nounder.
+//        let auctionPage = try await self.fetchAuctions(settled: true, includeNounderOwned: true, limit: 1, cursor: 0,
+//                                                       sortDescending: false)
+//
+//        guard auctionPage.data.count > 0 else {
+//          throw OnChainNounsRequestError.noData
+//        }
+//
+//        return auctionPage.data
+//      }
+//
+//      listener.setEventHandler = { auctions in
+//        continuation.yield(auctions)
+//      }
+//
+//      listener.setErrorHandler = { error in
+//        continuation.finish(throwing: error)
+//      }
+//
+//      continuation.onTermination = { @Sendable _ in
+//        listener.stopPolling()
+//      }
+//
+//      listener.startPolling()
     }
   }
   
   public func liveAuctionStateDidChange() -> AsyncThrowingStream<Auction, Error> {
     AsyncThrowingStream { [weak self] continuation in
-      guard let self = self else { return }
+//      guard let self = self else { return }
       
-      let listener = ShortPolling {
-        try await self.fetchLiveAuction()
-      }
-      
-      listener.setEventHandler = { auction in
-        continuation.yield(auction)
-      }
-      
-      listener.setErrorHandler = { error in
-        continuation.finish(throwing: error)
-      }
-      
-      continuation.onTermination = { @Sendable _  in
-        listener.stopPolling()
-      }
-      
-      listener.startPolling()
+//      let listener = ShortPolling {
+//        try await self.fetchLiveAuction()
+//      }
+//
+//      listener.setEventHandler = { auction in
+//        continuation.yield(auction)
+//      }
+//
+//      listener.setErrorHandler = { error in
+//        continuation.finish(throwing: error)
+//      }
+//
+//      continuation.onTermination = { @Sendable _  in
+//        listener.stopPolling()
+//      }
+//
+//      listener.startPolling()
     }
   }
   

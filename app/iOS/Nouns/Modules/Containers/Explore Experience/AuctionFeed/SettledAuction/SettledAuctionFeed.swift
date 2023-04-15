@@ -30,6 +30,9 @@ extension ExploreExperience {
     
     @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"), removeFirst: true)
     
+    let pub = NotificationCenter.default
+                .publisher(for: NSNotification.Name("Refresh"))
+    
     private let gridLayout = [
       GridItem(.flexible(), spacing: 16),
       GridItem(.flexible(), spacing: 16),
@@ -86,6 +89,11 @@ extension ExploreExperience {
 //        viewModel.loadAuctions()
         Task {
           await viewModel.listenSettledAuctionsChanges()
+        }
+      }
+      .onReceive(pub) { _ in
+        Task {
+          await collection.load()
         }
       }
     }
