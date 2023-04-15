@@ -39,7 +39,7 @@ struct AboutView: View {
           SpacesInfoSection()
           DocumentationInfoSection()
           DerivativeProjectsInfoSection()
-//          TeamInfoSection()
+          TeamInfoSection()
         }
         .padding(.horizontal, 20)
         .padding(.bottom, tabBarHeight)
