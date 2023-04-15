@@ -25,9 +25,11 @@ extension LiveAuctionInfoSheet {
     @Published private(set) var lastBid: String
     
     let auction: Auction
+    var winner: String
     
-    init(auction: Auction) {
+    init(auction: Auction, winner: String?) {
       self.auction = auction
+      self.winner = winner ?? auction.noun.owner.id
       
       let amount = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       lastBid = amount ?? R.string.shared.notApplicable()

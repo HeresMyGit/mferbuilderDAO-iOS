@@ -38,7 +38,8 @@ extension LiveAuctionCard {
     
     init(
       auction: Auction,
-      composer: NounComposer = AppCore.shared.nounComposer
+      composer: NounComposer = AppCore.shared.nounComposer,
+      winner: String? = nil
     ) {
       self.auction = auction
       self.composer = composer
@@ -56,7 +57,7 @@ extension LiveAuctionCard {
       // On auction end, anounce the winner.
       if auction.hasEnded {
         bidStatus = localize.winningBid()
-        winner = auction.bidder?.id ?? "N/A"
+        self.winner = winner ?? ""
       } else {
         // Calculating the time left for the auction to end.
         bidStatus = localize.currentBid()

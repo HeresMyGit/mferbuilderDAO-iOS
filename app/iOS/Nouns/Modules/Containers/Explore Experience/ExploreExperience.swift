@@ -18,6 +18,7 @@
 import SwiftUI
 import NounsUI
 import Services
+import ZoraAPI
 
 /// Housing view for exploring on chain nouns, including
 /// the current on-goign auction and previously auctioned nouns
@@ -27,13 +28,18 @@ struct ExploreExperience: View {
   @Environment(\.outlineTabViewHeight) private var tabBarHeight
   
   @State private var isMadhappySheetPresented = false
+  
+  @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"), removeFirst: false, perPage: 1)
+  @StateObject var highBid = HighBidLoader()
 
   var body: some View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         VStack(spacing: 16) {
-          if let auction = viewModel.liveAuction {
-            LiveAuctionCard(viewModel: .init(auction: auction))
+          if let nft = collection.tokens.first, let bid = highBid.highBidder {
+            LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft), winner: bid))
+          } else if let nft = collection.tokens.first {
+            LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft)))
           } else if viewModel.failedToLoadLiveAuction {
             LiveAuctionCardErrorPlaceholder(viewModel: viewModel)
           } else {
@@ -64,5 +70,36 @@ struct ExploreExperience: View {
       }
     }
     .navigationViewStyle(StackNavigationViewStyle())
+  }
+}
+
+
+// Quick and dirty copy of NFTCollector to get the highest bidder.
+// I know I know, I should be extending the current ZoraKit graphQL
+// schema to include these, but the creators didn't include their setup
+// files and I don't want to spend the time to start over and set up
+// graphQL from scratch.  mfers do what they want.
+@MainActor
+public class HighBidLoader: ObservableObject {
+  @Published public var highBidder: String = ""
+  @Published public var isLoading: Bool = false
+  
+    public init() {
+    Task(priority: .userInitiated) {
+      await load()
+    }
+  }
+  
+  public func load() async {
+    do {
+      isLoading = true
+      highBidder = try await AppCore.shared.onChainNounsService.fetchAuctionHighestBidder()
+      isLoading = false
+    } catch {
+      // Errors...
+      // these should be able to be called back from the
+      // Set and save these in a way on this loader so clients can understand what happened.
+      isLoading = false
+    }
   }
 }

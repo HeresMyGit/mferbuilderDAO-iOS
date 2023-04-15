@@ -33,7 +33,7 @@ extension ExploreExperience {
         }, action: {
           Task {
             await viewModel.listenLiveAuctionChanges()
-            viewModel.loadAuctions()
+//            viewModel.loadAuctions()
           }
         })
         .controlSize(.large)

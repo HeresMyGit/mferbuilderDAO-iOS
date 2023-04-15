@@ -103,6 +103,10 @@ public protocol OnChainNounsService: AnyObject {
   ///
   /// - Returns: A list of `Proposal` type  instance or throw an error.
   func fetchProposals(limit: Int, after cursor: Int) async throws -> Page<[Proposal]>
+    
+  func fetchMferDetails(for mferId: String) async throws -> Mfer?
+    
+  func fetchAuctionHighestBidder() async throws -> String
 }
 
 /// Concrete implementation of the `onChainNounsService` using `TheGraph` Service.
@@ -409,6 +413,42 @@ public class TheGraphOnChainNouns: OnChainNounsService {
 //
 //    return auction
   }
+    
+    public func fetchAuctionHighestBidder() async throws -> String {
+//        let urlString =
+//        """
+//        https://api.zora.co/graphql?query={nouns{nounsMarkets(where:{collectionAddresses:"0x795D300855069F602862c5e23814Bdeeb25DCa6b"}sort:{sortKey:NONE,sortDirection:DESC}){nodes{highestBidder,tokenId}}}}
+//        """
+        
+//        let url = URL(string: "https://mferbuilderdao-api.vercel.app/api/v1/auction")!
+        
+        let queryString = "{nouns{nounsMarkets(where:{collectionAddresses:\"0x795D300855069F602862c5e23814Bdeeb25DCa6b\"}sort:{sortKey:NONE,sortDirection:DESC}pagination:{limit:1}){nodes{highestBidder,tokenId}}}}"
+        let urlString = "https://api.zora.co/graphql?query=\(queryString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)"
+        
+        let url = URL(string: urlString)!
+        let data = try await URLSession.shared.data(from: url).0
+            
+        if let jsonString = String(data: data, encoding: .utf8) {
+           print(jsonString)
+        }
+        let decoder = JSONDecoder()
+        do {
+            let jsonDict = try decoder.decode([String:[String:[String:[String:[[String:String]]]]]].self, from: data)
+            if let data = jsonDict["data"],
+               let nouns = data["nouns"],
+               let markets = nouns["nounsMarkets"],
+               let nodes = markets["nodes"],
+               let latestAuction = nodes.first,
+               let highestBidder = latestAuction["highestBidder"] {
+                return highestBidder
+            } else {
+                return "N/A"
+            }
+        } catch {
+            print(error.localizedDescription)
+            return "N/A"
+        }
+    }
     
     public func fetchMferDetails(for mferId: String) async throws -> Mfer? {
         let url = URL(string: "https://mferbuilderdao-api.vercel.app/api/v1/token/\(mferId)")!

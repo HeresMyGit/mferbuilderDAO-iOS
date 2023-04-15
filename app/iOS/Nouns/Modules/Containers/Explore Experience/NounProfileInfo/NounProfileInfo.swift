@@ -105,12 +105,12 @@ struct NounProfileInfo: View {
           
           if viewModel.isAuctionSettled || viewModel.isWinnerAnnounced {
             SettledAuctionInfoSheet(
-              viewModel: .init(auction: viewModel.auction),
+              viewModel: .init(auction: viewModel.auction, winner: viewModel.winner),
               isActivityPresented: $isActivityPresented
             )
           } else {
             LiveAuctionInfoSheet(
-              viewModel: .init(auction: viewModel.auction),
+              viewModel: .init(auction: viewModel.auction, winner: viewModel.winner),
               isActivityPresented: $isActivityPresented
             )
           }

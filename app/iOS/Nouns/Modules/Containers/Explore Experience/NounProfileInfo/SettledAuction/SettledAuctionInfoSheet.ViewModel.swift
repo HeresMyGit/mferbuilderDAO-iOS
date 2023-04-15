@@ -39,11 +39,12 @@ extension SettledAuctionInfoSheet {
     }
     
     init(
-      auction: Auction
+      auction: Auction,
+      winner: String? = nil
     ) {
       self.auction = auction
+      self.winner = winner ?? auction.noun.owner.id
       
-      winner = auction.noun.owner.id
       let amount = EtherFormatter.eth(from: auction.amount, minimumFractionDigits: 2, maximumFractionDigits: 16)
       winningBid = amount ?? R.string.shared.notApplicable()
       

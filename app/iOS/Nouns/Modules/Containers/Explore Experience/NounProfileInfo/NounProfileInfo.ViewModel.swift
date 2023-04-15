@@ -34,13 +34,17 @@ extension NounProfileInfo {
     /// dialog is presented only on `notDetermined` state.
     @Published var isNotificationPermissionDialogPresented = false
     
+    @Published var winner: String = ""
+    
     let auction: Auction
     
     init(
       auction: Auction,
-      messaging: Messaging = AppCore.shared.messaging
+      messaging: Messaging = AppCore.shared.messaging,
+      winner: String? = nil
     ) {
       self.auction = auction
+      self.winner = winner ?? self.auction.bidder?.id ?? ""
       
       title = R.string.explore.noun(auction.noun.id)
       isAuctionSettled = auction.settled
@@ -64,11 +68,11 @@ extension NounProfileInfo {
     }
 
     func onAppear() {
-      let screen = isAuctionSettled ? AnalyticsEvent.Screen.settledNounProfile
-                                    : AnalyticsEvent.Screen.auctionNounProfile
+//      let screen = isAuctionSettled ? AnalyticsEvent.Screen.settledNounProfile
+//                                    : AnalyticsEvent.Screen.auctionNounProfile
 //      AppCore.shared.analytics.logScreenView(withScreen: screen)
 
-      let parameters: [String: Any] = ["noun_id": auction.noun.id, "is_auction_noun": !isAuctionSettled]
+//      let parameters: [String: Any] = ["noun_id": auction.noun.id, "is_auction_noun": !isAuctionSettled]
 //      AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.viewNounProfile,
 //                                        parameters: parameters)
     }

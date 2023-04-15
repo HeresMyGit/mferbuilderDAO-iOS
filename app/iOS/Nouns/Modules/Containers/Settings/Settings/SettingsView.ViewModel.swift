@@ -63,7 +63,7 @@ extension SettingsView {
 //        AppCore.shared.analytics.logEvent(
 //          withEvent: AnalyticsEvent.Event.setNewNounNotificationPermission,
 //          parameters: ["enabled": isEnabled])
-//      }
+      }
     }
     
     @MainActor
