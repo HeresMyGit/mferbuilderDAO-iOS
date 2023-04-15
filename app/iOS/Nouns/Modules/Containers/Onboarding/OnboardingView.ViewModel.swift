@@ -30,7 +30,7 @@ extension OnboardingView {
     var onCompletion: () -> Void = {}
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.onboarding)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.onboarding)
     }
   }
 }

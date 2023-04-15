@@ -60,10 +60,10 @@ extension SettingsView {
 
         await settingsStore.setNewNounNotification(isEnabled: isEnabled)
         await refreshNotificationStates()
-        AppCore.shared.analytics.logEvent(
-          withEvent: AnalyticsEvent.Event.setNewNounNotificationPermission,
-          parameters: ["enabled": isEnabled])
-      }
+//        AppCore.shared.analytics.logEvent(
+//          withEvent: AnalyticsEvent.Event.setNewNounNotificationPermission,
+//          parameters: ["enabled": isEnabled])
+//      }
     }
     
     @MainActor
@@ -88,7 +88,7 @@ extension SettingsView {
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.settings)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.settings)
     }
   }
 }

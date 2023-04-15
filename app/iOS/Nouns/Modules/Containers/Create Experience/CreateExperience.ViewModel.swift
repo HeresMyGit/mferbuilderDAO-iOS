@@ -39,7 +39,7 @@ extension CreateExperience {
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.create)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.create)
     }
   }
 }

@@ -160,7 +160,7 @@ extension ExploreExperience {
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.explore)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.explore)
     }
     
     func auction(from nft: NFT) -> Auction {
@@ -174,6 +174,7 @@ extension ExploreExperience {
       let startDate = formatter.date(from: nft.mintDate ?? "") ?? Foundation.Date()
       let endDate = formatter.date(from: nft.endDate ?? "") ?? Foundation.Date()
       let noun = Noun(id: nft.tokenId, name: "mfbldr #\(nft.tokenId)", owner: Account(id: nft.owner ?? "N/A"), seed: seed, createdAt: startDate, updatedAt: endDate, nounderOwned: nft.price == nil)
+      
       return Auction(id: nft.tokenId,
                      noun: noun,
                      amount: nft.price ?? "",

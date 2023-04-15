@@ -81,12 +81,12 @@ extension OffChainNounProfile {
     }
 
     func onShare() {
-      AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.shareOffchainNoun,
-                                        parameters: ["noun_name": noun.name])
+//      AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.shareOffchainNoun,
+//                                        parameters: ["noun_name": noun.name])
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.offchainNounProfile)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.offchainNounProfile)
     }
   }
 }

@@ -297,8 +297,8 @@ extension NounCreator {
     /// Saves the current created noun
     func save() {
       do {
-        AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.saveOffchainNoun,
-                                          parameters: ["noun_name": nounName])
+//        AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.saveOffchainNoun,
+//                                          parameters: ["noun_name": nounName])
         try offChainNounsService.store(noun: Noun(name: nounName, owner: Account(), seed: seed))
       } catch {
         print("Error: \(error)")
@@ -448,11 +448,11 @@ extension NounCreator {
     }
 
     func onShake() {
-      AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.shakeToRandomize, parameters: nil)
+//      AppCore.shared.analytics.logEvent(withEvent: AnalyticsEvent.Event.shakeToRandomize, parameters: nil)
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.nounCreator)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.nounCreator)
     }
   }
 }

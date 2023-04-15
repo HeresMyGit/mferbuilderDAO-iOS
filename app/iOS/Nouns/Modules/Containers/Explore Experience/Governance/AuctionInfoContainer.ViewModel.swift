@@ -48,7 +48,7 @@ extension AuctionInfo {
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.auctionInfo)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.auctionInfo)
     }
   }
 }

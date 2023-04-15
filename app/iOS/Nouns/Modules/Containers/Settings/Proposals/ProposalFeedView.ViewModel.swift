@@ -59,7 +59,7 @@ extension ProposalFeedView {
     }
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.proposals)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.proposals)
     }
   }
 }

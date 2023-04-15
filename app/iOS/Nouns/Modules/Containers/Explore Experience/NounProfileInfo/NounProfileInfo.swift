@@ -95,7 +95,7 @@ struct NounProfileInfo: View {
         
         PlainCell(length: 20) {
           if !viewModel.isAuctionSettled {
-            MarqueeText(text: LiveAuctionCard.liveAuctionMarqueeString, alignment: .center)
+            MarqueeText(text: LiveAuctionCard.liveAuctionMarqueeString, alignment: .center, font: UIFont.custom(.bold, size: 14))
               .padding(.vertical, 5)
               .border(width: 2, edges: [.bottom], color: .componentNounsBlack)
               .padding([.top, .horizontal], -20)

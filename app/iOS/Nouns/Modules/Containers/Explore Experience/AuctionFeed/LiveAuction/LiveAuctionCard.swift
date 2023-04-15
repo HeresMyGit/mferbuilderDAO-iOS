@@ -73,7 +73,7 @@ struct LiveAuctionCard: View {
               alignment: .center
             )
             
-          MarqueeText(text: LiveAuctionCard.liveAuctionMarqueeString, alignment: .center)
+          MarqueeText(text: LiveAuctionCard.liveAuctionMarqueeString, alignment: .center, font: UIFont.custom(.bold, size: 14))
             .padding(.top, 5)
             .padding(.bottom, 4)
             .border(width: 2, edges: [.top], color: .componentNounsBlack)
@@ -118,7 +118,7 @@ struct LiveAuctionCard: View {
         NounProfileInfo(viewModel: .init(auction: viewModel.auction))
       }
       .onWidgetOpen {
-        AppCore.shared.analytics.logEvent(withEvent: .openAppFromWidget, parameters: ["noun_id": viewModel.auction.noun.id])
+//        AppCore.shared.analytics.logEvent(withEvent: .openAppFromWidget, parameters: ["noun_id": viewModel.auction.noun.id])
         if !showNounProfile {
           DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
             showNounProfile = true

@@ -22,7 +22,7 @@ extension AboutView {
   final class ViewModel: ObservableObject {
 
     func onAppear() {
-      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.about)
+//      AppCore.shared.analytics.logScreenView(withScreen: AnalyticsEvent.Screen.about)
     }
   }
 }
