@@ -141,7 +141,7 @@ struct NounProfileInfo: View {
     .fullScreenCover(isPresented: $viewModel.shouldShowNounCreator) {
       NounCreator(viewModel: .init(initialSeed: viewModel.nounTraits))
     }
-    .notificationPermissionDialog(isPresented: $viewModel.isNotificationPermissionDialogPresented)
+//    .notificationPermissionDialog(isPresented: $viewModel.isNotificationPermissionDialogPresented)
     .addBottomSheet()
     .onAppear(perform: viewModel.onAppear)
   }

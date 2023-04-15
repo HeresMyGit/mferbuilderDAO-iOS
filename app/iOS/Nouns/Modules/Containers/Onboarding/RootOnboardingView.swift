@@ -83,7 +83,7 @@ extension OnboardingView {
       case .explore:
         return "explore"
       case .create:
-        return "create"
+        return "build"
       }
     }
     

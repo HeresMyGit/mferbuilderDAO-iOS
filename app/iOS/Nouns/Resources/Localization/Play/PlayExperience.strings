@@ -12,7 +12,7 @@
 
 "subheadline" = "Give your mfer something to say!";
 
-"create.noun" = "Create a mfer";
+"create.noun" = "Build a mfer";
 
 "proceed.title" = "Get going";
 
@@ -22,6 +22,6 @@
 
 "no.nouns" = "You need a mfer!";
 
-"create.noun.speech.bubble" = "Yo, you don't have any mfer. Create one and give it something to say!";
+"create.noun.speech.bubble" = "Yo, you don't have any mfers. Build one and give it something to say!";
 
 "create-noun.action" = "New";

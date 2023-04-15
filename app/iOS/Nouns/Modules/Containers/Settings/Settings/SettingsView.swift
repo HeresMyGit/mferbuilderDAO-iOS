@@ -81,9 +81,9 @@ struct SettingsView: View {
         ShareSheet(activityItems: [url])
       }
     }
-    .notificationPermissionDialog(
-      isPresented: $viewModel.isNotificationPermissionDialogPresented
-    )
+//    .notificationPermissionDialog(
+//      isPresented: $viewModel.isNotificationPermissionDialogPresented
+//    )
     .onAppear {
       viewModel.onAppear()
       outlineTabBarVisibility.hide()

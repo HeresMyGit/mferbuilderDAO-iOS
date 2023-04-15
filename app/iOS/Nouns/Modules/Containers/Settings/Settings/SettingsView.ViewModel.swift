@@ -75,10 +75,12 @@ extension SettingsView {
     private func handleNotificationPermission() async {
       switch await messaging.authorizationStatus {
       case .denied:
-        isNotificationPermissionTutorialPresented.toggle()
+        break
+//        isNotificationPermissionTutorialPresented.toggle()
         
       case .notDetermined:
-        isNotificationPermissionDialogPresented.toggle()
+        break
+//        isNotificationPermissionDialogPresented.toggle()
         
       default:
         break

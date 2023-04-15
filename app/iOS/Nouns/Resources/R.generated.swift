@@ -6967,7 +6967,7 @@ struct R: Rswift.Validatable {
     struct createNounDialog {
       /// Value: Born %s
       static let nounBirthdayLabel = Rswift.StringResource(key: "noun.birthday.label", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Created by you
+      /// Value: Built by you
       static let ownerLabel = Rswift.StringResource(key: "owner.label", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Name your mfer!
       static let inputPlaceholder = Rswift.StringResource(key: "input.placeholder", tableName: "CreateNounDialog", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -6991,7 +6991,7 @@ struct R: Rswift.Validatable {
         return String(format: format, locale: locale, value1)
       }
 
-      /// Value: Created by you
+      /// Value: Built by you
       static func ownerLabel(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("owner.label", tableName: "CreateNounDialog", bundle: hostingBundle, comment: "")
@@ -7048,12 +7048,25 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.create` struct is generated, and contains static references to 3 localization keys.
     struct create {
+      /// Value: Build
+      static let title = Rswift.StringResource(key: "title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Build a completely custom mfer or mfbldr token
       static let subheadline = Rswift.StringResource(key: "subheadline", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Create
-      static let title = Rswift.StringResource(key: "title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get going
       static let proceedTitle = Rswift.StringResource(key: "proceed.title", tableName: "Create", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: Build
+      static func title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title", tableName: "Create", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Create", preferredLanguages: preferredLanguages) else {
+          return "title"
+        }
+
+        return NSLocalizedString("title", tableName: "Create", bundle: bundle, comment: "")
+      }
 
       /// Value: Build a completely custom mfer or mfbldr token
       static func subheadline(preferredLanguages: [String]? = nil) -> String {
@@ -7066,19 +7079,6 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("subheadline", tableName: "Create", bundle: bundle, comment: "")
-      }
-
-      /// Value: Create
-      static func title(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("title", tableName: "Create", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "Create", preferredLanguages: preferredLanguages) else {
-          return "title"
-        }
-
-        return NSLocalizedString("title", tableName: "Create", bundle: bundle, comment: "")
       }
 
       /// Value: Get going
@@ -7583,16 +7583,16 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.nounDeleteDialog` struct is generated, and contains static references to 4 localization keys.
     struct nounDeleteDialog {
-      /// Value: Are you sure you want to leave and lose the precious mfer you’ve created?
+      /// Value: do you want to leave and lose the precious mfer you’ve built?
       static let message = Rswift.StringResource(key: "message", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: For reals?
-      static let title = Rswift.StringResource(key: "title", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: No, I want to keep creating
+      /// Value: no, keep building
       static let nounCancelAction = Rswift.StringResource(key: "noun.cancel.action", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Yeah, get rid of it
+      /// Value: r u sure?
+      static let title = Rswift.StringResource(key: "title", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: yeah, gn mfer
       static let nounDeleteAction = Rswift.StringResource(key: "noun.delete.action", tableName: "NounDeleteDialog", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Are you sure you want to leave and lose the precious mfer you’ve created?
+      /// Value: do you want to leave and lose the precious mfer you’ve built?
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
@@ -7605,20 +7605,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("message", tableName: "NounDeleteDialog", bundle: bundle, comment: "")
       }
 
-      /// Value: For reals?
-      static func title(preferredLanguages: [String]? = nil) -> String {
-        guard let preferredLanguages = preferredLanguages else {
-          return NSLocalizedString("title", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
-        }
-
-        guard let (_, bundle) = localeBundle(tableName: "NounDeleteDialog", preferredLanguages: preferredLanguages) else {
-          return "title"
-        }
-
-        return NSLocalizedString("title", tableName: "NounDeleteDialog", bundle: bundle, comment: "")
-      }
-
-      /// Value: No, I want to keep creating
+      /// Value: no, keep building
       static func nounCancelAction(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("noun.cancel.action", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
@@ -7631,7 +7618,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("noun.cancel.action", tableName: "NounDeleteDialog", bundle: bundle, comment: "")
       }
 
-      /// Value: Yeah, get rid of it
+      /// Value: r u sure?
+      static func title(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("title", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "NounDeleteDialog", preferredLanguages: preferredLanguages) else {
+          return "title"
+        }
+
+        return NSLocalizedString("title", tableName: "NounDeleteDialog", bundle: bundle, comment: "")
+      }
+
+      /// Value: yeah, gn mfer
       static func nounDeleteAction(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("noun.delete.action", tableName: "NounDeleteDialog", bundle: hostingBundle, comment: "")
@@ -8120,7 +8120,7 @@ struct R: Rswift.Validatable {
 
     /// This `R.string.playExperience` struct is generated, and contains static references to 10 localization keys.
     struct playExperience {
-      /// Value: Create a mfer
+      /// Value: Build a mfer
       static let createNoun = Rswift.StringResource(key: "create.noun", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Get going
       static let proceedTitle = Rswift.StringResource(key: "proceed.title", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -8134,14 +8134,14 @@ struct R: Rswift.Validatable {
       static let title = Rswift.StringResource(key: "title", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Swipe to pick a mfer
       static let chooseCoachmark = Rswift.StringResource(key: "choose.coachmark", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: Yo, you don't have any mfer. Create one and give it something to say!
+      /// Value: Yo, you don't have any mfers. Build one and give it something to say!
       static let createNounSpeechBubble = Rswift.StringResource(key: "create.noun.speech.bubble", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: You need a mfer!
       static let noNouns = Rswift.StringResource(key: "no.nouns", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: sup home slice
       static let speechBubble = Rswift.StringResource(key: "speech.bubble", tableName: "PlayExperience", bundle: R.hostingBundle, locales: [], comment: nil)
 
-      /// Value: Create a mfer
+      /// Value: Build a mfer
       static func createNoun(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("create.noun", tableName: "PlayExperience", bundle: hostingBundle, comment: "")
@@ -8232,7 +8232,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("choose.coachmark", tableName: "PlayExperience", bundle: bundle, comment: "")
       }
 
-      /// Value: Yo, you don't have any mfer. Create one and give it something to say!
+      /// Value: Yo, you don't have any mfers. Build one and give it something to say!
       static func createNounSpeechBubble(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("create.noun.speech.bubble", tableName: "PlayExperience", bundle: hostingBundle, comment: "")

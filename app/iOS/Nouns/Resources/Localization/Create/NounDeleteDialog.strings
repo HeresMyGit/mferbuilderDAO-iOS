@@ -6,10 +6,10 @@
   
 */
 
-"title" = "For reals?";
+"title" = "r u sure?";
 
-"message" = "Are you sure you want to leave and lose the precious mfer you’ve created?";
+"message" = "do you want to leave and lose the precious mfer you’ve built?";
 
-"noun.delete.action" = "Yeah, get rid of it";
+"noun.delete.action" = "yeah, gn mfer";
 
-"noun.cancel.action" = "No, I want to keep creating";
+"noun.cancel.action" = "no, keep building";
