@@ -24,6 +24,10 @@ public enum GradientColors: CaseIterable {
   case mferBlue
   case mferGreen
   case mferYellow
+  case mferGray
+  case graveyard
+  case space
+  case tree
   case coolGreydient
   case warmGreydient
   case cherrySunset
@@ -41,48 +45,56 @@ public enum GradientColors: CaseIterable {
   case recordButtonStroke
   
   public var colors: [Color] {
-    switch self {
-    case .coolGreydient:
-      return [.componentCoolGrey, .componentCanadianSky]
-    case .warmGreydient:
-      return [.componentWarmGrey, .componentOctoberSky]
-    case .cherrySunset:
-      return [.componentPeachy, .componentSoftCherry]
-    case .orangesicle:
-      return [.componentOrangeCream, .componentClementine]
-    case .mangoChunks:
-      return [.componentSeriousMango, .componentOrangeCream]
-    case .lemonDrop:
-      return [.componentUnripeLemon, .componentSeriousMango]
-    case .keyLimePie:
-      return [.componentUnripeLemon, .componentInsideLime]
-    case .kiwiDream:
-      return [.componentConcord, .componentNuclearMint]
-    case .freshMint:
-      return [.componentAqua, .componentSpearmint]
-    case .oceanBreeze:
-      return [.componentLinen, .componentAqua]
-    case .blueberryJam:
-      return [.componentPerriwinkle, .componentMountainSky]
-    case .grapeAttack:
-      return [.componentPurpleCabbage, .componentBrambleberry]
-    case .magnoliaGarden:
-      return [.componentSmoothie, .componentEggplant]
-    case .bubbleGum:
-      return [.componentPeachy, .componentRaspberry]
-    case .mferOrange:
-      return [.componentMferOrange, .componentClementine]
-    case .mferBlue:
-      return [.componentMferBlue, .componentLinen]
-    case .mferRed:
-      return [.componentMferRed, .componentOrangeCream]
-    case .mferGreen:
-      return [.componentMferGreen, .componentNuclearMint]
-    case .mferYellow:
-        return [.componentMferYellow, .componentSeriousMango]
-    case .recordButtonStroke:
-      return [.componentTurquoise, .componentAngularPurple, .componentAngularPink, .componentAngularYellow, .componentTurquoise]
-    }
+      switch self {
+      case .coolGreydient:
+          return [.componentCoolGrey, .componentCanadianSky]
+      case .warmGreydient:
+          return [.componentWarmGrey, .componentOctoberSky]
+      case .cherrySunset:
+          return [.componentPeachy, .componentSoftCherry]
+      case .orangesicle:
+          return [.componentOrangeCream, .componentClementine]
+      case .mangoChunks:
+          return [.componentSeriousMango, .componentOrangeCream]
+      case .lemonDrop:
+          return [.componentUnripeLemon, .componentSeriousMango]
+      case .keyLimePie:
+          return [.componentUnripeLemon, .componentInsideLime]
+      case .kiwiDream:
+          return [.componentConcord, .componentNuclearMint]
+      case .freshMint:
+          return [.componentAqua, .componentSpearmint]
+      case .oceanBreeze:
+          return [.componentLinen, .componentAqua]
+      case .blueberryJam:
+          return [.componentPerriwinkle, .componentMountainSky]
+      case .grapeAttack:
+          return [.componentPurpleCabbage, .componentBrambleberry]
+      case .magnoliaGarden:
+          return [.componentSmoothie, .componentEggplant]
+      case .bubbleGum:
+          return [.componentPeachy, .componentRaspberry]
+      case .mferOrange:
+          return [.componentMferOrange, .componentClementine]
+      case .mferBlue:
+          return [.componentMferBlue, .componentLinen]
+      case .mferRed:
+          return [.componentMferRed, .componentOrangeCream]
+      case .mferGreen:
+          return [.componentMferGreen, .componentNuclearMint]
+      case .mferYellow:
+          return [.componentMferYellow, .componentSeriousMango]
+      case .recordButtonStroke:
+          return [.componentTurquoise, .componentAngularPurple, .componentAngularPink, .componentAngularYellow, .componentTurquoise]
+      case .graveyard:
+          return [.componentMferGray]
+      case .space:
+          return [.componentMferGray]
+      case .tree:
+          return [.componentMferYellow]
+      default:
+          return []
+      }
   }
 }
 

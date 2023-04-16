@@ -26,8 +26,15 @@ struct DerivativeProjectsInfoSection: View {
   /// A boolean to load the what are mfers link using a browser.
   @State private var isWhatAreMfersPresented = false
   
+  /// A boolean to load the twitter links using a browser.
+  @State private var isTwitterPresented = false
+  @State private var selectedAccount = ""
+  
   /// Holds a reference to the localized text.
   private let localize = R.string.derivativeProjects.self
+  
+  let teamMembers = [TeamInfoSection.TeamMember(id: "sartoshi_rip", image: R.image.sartoshiPfp),
+                     TeamInfoSection.TeamMember(id: "unofficialmfers", image: R.image.mfersPfp)]
   
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
@@ -47,6 +54,24 @@ struct DerivativeProjectsInfoSection: View {
         smallAccessory: { Image.smArrowOut },
         action: { isWhatAreMfersPresented.toggle() })
         .controlSize(.large)
+      
+      ForEach(teamMembers) { teamMember in
+        OutlineButton(
+          text: "@\(teamMember.id)",
+          largeIcon: { Image(teamMember.image.name) },
+          smallAccessory: { Image.smArrowOut },
+          action: {
+            selectedAccount = teamMember.id
+            isTwitterPresented = true
+          }
+        )
+        .controlSize(.large)
+      }
+    }
+    .fullScreenCover(isPresented: $isTwitterPresented) {
+      if let url = URL(string: "https://twitter.com/\(selectedAccount)") {
+        Safari(url: url)
+      }
     }
     .fullScreenCover(isPresented: $isNounsCenterPresented) {
       if let url = URL(string: localize.nounsCenterLink()) {

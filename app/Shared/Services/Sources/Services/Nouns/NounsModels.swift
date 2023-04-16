@@ -248,6 +248,93 @@ public struct Seed: Equatable, Hashable {
         self.watch = OfflineNounComposer.default().watches.firstIndex(where: ({ $0.assetImage == properties["watch"] })) ?? 0
 
     }
+    
+    public init(mferAttributes: [String:String]) {
+        self.background = 0
+        
+        let bgName = mferAttributes["background"] ?? ""
+        if bgName == "orange" {
+            self.background = 0
+        } else if bgName == "red" {
+            self.background = 1
+        } else if bgName == "blue" {
+            self.background = 2
+        } else if bgName == "green" {
+            self.background = 3
+        } else if bgName == "yellow" {
+            self.background = 4
+        } else if bgName == "graveyard" {
+            self.background = 5
+        } else if bgName == "space" {
+            self.background = 6
+        } else if bgName == "tree" {
+            self.background = 7
+        } else {
+            self.background = 0
+        }
+        
+        self.body = 2
+        
+        var headName = mferAttributes["type"] ?? ""
+        headName = "head-" + (headName.components(separatedBy: " ").first ?? "")
+        self.head = OfflineNounComposer.default().heads.firstIndex(where: ({ $0.assetImage == headName })) ?? 0
+        
+        var headphonesName = mferAttributes["headphones"] ?? ""
+        headphonesName = headphonesName.components(separatedBy: " ").reversed().joined(separator: "-")
+        self.headphones = OfflineNounComposer.default().headphones.firstIndex(where: ({ $0.assetImage == headphonesName })) ?? 0
+        
+        var smokeName = mferAttributes["smoke"] ?? ""
+        if smokeName == "pipe" {
+            smokeName = "smoke-pipe"
+        } else {
+            smokeName = smokeName.replacingOccurrences(of: "cig ", with: "smoke-")
+        }
+        self.smoke = OfflineNounComposer.default().smokes.firstIndex(where: ({ $0.assetImage == smokeName })) ?? 0
+        
+        var beardName = mferAttributes["beard"] ?? ""
+        beardName = beardName.replacingOccurrences(of: " ", with: "")
+        self.beard = OfflineNounComposer.default().beards.firstIndex(where: ({ $0.assetImage == beardName })) ?? 0
+        
+        var chainName = mferAttributes["chain"] ?? ""
+        chainName = chainName.replacingOccurrences(of: " ", with: "")
+        self.chain = OfflineNounComposer.default().chains.firstIndex(where: ({ $0.assetImage == chainName })) ?? 0
+        
+        var eyesName = mferAttributes["eyes"] ?? ""
+        eyesName = eyesName.replacingOccurrences(of: " ", with: "")
+        self.eyes = OfflineNounComposer.default().eyes.firstIndex(where: ({ $0.assetImage == eyesName })) ?? 0
+        
+        var hohName = mferAttributes["hat over headphones"] ?? ""
+        hohName = hohName.replacingOccurrences(of: " ", with: "")
+        self.hatOverHeadphones = OfflineNounComposer.default().hatOverHeadphones.firstIndex(where: ({ $0.assetImage == hohName })) ?? 0
+        
+        var huhName = mferAttributes["hat under headphones"] ?? ""
+        print("huh: \(huhName)")
+        huhName = huhName.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "/", with: "_")
+        print("huh: \(huhName)")
+        self.hatUnderHeadphones = OfflineNounComposer.default().hatUnderHeadphones.firstIndex(where: ({ $0.assetImage == huhName })) ?? 0
+        
+        var longHairName = mferAttributes["long hair"] ?? ""
+        longHairName = longHairName.replacingOccurrences(of: " ", with: "")
+        self.longHair = OfflineNounComposer.default().longHairs.firstIndex(where: ({ $0.assetImage == longHairName })) ?? 0
+        
+        self.mouth = OfflineNounComposer.default().mouths.firstIndex(where: ({ $0.assetImage == mferAttributes["mouth"] })) ?? 0
+        
+        var shirtName = mferAttributes["shirt"] ?? ""
+        shirtName = shirtName.replacingOccurrences(of: " ", with: "")
+        self.shirt = OfflineNounComposer.default().shirts.firstIndex(where: ({ $0.assetImage == shirtName })) ?? 0
+        
+        var shortHairName = mferAttributes["short hair"] ?? ""
+        shortHairName = shortHairName.replacingOccurrences(of: " ", with: "")
+        self.shortHair = OfflineNounComposer.default().shortHairs.firstIndex(where: ({ $0.assetImage == shortHairName })) ?? 0
+
+        var watchName = mferAttributes["4:20 watch"] ?? ""
+        watchName = watchName.replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: "(", with: "")
+            .replacingOccurrences(of: ")", with: "")
+            .replacingOccurrences(of: "/", with: "")
+        self.watch = OfflineNounComposer.default().watches.firstIndex(where: ({ $0.assetImage == watchName })) ?? 0
+
+    }
 }
 
 public extension Seed {

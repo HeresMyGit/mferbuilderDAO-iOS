@@ -75,26 +75,7 @@ extension NounCreator {
                 viewModel.traitSectionDidDisappear(type)
               }
             }
-            
-            // Gradient background selection
-            TraitCollectionSection(type: .background, items: NounCreator.backgroundColors) { gradient, index in
-              
-              GradientPickerItem(colors: gradient.colors)
-                .selected(viewModel.isSelected(index, traitType: .background))
-                .onTapGesture {
-                  viewModel.selectTrait(index, ofType: .background)
-                }
-                .id("\(TraitType.background.rawValue)-\(index)")
-              // This applies a padding to only the first column (rowSpec.count)
-              // of items to distinguish the different trait sections
-                .padding(.leading, (0..<rowSpec.count).contains(index) ? 20 : 0)
-            }
-            .onAppear {
-              viewModel.traitSectionDidAppear(.background)
-            }
-            .onDisappear {
-              viewModel.traitSectionDidDisappear(.background)
-            }
+            selectorView
           }
           .padding(.vertical, 12)
           .padding(.trailing)
@@ -122,6 +103,39 @@ extension NounCreator {
         }
         .frame(maxHeight: 250)
       }
+    }
+    
+    var selectorView: some View {
+      // Gradient background selection
+      TraitCollectionSection(type: .background, items: NounCreator.backgroundColors) { gradient, index in
+        GradientPickerItem(colors: gradient.colors, image: image(gradient: gradient))
+          .selected(viewModel.isSelected(index, traitType: .background))
+          .onTapGesture {
+            viewModel.selectTrait(index, ofType: .background)
+          }
+          .id("\(TraitType.background.rawValue)-\(index)")
+        // This applies a padding to only the first column (rowSpec.count)
+        // of items to distinguish the different trait sections
+          .padding(.leading, (0..<rowSpec.count).contains(index) ? 20 : 0)
+      }
+      .onAppear {
+        viewModel.traitSectionDidAppear(.background)
+      }
+      .onDisappear {
+        viewModel.traitSectionDidDisappear(.background)
+      }
+    }
+    
+    func image(gradient: GradientColors?) -> Image? {
+      var image: Image?
+      if gradient == .graveyard {
+        image = Image("graveyard")
+      } else if gradient == .space {
+        image = Image("space")
+      } else if gradient == .tree {
+        image = Image("tree")
+      }
+      return image
     }
   }
 }

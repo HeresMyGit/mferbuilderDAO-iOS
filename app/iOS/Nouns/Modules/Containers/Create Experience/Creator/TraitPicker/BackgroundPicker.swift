@@ -32,9 +32,18 @@ extension NounCreator {
     var body: some View {
       LazyHStack(spacing: 0) {
         ForEach(0..<NounCreator.backgroundColors.count, id: \.self) { index in
-          Gradient(colors: NounCreator.backgroundColors[index].colors)
-            .frame(maxHeight: .infinity)
-            .frame(width: BackgroundPicker.width)
+          ZStack {
+            Gradient(colors: NounCreator.backgroundColors[index].colors)
+              .frame(maxHeight: .infinity)
+              .frame(width: CGFloat(UIScreen.main.bounds.width))
+            Image(nounTraitName: image(index: index))
+              .interpolation(.none)
+              .resizable()
+              .frame(
+                width: CGFloat(UIScreen.main.bounds.width),
+                height: CGFloat(UIScreen.main.bounds.width)
+              )
+          }
         }
       }
       .frame(width: BackgroundPicker.width, alignment: .leading)
@@ -43,6 +52,18 @@ extension NounCreator {
       .gesture(onDrag)
       .animation(.easeInOut, value: offset == 0)
       .allowsHitTesting(viewModel.currentModifiableTraitType == .background)
+    }
+    
+    func image(index: Int) -> String {
+      var image: String = ""
+      if index == NounCreator.backgroundColors.firstIndex(of: .graveyard) {
+        image = "graveyard"
+      } else if index == NounCreator.backgroundColors.firstIndex(of: .space) {
+        image = "space"
+      } else if index == NounCreator.backgroundColors.firstIndex(of: .tree) {
+        image = "tree"
+      }
+      return image
     }
     
     /// Handles Drag Gesture to navigate across different `Noun's Traits`.

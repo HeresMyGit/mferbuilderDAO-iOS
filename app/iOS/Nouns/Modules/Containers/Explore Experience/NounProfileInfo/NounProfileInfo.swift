@@ -73,9 +73,12 @@ struct NounProfileInfo: View {
   ///
   /// - Returns: This view contains the play scene to animate the Noun's eyes.
   private let talkingNoun: TalkingNoun
+  
+  private var truncateUI: Bool
     
-  public init(viewModel: ViewModel) {
+  public init(viewModel: ViewModel, truncateUI: Bool = false) {
     self._viewModel = StateObject(wrappedValue: viewModel)
+    self.truncateUI = truncateUI
     talkingNoun = TalkingNoun(seed: viewModel.auction.noun.seed)
   }
   
@@ -106,7 +109,8 @@ struct NounProfileInfo: View {
           if viewModel.isAuctionSettled || viewModel.isWinnerAnnounced {
             SettledAuctionInfoSheet(
               viewModel: .init(auction: viewModel.auction, winner: viewModel.winner),
-              isActivityPresented: $isActivityPresented
+              isActivityPresented: $isActivityPresented,
+              truncateUI: truncateUI
             )
           } else {
             LiveAuctionInfoSheet(

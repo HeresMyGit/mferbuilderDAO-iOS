@@ -28,11 +28,10 @@ struct TeamInfoSection: View {
 
   let teamMembers = [
     TeamMember(id: "HeresMyEth", image: R.image.heresmyPfp),
-    TeamMember(id: "zhoug0x", image: R.image.zhougPfp),
-    TeamMember(id: "lilpandawtf", image: R.image.lilpandaPfp),
-    TeamMember(id: "GoodBeats", image: R.image.aclPfp),
-    TeamMember(id: "mferbuilderDAO", image: R.image.daoPfp),
-    TeamMember(id: "mferbuilderBOT", image: R.image.botPfp),
+//    TeamMember(id: "zhoug0x", image: R.image.zhougPfp),
+//    TeamMember(id: "lilpandawtf", image: R.image.lilpandaPfp),
+//    TeamMember(id: "GoodBeats", image: R.image.aclPfp),
+    
     TeamMember(id: "Nounscollectiv3", image: R.image.nounscollectiv3Pfp),
   ]
 

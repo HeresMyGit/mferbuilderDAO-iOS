@@ -183,5 +183,26 @@ extension ExploreExperience {
                      settled: true,
                      bidder: Account(id: nft.owner ?? "N/A"))
     }
+    
+    func mferSale(from nft: NFT) -> Auction {
+      var properties = [String: String]()
+      for attribute in nft.attributes ?? [] {
+        properties[attribute.traitType] = attribute.value
+      }
+      let seed = Seed(mferAttributes: properties)
+      let formatter = DateFormatter()
+      formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+      let startDate = formatter.date(from: nft.mintDate ?? "") ?? Foundation.Date()
+      let endDate = formatter.date(from: nft.endDate ?? "") ?? Foundation.Date()
+      let noun = Noun(id: nft.tokenId, name: "mfer #\(nft.tokenId)", owner: Account(id: nft.owner ?? "N/A"), seed: seed, createdAt: startDate, updatedAt: endDate, nounderOwned: nft.price == nil)
+      
+      return Auction(id: nft.tokenId,
+                     noun: noun,
+                     amount: nft.price ?? "",
+                     startTime: startDate.timeIntervalSince1970,
+                     endTime: endDate.timeIntervalSince1970,
+                     settled: true,
+                     bidder: Account(id: nft.owner ?? "N/A"))
+    }
   }
 }

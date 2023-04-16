@@ -73,6 +73,8 @@ struct SlotMachine: View {
   
   /// Indicates the current modifiable trait type selected in the slot machine.
   @Binding var currentModifiableTraitType: TraitType
+  
+  var showImageBackgrounds = false
     
   init(
     seed: Binding<Seed>,
@@ -81,7 +83,8 @@ struct SlotMachine: View {
     currentModifiableTraitType: Binding<TraitType> = .constant(.headphones),
     showShadow: Bool = true,
     animateEntrance: Bool = false,
-    imageWidth: Double = SlotMachine.defaultImageSize
+    imageWidth: Double = SlotMachine.defaultImageSize,
+    showImageBackgrounds: Bool = false
   ) {
     self.initialSeed = initialSeed
     self.showShadow = showShadow
@@ -90,6 +93,7 @@ struct SlotMachine: View {
     self._currentModifiableTraitType = currentModifiableTraitType
     self._showAllTraits = shouldShowAllTraits
     self._seed = seed
+    self.showImageBackgrounds = showImageBackgrounds
   }
   
   /// Sets the seed to a new randomly generated seed
@@ -100,6 +104,18 @@ struct SlotMachine: View {
   /// Resets the seed to the `initialSeed`
   func resetToInitialSeed() {
     seed = initialSeed
+  }
+  
+  func image(index: Int) -> String {
+    var image: String = ""
+    if index == NounCreator.backgroundColors.firstIndex(of: .graveyard) {
+      image = "graveyard"
+    } else if index == NounCreator.backgroundColors.firstIndex(of: .space) {
+      image = "space"
+    } else if index == NounCreator.backgroundColors.firstIndex(of: .tree) {
+      image = "tree"
+    }
+    return image
   }
   
   var body: some View {
@@ -119,8 +135,8 @@ struct SlotMachine: View {
             type: type,
             currentModifiableTraitType: currentModifiableTraitType,
             showAllTraits: showAllTraits,
-            imageWidth: imageWidth
-          )
+            imageWidth: imageWidth)
+          
         }
       }
       .frame(maxHeight: imageWidth)

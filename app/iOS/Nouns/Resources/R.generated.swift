@@ -214,7 +214,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 451 images.
+  /// This `R.image` struct is generated, and contains static references to 453 images.
   struct image {
     /// Image `AppIcon0_Preview`.
     static let appIcon0_Preview = Rswift.ImageResource(bundle: R.hostingBundle, name: "AppIcon0_Preview")
@@ -1090,6 +1090,8 @@ struct R: Rswift.Validatable {
     static let homeSliceChat = Rswift.ImageResource(bundle: R.hostingBundle, name: "home-slice-chat")
     /// Image `lilpanda-pfp`.
     static let lilpandaPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "lilpanda-pfp")
+    /// Image `mfers-pfp`.
+    static let mfersPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "mfers-pfp")
     /// Image `noun-logo`.
     static let nounLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "noun-logo")
     /// Image `noun`.
@@ -1112,6 +1114,8 @@ struct R: Rswift.Validatable {
     static let placeholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder")
     /// Image `red_headphones`.
     static let red_headphones = Rswift.ImageResource(bundle: R.hostingBundle, name: "red_headphones")
+    /// Image `sartoshi-pfp`.
+    static let sartoshiPfp = Rswift.ImageResource(bundle: R.hostingBundle, name: "sartoshi-pfp")
     /// Image `shadow`.
     static let shadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "shadow")
     /// Image `shark-noun`.
@@ -4179,6 +4183,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "mfers-pfp", bundle: ..., traitCollection: ...)`
+    static func mfersPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mfersPfp, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "noun", bundle: ..., traitCollection: ...)`
     static func noun(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.noun, compatibleWith: traitCollection)
@@ -4252,6 +4263,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "red_headphones", bundle: ..., traitCollection: ...)`
     static func red_headphones(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.red_headphones, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "sartoshi-pfp", bundle: ..., traitCollection: ...)`
+    static func sartoshiPfp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.sartoshiPfp, compatibleWith: traitCollection)
     }
     #endif
 
@@ -9077,7 +9095,7 @@ struct R: Rswift.Validatable {
     struct team {
       /// Value: Made with 🎧🚬
       static let title = Rswift.StringResource(key: "title", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  mferbuilerDAO has many wonderful builders, voters, and members.  Those that contributed directly to the app are listed below, along with the original creators of the Nouns app, and a helpful bot.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
+      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
       static let message = Rswift.StringResource(key: "message", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: https://twitter.com/%@
       static let twitterProfileUrl = Rswift.StringResource(key: "twitter.profile.url", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -9095,7 +9113,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "Team", bundle: bundle, comment: "")
       }
 
-      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  mferbuilerDAO has many wonderful builders, voters, and members.  Those that contributed directly to the app are listed below, along with the original creators of the Nouns app, and a helpful bot.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
+      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Team", bundle: hostingBundle, comment: "")

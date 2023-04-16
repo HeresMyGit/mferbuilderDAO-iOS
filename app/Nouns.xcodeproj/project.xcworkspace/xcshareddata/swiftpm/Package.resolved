@@ -12,7 +12,7 @@
       },
       {
         "package": "Apollo",
-        "repositoryURL": "https://github.com/apollographql/apollo-ios",
+        "repositoryURL": "https://github.com/apollographql/apollo-ios.git",
         "state": {
           "branch": null,
           "revision": "08a41bad4ebf76ae8e4efebf26862a42084b7786",
@@ -177,7 +177,7 @@
         "repositoryURL": "https://github.com/HeresMyGit/swift-zorakit",
         "state": {
           "branch": "main",
-          "revision": "af38326d02205d5eff4baef1a28672a75cffef26",
+          "revision": "eac69abd53189f17922012e6855139398f4ad956",
           "version": null
         }
       },

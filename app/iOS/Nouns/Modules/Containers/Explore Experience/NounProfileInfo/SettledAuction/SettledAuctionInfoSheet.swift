@@ -22,30 +22,33 @@ import NounsUI
 struct SettledAuctionInfoSheet: View {
   @StateObject var viewModel: ViewModel
   @Binding var isActivityPresented: Bool
+  public var truncateUI = false
 
   var body: some View {
     VStack(alignment: .leading, spacing: 20) {
       // The date when the auction was created.
-      if viewModel.showBirthdate {
-        InfoCell(
-          text: viewModel.birthdate,
-          icon: { Image.birthday })
-      }
-      
-      // Displays the wining bid amount.
-      if viewModel.showWinningBid {
-        InfoCell(
-          text: R.string.nounProfile.bidWinner(),
-          icon: { Image.wonPrice },
-          supplementaryView: {
-            Label {
-              Text(viewModel.winningBid)
-            } icon: {
-              Image.eth
-            }
-            .labelStyle(.calloutLabel(spacing: 2))
-            .padding(.leading, 4)
-          })
+      if !truncateUI {
+        if viewModel.showBirthdate {
+          InfoCell(
+            text: viewModel.birthdate,
+            icon: { Image.birthday })
+        }
+        
+        // Displays the wining bid amount.
+        if viewModel.showWinningBid {
+          InfoCell(
+            text: R.string.nounProfile.bidWinner(),
+            icon: { Image.wonPrice },
+            supplementaryView: {
+              Label {
+                Text(viewModel.winningBid)
+              } icon: {
+                Image.eth
+              }
+              .labelStyle(.calloutLabel(spacing: 2))
+              .padding(.leading, 4)
+            })
+        }
       }
       
       // Displays the winner of the auction using `ENS` or `Token`.

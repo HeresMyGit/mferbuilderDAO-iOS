@@ -25,26 +25,42 @@ extension NounCreator {
     @State private var width: CGFloat = 10
     
     private let colors: [Color]
+    private let image: Image?
     
-    init(colors: [Color]) {
+    init(colors: [Color], image: Image? = nil) {
       self.colors = colors
+      self.image = image
     }
     
     var body: some View {
-      LinearGradient(
-        colors: colors,
-        startPoint: .topLeading,
-        endPoint: .bottomTrailing)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
-        .frame(width: width)
-        .background(
-          GeometryReader { proxy in
-            Color.clear
-              .onAppear {
-                self.width = proxy.size.height
-              }
-          }
-        )
+      if image != nil {
+        image
+          .clipShape(RoundedRectangle(cornerRadius: 8))
+          .frame(width: width)
+          .background(
+            GeometryReader { proxy in
+              Color.clear
+                .onAppear {
+                  self.width = proxy.size.height
+                }
+            }
+          )
+      } else {
+        LinearGradient(
+          colors: colors,
+          startPoint: .topLeading,
+          endPoint: .bottomTrailing)
+          .clipShape(RoundedRectangle(cornerRadius: 8))
+          .frame(width: width)
+          .background(
+            GeometryReader { proxy in
+              Color.clear
+                .onAppear {
+                  self.width = proxy.size.height
+                }
+            }
+          )
+      }
     }
   }
 }

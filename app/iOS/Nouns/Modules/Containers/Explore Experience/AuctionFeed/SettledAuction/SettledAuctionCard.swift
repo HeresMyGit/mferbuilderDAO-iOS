@@ -53,3 +53,29 @@ struct SettledAuctionCard: View {
       .headerStyle(.small)
   }
 }
+
+// quick and dirty
+struct MfersSaleCard: View {
+  @StateObject var viewModel: ViewModel
+  
+  var body: some View {
+    StandardCard(
+      header: viewModel.title,
+      accessory: {
+        Image.mdArrowCorner
+      },
+      media: {
+        NounPuzzle(seed: viewModel.nounTraits)
+          .background(Color(hex: viewModel.nounBackground))
+      },
+      content: {
+        // Displays the winning bid on auction.
+        CompoundLabel({
+          ENSText(token: viewModel.winnerBid)
+            .font(.custom(.medium, relativeTo: .footnote))
+        }, icon: Image.holder, caption: "Owner")
+          .padding(.top, 4)
+      })
+      .headerStyle(.small)
+  }
+}

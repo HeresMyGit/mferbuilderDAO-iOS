@@ -23,6 +23,9 @@ struct SpacesInfoSection: View {
   @State private var isSafariPresented = false
   @State private var selectedURL: URL?
   
+  let teamMembers = [TeamInfoSection.TeamMember(id: "mferbuilderDAO", image: R.image.daoPfp),
+                     TeamInfoSection.TeamMember(id: "mferbuilderBOT", image: R.image.botPfp)]
+  
   var body: some View {
     VStack(alignment: .leading, spacing: 8) {
       AboutView.SectionTitle(
@@ -50,14 +53,28 @@ struct SpacesInfoSection: View {
       })
       
       // Twitter
-      SpaceRow(localize.twitterTitle(), action: {
-        selectedURL = URL(string: localize.twitterLink())
-      })
+//      SpaceRow(localize.twitterTitle(), action: {
+//        selectedURL = URL(string: localize.twitterLink())
+//      })
       
       // Etherscan
       SpaceRow(localize.etherscanTitle(), action: {
         selectedURL = URL(string: localize.etherscanLink())
       })
+      
+      ForEach(teamMembers) { teamMember in
+        OutlineButton(
+          text: "@\(teamMember.id)",
+          largeIcon: { Image(teamMember.image.name) },
+          smallAccessory: { Image.smArrowOut },
+          action: {
+            if let url = URL(string: "https://twitter.com/\(teamMember.id)") {
+              selectedURL = url
+            }
+          }
+        )
+        .controlSize(.large)
+      }
     }
     .onChange(of: selectedURL) { newSelectedURL in
       isSafariPresented = (newSelectedURL != nil)

@@ -28,6 +28,7 @@ struct ExploreExperience: View {
   @Environment(\.outlineTabViewHeight) private var tabBarHeight
   
   @State private var isMadhappySheetPresented = false
+  @State private var isMferSelected = true
   
   @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"), removeFirst: false, perPage: 1)
   @StateObject var highBid = HighBidLoader()
@@ -35,28 +36,11 @@ struct ExploreExperience: View {
   var body: some View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
-        VStack(spacing: 16) {
-          if let nft = collection.tokens.first, let bid = highBid.highBidder {
-            LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft), winner: bid))
-          } else if let nft = collection.tokens.first {
-            LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft)))
-          } else if viewModel.failedToLoadLiveAuction {
-            LiveAuctionCardErrorPlaceholder(viewModel: viewModel)
-          } else {
-            LiveAuctionCardPlaceholder()
-          }
-
-          SettledAuctionFeed(viewModel: viewModel)
-        }
-        .padding(.bottom, tabBarHeight)
-        .padding(.bottom, 20) // Extra padding between the bottom of the last noun card and the top of the tab view
-        .padding(.horizontal, 20)
-        .emptyPlaceholder(when: viewModel.failedToLoadExplore) {
-          EmptyErrorView(viewModel: viewModel)
-            .padding()
-        }
-        .softNavigationTitle(R.string.explore.title())
-        .id(AppPage.explore.scrollToTopId)
+        if isMferSelected {
+                mfers
+            } else {
+                mferbuilderDAO
+            }
       }
       .disabled(viewModel.isLoadingSettledAuctions)
       .background(Gradient.cherrySunset)
@@ -75,6 +59,67 @@ struct ExploreExperience: View {
       }
     }
     .navigationViewStyle(StackNavigationViewStyle())
+    
+  }
+  
+  var mferbuilderDAO: some View {
+    VStack(spacing: 16) {
+      if let nft = collection.tokens.first, let bid = highBid.highBidder {
+        LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft), winner: bid))
+      } else if let nft = collection.tokens.first {
+        LiveAuctionCard(viewModel: .init(auction: viewModel.auction(from: nft)))
+      } else if viewModel.failedToLoadLiveAuction {
+        LiveAuctionCardErrorPlaceholder(viewModel: viewModel)
+      } else {
+        LiveAuctionCardPlaceholder()
+      }
+
+      SettledAuctionFeed(viewModel: viewModel)
+    }
+    .padding(.bottom, tabBarHeight)
+    .padding(.bottom, 20) // Extra padding between the bottom of the last noun card and the top of the tab view
+    .padding(.horizontal, 20)
+    .emptyPlaceholder(when: viewModel.failedToLoadExplore) {
+      EmptyErrorView(viewModel: viewModel)
+        .padding()
+    }
+    .softNavigationTitle(R.string.explore.title(), rightAccessory: {
+      HStack {
+        SoftButton {
+          Text(isMferSelected ? "mfers" : "mferbuilderDAO")
+            .font(.custom(.bold, relativeTo: .title3))
+            .padding()
+        } action: {
+          isMferSelected.toggle()
+        }
+      }
+    })
+    
+    .id(AppPage.explore.scrollToTopId)
+  }
+  
+  var mfers: some View {
+    MfersFeed(viewModel: viewModel)
+    .padding(.bottom, tabBarHeight)
+    .padding(.bottom, 20) // Extra padding between the bottom of the last noun card and the top of the tab view
+    .padding(.horizontal, 20)
+    .emptyPlaceholder(when: viewModel.failedToLoadExplore) {
+      EmptyErrorView(viewModel: viewModel)
+        .padding()
+    }
+    .softNavigationTitle(R.string.explore.title(), rightAccessory: {
+      HStack {
+        SoftButton {
+          Text(isMferSelected ? "mfers" : "mferbuilderDAO")
+            .font(.custom(.bold, relativeTo: .title3))
+            .padding()
+        } action: {
+          isMferSelected.toggle()
+        }
+      }
+    })
+    
+    .id(AppPage.explore.scrollToTopId)
   }
 }
 

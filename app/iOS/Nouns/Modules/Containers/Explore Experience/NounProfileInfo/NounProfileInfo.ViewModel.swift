@@ -35,16 +35,19 @@ extension NounProfileInfo {
     @Published var isNotificationPermissionDialogPresented = false
     
     @Published var winner: String = ""
+    @Published var truncateUI: Bool
     
     let auction: Auction
     
     init(
       auction: Auction,
       messaging: Messaging = AppCore.shared.messaging,
-      winner: String? = nil
+      winner: String? = nil,
+      truncateUI: Bool = false
     ) {
       self.auction = auction
       self.winner = winner ?? self.auction.bidder?.id ?? ""
+      self.truncateUI = truncateUI
       
       title = R.string.explore.noun(auction.noun.id)
       isAuctionSettled = auction.settled

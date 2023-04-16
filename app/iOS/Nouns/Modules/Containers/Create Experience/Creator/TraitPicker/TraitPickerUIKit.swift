@@ -250,7 +250,16 @@ extension TraitPickerUIKit: UICollectionViewDelegate, UICollectionViewDataSource
     case .background:
       let gradient = NounCreator.backgroundColors[indexPath.row]
       let colors = gradient.colors.map { UIColor($0) }
+      var image: String = ""
+      if indexPath.row == NounCreator.backgroundColors.firstIndex(of: .graveyard) {
+        image = "graveyard"
+      } else if indexPath.row == NounCreator.backgroundColors.firstIndex(of: .space) {
+        image = "space"
+      } else if indexPath.row == NounCreator.backgroundColors.firstIndex(of: .tree) {
+        image = "tree"
+      }
       cell.setBackgroundGradient(colors: colors)
+      cell.setImage(image)
       cell.hasGradient = true
     default:
       let trait = traitTypes[indexPath.section].traits[indexPath.row]

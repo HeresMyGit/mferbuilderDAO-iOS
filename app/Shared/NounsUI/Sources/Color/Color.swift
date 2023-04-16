@@ -119,6 +119,8 @@ extension Color {
   public static let componentMferRed = Color("mfer.red", bundle: .module)
 
   public static let componentMferYellow = Color("mfer.yellow", bundle: .module)
+    
+  public static let componentMferGray = Color("mfer.gray", bundle: .module)
 }
 
 extension ShapeStyle where Self == Color {

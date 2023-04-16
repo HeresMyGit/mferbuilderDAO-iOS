@@ -40,7 +40,8 @@ struct NounCreator: View {
           seed: $viewModel.seed,
           shouldShowAllTraits: $viewModel.shouldShowAllTraits,
           initialSeed: viewModel.initialSeed,
-          currentModifiableTraitType: $viewModel.currentModifiableTraitType
+          currentModifiableTraitType: $viewModel.currentModifiableTraitType,
+          showImageBackgrounds: true
         )
         
         ConditionalSpacer(!viewModel.isExpanded || viewModel.mode != .creating)
