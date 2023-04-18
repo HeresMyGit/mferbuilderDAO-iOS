@@ -32,7 +32,6 @@ struct TeamInfoSection: View {
 //    TeamMember(id: "lilpandawtf", image: R.image.lilpandaPfp),
 //    TeamMember(id: "GoodBeats", image: R.image.aclPfp),
     
-    TeamMember(id: "Nounscollectiv3", image: R.image.nounscollectiv3Pfp),
   ]
 
   /// The team member's Twitter profile to load in a browser.

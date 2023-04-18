@@ -62,8 +62,8 @@ struct CreateExperience: View {
             }
           })
       }
-      .background(Gradient.freshMint)
-      .overlay(.componentAqua, edge: .top)
+      .background(Gradient.mferBlue)
+      .overlay(.componentMferBlue, edge: .top)
       .ignoresSafeArea(edges: .top)
       // Presents more details about the settled auction.
       .fullScreenCover(item: $viewModel.selectedNoun, onDismiss: {

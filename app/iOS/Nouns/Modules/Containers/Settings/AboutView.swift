@@ -61,9 +61,9 @@ struct AboutView: View {
         })
         .id(AppPage.about.scrollToTopId)
       }
-      .overlay(.componentUnripeLemon, edge: .top)
+      .overlay(.componentMferYellow, edge: .top)
       .ignoresSafeArea(edges: .top)
-      .background(Gradient.lemonDrop)
+      .background(Gradient.mferYellow)
       .bottomSheet(isPresented: $isAboutNounsPresented, content: {
         AboutNounsView(isPresented: $isAboutNounsPresented)
       })

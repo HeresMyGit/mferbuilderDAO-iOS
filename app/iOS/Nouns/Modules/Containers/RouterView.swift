@@ -36,7 +36,7 @@ extension RouterView {
   
   final class ViewModel: ObservableObject {
     
-    @Published public var selectedTab: AppPage = .explore
+    @Published public var selectedTab: AppPage = .create
 
     @Published public var tappedTwice = false
     

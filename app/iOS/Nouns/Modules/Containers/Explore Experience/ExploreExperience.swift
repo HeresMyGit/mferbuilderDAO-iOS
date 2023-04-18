@@ -32,6 +32,8 @@ struct ExploreExperience: View {
   
   @StateObject var collection = NFTCollectionLoader(.collectionAddress("0x795D300855069F602862c5e23814Bdeeb25DCa6b"), removeFirst: false, perPage: 1)
   @StateObject var highBid = HighBidLoader()
+  
+  @State private var searchText = ""
 
   var body: some View {
     NavigationView {
@@ -43,8 +45,8 @@ struct ExploreExperience: View {
             }
       }
       .disabled(viewModel.isLoadingSettledAuctions)
-      .background(Gradient.cherrySunset)
-      .overlay(.componentPeachy, edge: .top)
+      .background(Gradient.mferOrange)
+      .overlay(.componentMferOrange, edge: .top)
       .ignoresSafeArea(edges: .top)
       .refreshable {
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Refresh")))

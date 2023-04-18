@@ -145,6 +145,12 @@ extension Gradient {
   
   /// A context-dependent bubbleGum gradient suitable for use in UI elements.
   public static let bubbleGum = Gradient(.bubbleGum)
+    
+    public static let mferOrange = Gradient(.mferOrange)
+    
+    public static let mferYellow = Gradient(.mferYellow)
+    
+    public static let mferBlue = Gradient(.mferBlue)
 }
 
 /// A gradient view for use in UI elements

@@ -9095,7 +9095,7 @@ struct R: Rswift.Validatable {
     struct team {
       /// Value: Made with 🎧🚬
       static let title = Rswift.StringResource(key: "title", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
-      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
+      /// Value: The muffers app is a fork of the Nouns iOS app.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.
       static let message = Rswift.StringResource(key: "message", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: https://twitter.com/%@
       static let twitterProfileUrl = Rswift.StringResource(key: "twitter.profile.url", tableName: "Team", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -9113,7 +9113,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("title", tableName: "Team", bundle: bundle, comment: "")
       }
 
-      /// Value: The muffers app is a fork of the Nouns iOS app made by NounsCollectiv3.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.  mfersbuilderDAO is not affiliated with NounsCollectiv3.
+      /// Value: The muffers app is a fork of the Nouns iOS app.  It was mferfied by HeresMy.eth.  Thank you to the members, voters, and contributors of mferbuilderDAO and Nouns for making this possible.
       static func message(preferredLanguages: [String]? = nil) -> String {
         guard let preferredLanguages = preferredLanguages else {
           return NSLocalizedString("message", tableName: "Team", bundle: hostingBundle, comment: "")
