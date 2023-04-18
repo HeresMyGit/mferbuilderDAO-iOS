@@ -52,7 +52,7 @@ extension ExploreExperience {
             .font(.custom(.bold, relativeTo: .title))
             .keyboardType(.numberPad)
             .focused($keyboardShown)
-            if !searchText.isEmpty {
+            if keyboardShown {
               SoftButton(text: "cancel") {
                 self.searchText = ""
                 self.results.id = ""
