@@ -135,11 +135,20 @@ struct NounProfileInfo: View {
       .navigationBarHidden(true)
     }
     .sheet(isPresented: $isShareSheetPresented) {
-      if let url = viewModel.nounProfileURL {
-        let message = R.string.nounProfile.shareMessage(viewModel.auction.noun.id)
-        ShareSheet(activityItems: [],
-                   titleMetadata: message,
-                   urlMetadata: url)
+      if viewModel.isMferSale {
+        if let url = URL(string: "https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/\(viewModel.auction.noun.id)") {
+          let message = "🫡 gm, check out mfer \(viewModel.auction.noun.id)"
+          ShareSheet(activityItems: [],
+                     titleMetadata: message,
+                     urlMetadata: url)
+        }
+      } else {
+        if let url = viewModel.nounProfileURL {
+          let message = R.string.nounProfile.shareMessage(viewModel.auction.noun.id)
+          ShareSheet(activityItems: [],
+                     titleMetadata: message,
+                     urlMetadata: url)
+        }
       }
     }
     .fullScreenCover(isPresented: $viewModel.shouldShowNounCreator) {

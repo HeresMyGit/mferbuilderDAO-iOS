@@ -27,7 +27,6 @@ struct NounPuzzle: View {
   
   init(seed: Seed) {
     traits = [
-      nounComposer.backgroundColors[seed.background],
       nounComposer.bodies[seed.body].assetImage,
       nounComposer.smokes[seed.smoke].assetImage,
       nounComposer.heads[seed.head].assetImage,
@@ -43,6 +42,11 @@ struct NounPuzzle: View {
       nounComposer.shirts[seed.shirt].assetImage,
       nounComposer.watches[seed.watch].assetImage
     ]
+    
+    if nounComposer.backgroundColors.count >= seed.background {
+      let background = nounComposer.backgroundColors[seed.background] 
+      traits.insert(background, at: 0)
+    }
   }
   
   init(head: String, body: String, glasses: String, accessory: String) {

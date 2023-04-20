@@ -520,13 +520,13 @@ public struct Auction: Equatable, Decodable, Identifiable {
   
   /// The auctions current highest bid
   public let bidder: Account?
-  
+      
   /// Whether the auction is over and bidding is stopped.
   public var hasEnded: Bool {
     Date().timeIntervalSince1970 > endTime
   }
     
-  public init(id: String, noun: Noun, amount: String, startTime: TimeInterval, endTime: TimeInterval, settled: Bool, bidder: Account?) {
+    public init(id: String, noun: Noun, amount: String, startTime: TimeInterval, endTime: TimeInterval, settled: Bool, bidder: Account?) {
         self.id = id
         self.noun = noun
         self.amount = amount

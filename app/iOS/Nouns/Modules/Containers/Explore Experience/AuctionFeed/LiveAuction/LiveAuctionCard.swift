@@ -211,7 +211,7 @@ struct MferCard: View {
         showNounProfile.toggle()
       }
       .fullScreenCover(isPresented: $showNounProfile) {
-        NounProfileInfo(viewModel: .init(auction: viewModel.auction, winner: viewModel.auction.noun.owner.id))
+        NounProfileInfo(viewModel: .init(auction: viewModel.auction, winner: viewModel.auction.noun.owner.id, isMferSale: true))
       }
       .onWidgetOpen {
 //        AppCore.shared.analytics.logEvent(withEvent: .openAppFromWidget, parameters: ["noun_id": viewModel.auction.noun.id])

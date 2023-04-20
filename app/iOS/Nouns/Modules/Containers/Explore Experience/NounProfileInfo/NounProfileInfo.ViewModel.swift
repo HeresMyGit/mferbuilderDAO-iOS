@@ -26,6 +26,7 @@ extension NounProfileInfo {
     @Published private(set) var isAuctionSettled: Bool
     @Published private(set) var nounProfileURL: URL?
     @Published var shouldShowNounCreator: Bool = false
+    @Published public var isMferSale = false
     
     /// Indicate whether the auction time is over.
     @Published private(set) var isWinnerAnnounced = false
@@ -43,11 +44,13 @@ extension NounProfileInfo {
       auction: Auction,
       messaging: Messaging = AppCore.shared.messaging,
       winner: String? = nil,
-      truncateUI: Bool = false
+      truncateUI: Bool = false,
+      isMferSale: Bool = false
     ) {
       self.auction = auction
       self.winner = winner ?? self.auction.bidder?.id ?? ""
       self.truncateUI = truncateUI
+      self.isMferSale = isMferSale
       
       title = R.string.explore.noun(auction.noun.id)
       isAuctionSettled = auction.settled

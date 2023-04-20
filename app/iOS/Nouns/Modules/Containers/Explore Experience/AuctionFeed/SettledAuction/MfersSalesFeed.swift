@@ -52,18 +52,23 @@ extension ExploreExperience {
             .font(.custom(.bold, relativeTo: .title))
             .keyboardType(.numberPad)
             .focused($keyboardShown)
-            if keyboardShown {
-              SoftButton(text: "cancel") {
-                self.searchText = ""
-                self.results.id = ""
+            if keyboardShown || !searchText.isEmpty {
+              SoftButton {
+                Image(systemName: "magnifyingglass")
+                  .padding()
+              } action: {
+                self.results.id = searchText
                 keyboardShown = false
                 Task {
                   await self.results.load()
                 }
               }
-              
-              SoftButton(text: "search") {
-                self.results.id = searchText
+              SoftButton {
+                Image.xmark
+                  .padding()
+              } action: {
+                self.searchText = ""
+                self.results.id = ""
                 keyboardShown = false
                 Task {
                   await self.results.load()
@@ -121,7 +126,7 @@ extension ExploreExperience {
           selectedAuction = nil
           
         }, content: { auction in
-          NounProfileInfo(viewModel: .init(auction: auction, truncateUI: true), truncateUI: true)
+          NounProfileInfo(viewModel: .init(auction: auction, truncateUI: true, isMferSale: true), truncateUI: true)
         })
         
         if viewModel.failedToLoadSettledAuctions {
@@ -136,99 +141,5 @@ extension ExploreExperience {
         }
       }
     }
-    /*
-    var mferSearch: some View {
-      StandardCard(
-        header: viewModel.title, accessory: {
-          Image.mdArrowCorner
-            .resizable()
-            .scaledToFit()
-            .frame(width: 24, height: 24)
-        },
-        media: {
-          VStack(spacing: 0) {
-            NounPuzzle(seed: viewModel.auction.noun.seed)
-              .id(viewModel.auction.id)
-              .background(
-                GeometryReader { proxy in
-                  Color(hex: viewModel.nounBackground)
-                    .onAppear {
-                      self.width = proxy.size.width
-                    }
-                }
-              )
-              .frame(
-                minWidth: 100,
-                idealWidth: self.width,
-                maxWidth: .infinity,
-                minHeight: 100,
-                idealHeight: self.width,
-                maxHeight: .infinity,
-                alignment: .center
-              )
-
-            MarqueeText(text: LiveAuctionCard.liveAuctionMarqueeString, alignment: .center, font: UIFont.custom(.bold, size: 14))
-              .padding(.top, 5)
-              .padding(.bottom, 4)
-              .border(width: 2, edges: [.top], color: .componentNounsBlack)
-              .background(Color.white)
-          }
-        },
-        content: {
-          HStack {
-            Group {
-//              if viewModel.isWinnerAnnounced {
-//                // Displays the winner.
-//                CompoundLabel({
-//                  ENSText(token: viewModel.winner)
-//                    .font(.custom(.medium, relativeTo: .footnote))
-//                }, icon: Image.crown, caption: R.string.liveAuction.winner())
-//
-//              } else {
-//                // Displays remaining time.
-//                CompoundLabel({
-//                  CountdownLabel(endTime: viewModel.auction.endTime)
-//                },
-//                icon: Image.timeleft,
-//                caption: R.string.liveAuction.timeLeftLabel())
-//              }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-
-            // Displays Bid Status.
-//            CompoundLabel({
-//              SafeLabel(viewModel.lastBid, icon: Image.eth) },
-//                          icon: Image.currentBid,
-//                          caption: viewModel.bidStatus)
-//            .frame(maxWidth: .infinity, alignment: .leading)
-          }
-          .padding(.top, 20)
-        })
-        .headerStyle(.large)
-        .onTapGesture {
-          self.showNounProfile.toggle()
-        }
-        .fullScreenCover(isPresented: $showNounProfile) {
-//          NounProfileInfo(viewModel: .init(auction: viewModel.auction, winner: viewModel.winner))
-          Text("")
-        }
-        .onWidgetOpen {
-          if !showNounProfile {
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(200)) {
-              showNounProfile = true
-            }
-          }
-        }
-       
-      
-//      Group {
-//        if let token = results.token {
-//          NFTCard(token)
-//        } else {
-//          Text("loading")
-//        }
-//      }
-    }
-     */
   }
 }
